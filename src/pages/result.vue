@@ -26,18 +26,21 @@ const shareIcon3Src = 'https://pbs.twimg.com/profile_images/1350525503740862465/
 </script>
 
 <template>
-  <div class="mx-5">
-    <h1 class="mt-65 text-2rem whitespace-pre">
-      {{ fullName }}
-    </h1>
-    <p class="mt-3">
-      {{ detail }}
-    </p>
-    <div class="mt-8 space-x-4 flex items-center">
-      <span class="text-lg">แชร์:</span>
-      <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
-      <RoundedIcon :img-src="shareIcon2Src" :img-alt="'cat 2'" @click="icon2OnClick" />
-      <RoundedIcon :img-src="shareIcon3Src" :img-alt="'cat 3'" @click="icon3OnClick" />
+  <div>
+    <ResultPicture class="absolute top-6 right-3" />
+    <div class="mx-5 relative">
+      <h1 class="pt-65 text-2rem whitespace-pre">
+        {{ fullName }}
+      </h1>
+      <p class="mt-3">
+        {{ detail }}
+      </p>
+      <div class="mt-8 space-x-4 flex items-center">
+        <span class="text-lg">แชร์:</span>
+        <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
+        <RoundedIcon :img-src="shareIcon2Src" :img-alt="'cat 2'" @click="icon2OnClick" />
+        <RoundedIcon :img-src="shareIcon3Src" :img-alt="'cat 3'" @click="icon3OnClick" />
+      </div>
     </div>
   </div>
 </template>
