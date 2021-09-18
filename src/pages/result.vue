@@ -15,6 +15,14 @@ const icon3OnClick = () => {
 
 }
 
+const replay = () => {
+
+}
+
+const knowMore = () => {
+
+}
+
 const firstName = 'สุธรรม'
 const lastName = 'แสงประทุม'
 const fullName = `${firstName}\n${lastName}`
@@ -29,17 +37,21 @@ const shareIcon3Src = 'https://pbs.twimg.com/profile_images/1350525503740862465/
   <div>
     <ResultPicture class="absolute top-6 right-3" />
     <div class="mx-5 relative">
-      <h1 class="pt-65 text-2rem whitespace-pre">
-        {{ fullName }}
-      </h1>
-      <p class="mt-3">
-        {{ detail }}
-      </p>
+      <h1 class="pt-65 text-2rem whitespace-pre">{{ fullName }}</h1>
+      <p class="mt-3">{{ detail }}</p>
       <div class="mt-8 space-x-4 flex items-center">
         <span class="text-lg">แชร์:</span>
         <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
         <RoundedIcon :img-src="shareIcon2Src" :img-alt="'cat 2'" @click="icon2OnClick" />
         <RoundedIcon :img-src="shareIcon3Src" :img-alt="'cat 3'" @click="icon3OnClick" />
+      </div>
+      <div class="flex justify-evenly">
+        <Button class="mt-10 w-30" @click="replay">
+          <span class="text-sm">เล่นอีกรอบ</span>
+        </Button>
+        <Button class="mt-10 w-30" @click="knowMore">
+          <span class="text-sm">รู้จักเขาให้มากขึ้น</span>
+        </Button>
       </div>
     </div>
   </div>
