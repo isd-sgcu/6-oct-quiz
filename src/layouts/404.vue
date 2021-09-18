@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <main>
-    <h1>Not found 🙄</h1>
+  <main class="😃🤣😂">
+    <router-view />
   </main>
 </template>
