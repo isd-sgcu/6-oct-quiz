@@ -1,4 +1,4 @@
-## i18n
+# i18n
 
 This directory is to serve your locale translation files. YAML under this folder would be loaded automatically and register with their filenames as locale code.
 
