@@ -1,0 +1,50 @@
+name: Deploy to Firebase Hosting on push
+on:
+  push:
+    branches:
+      - master
+      - dev
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Cache .pnpm-store
+        uses: actions/cache@v1
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.15.1
+          run_install: true
+
+      - name: Build
+        run: pnpm build
+
+      - name: Set channelId # set channel id to maintain same url
+        id: set-channel-id
+        env:
+          REF: ${{ github.ref }}
+        run: |
+          if [ $REF = "refs/heads/dev" ] ; then
+            echo "::set-output name=channel-id::dev"
+          elif [ $REF = "refs/heads/master" ] ; then
+            echo "::set-output name=channel-id::live"
+          else
+            exit 1
+          fi
+          
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_OCT_QUIZ }}'
+          channelId: ${{ steps.set-channel-id.outputs.channel-id }}
+          projectId: oct-quiz
