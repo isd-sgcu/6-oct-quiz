@@ -64,3 +64,8 @@
 }
 
 </style>
+
+<route lang="yaml">
+meta:
+  layout: landing
+</route>
