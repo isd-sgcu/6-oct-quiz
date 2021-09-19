@@ -8,7 +8,7 @@ const knowMore = () => {
 </script>
 
 <template>
-  <div class="flex justify-evenly">
+  <div class="flex justify-evenly pb-11">
     <Button class="w-30" @click="replay">
       <span class="text-sm">เล่นอีกรอบ</span>
     </Button>
@@ -17,6 +17,3 @@ const knowMore = () => {
     </Button>
   </div>
 </template>
-
-<style>
-</style>

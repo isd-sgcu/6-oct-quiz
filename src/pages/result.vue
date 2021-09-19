@@ -14,7 +14,7 @@ const detail = 'เรซิน บาบูนแหววเอ๋อ ไพ�
 <template>
   <div>
     <ResultPicture class="absolute top-6 right-3" />
-    <div class="mx-5 relative">
+    <div class="mx-5">
       <ResultTextGroup :result-full-name="fullName" :result-detail="detail" class="pt-65" />
       <ResultIconGroup class="mt-8" />
       <ResultButtonGroup class="mt-10" />
