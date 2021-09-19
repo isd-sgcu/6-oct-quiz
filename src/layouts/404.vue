@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <main class="😃🤣😂">
+  <main class="bg-white min-h-screen">
     <router-view />
   </main>
 </template>
