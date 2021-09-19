@@ -46,6 +46,10 @@ export default defineConfig({
       'grad-10': 'linear-gradient(180deg, #2E413D 0%, #CBCAA5 100%)',
     },
     extend: {
+      fontFamily: {
+        Chonburi: ['Chonburi', 'cursive'],
+        Trirong: ['Trirong', 'serif'],
+      },
     },
   },
 })
