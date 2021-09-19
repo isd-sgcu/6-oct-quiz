@@ -34,7 +34,7 @@ export default defineConfig({
     },
     backgroundColor: {
       grad: {
-        // e.g. background-grad-1
+        // e.g. bg-grad-1
         1: 'linear-gradient(180deg, #FFA751 0%, #FFE259 34.38%, #FFFFFF 100%)',
         2: 'linear-gradient(180deg, #FFA043 0%, #FFD159 34.38%, #FFFFFF 100%)',
         3: 'linear-gradient(180deg, #FF9243 0%, #FFBD59 34.38%, #FFFFFF 100%)',
