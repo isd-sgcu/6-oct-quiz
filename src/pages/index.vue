@@ -3,6 +3,11 @@
 
 <template>
   <div>
-    <h1>Hi there 😎</h1>
+    <h1 class="font-Trirong">
+      การเดินทางขากลับคงจะเหงา
+    </h1>
+    <h1 class="font-Chonburi">
+      Hi there 😎
+    </h1>
   </div>
 </template>
