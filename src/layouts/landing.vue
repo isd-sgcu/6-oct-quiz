@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-cream">
+  <div class=" bg-cream">
     <Nav />
-    <main class="flex-1">
+    <main class="min-h-screen">
       <router-view />
     </main>
   </div>
