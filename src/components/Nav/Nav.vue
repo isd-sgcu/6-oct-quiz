@@ -15,7 +15,7 @@ const handleSidebarClose = () => {
 </script>
 
 <template>
-  <div class="flex items-center justify-between px-5 pt-3 pb-3">
+  <div class="absolute top-0 z-50 w-full flex items-center justify-between px-5 pt-3 pb-3">
     <div>
       <img src="https://via.placeholder.com/150" alt="logo" class="w-[150px] h-[50px]">
     </div>
@@ -29,6 +29,6 @@ const handleSidebarClose = () => {
     <div class="lg:hidden">
       <cil-hamburger-menu class="text-size-[2rem] cursor-pointer" @click="() => handleSidebarOpen()" />
     </div>
-    <Sidebar v-if="sidebarOpen" :handle-close="() => handleSidebarClose()" />
+    <Sidebar :is-open="sidebarOpen" :handle-close="() => handleSidebarClose()" />
   </div>
 </template>
