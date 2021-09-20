@@ -1,5 +1,5 @@
 <template>
-  <div class="font-Trirong leading-tight">
+  <div class="font-Trirong">
     <slot />
   </div>
 </template>
