@@ -1,11 +1,13 @@
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center h-full relative">
     <div class="items-center z-10 align-middle m-20 text-center">
-      <p class="topic">
+      <HeaderText class="topic">
         คุณคือใครในเหตุการณ์
-      </p>
+      </HeaderText>
       <div class="red-circle">
-        <span class="p-5">6 ตุลา</span>
+        <HeaderText class="p-5">
+          6 ตุลา
+        </HeaderText>
       </div>
     </div>
     <div class="absolute bottom-0 w-full overflow-hidden">
@@ -15,22 +17,6 @@
 </template>
 
 <style scoped>
-/* @-webkit-keyframes displace {
-  from {
-    background-position: 0 center;
-  }
-  to {
-    background-position: 100vw center;
-  }
-}
-@keyframes displace {
-  from {
-    background-position: 0 center;
-  }
-  to {
-    background-position: 100vw center;
-  }
-} */
 .white-fill {
   @apply h-[300px] w-full;
   filter: brightness(0) invert(1);
