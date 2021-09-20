@@ -1,3 +1,18 @@
+<script setup lang="ts">
+const name = ref<string>()
+const isInvalid = ref<boolean>()
+
+const handleSubmit = () => {
+  if (name.value === '') {
+    isInvalid.value = true
+    return
+  }
+
+  isInvalid.value = false
+  // Save name logic here
+}
+</script>
+
 <template>
   <div class="flex justify-center items-center h-full flex-col">
     <div class="z-10 m-10 flex items-center flex-wrap">
@@ -10,13 +25,18 @@
         </HeaderText>
       </div>
     </div>
-    <div class="z-10">
-      <ParagraphText>
+    <div class="z-10 flex flex-col items-center w-full px-10">
+      <ParagraphText class="text-size-[1.5rem] <md:text-size-[1rem] mb-5">
         กรอกชื่อเล่นของคุณเพื่อเริ่มทดสอบ
       </ParagraphText>
-      <div class="p-2 pl-4 pr-4 mt-2 rounded-lg border-black border-width-[1px] bg-white">
-        <input class="outline-none w-full" type="text" placeholder="กรอกชื่อเล่น">
+      <div class="p-2 pl-4 pr-4 mt-2 rounded-lg border-black border-width-[1px] bg-white w-full max-w-[350px]" :class="isInvalid && 'invalid'">
+        <input class="outline-none w-full font-Trirong text-input" type="text" placeholder="กรอกชื่อเล่น">
       </div>
+      <Button class="max-w-max p-6 !py-2 mt-5 bg-white hover:bg-cream transition-colors" @submit="() => handleSubmit()">
+        <ParagraphText>
+          เริ่มการทดสอบ
+        </ParagraphText>
+      </Button>
     </div>
     <div class="absolute bottom-0 w-full overflow-hidden">
       <div class="white-fill" />
@@ -31,6 +51,10 @@
   background: url('../assets/city.svg') repeat-x left center;
   /* animation: displace 2s linear infinite;
   -webkit-animation: displace 2s linear infinite; */
+}
+
+.invalid {
+  @apply border-red;
 }
 
 .topic {
@@ -55,6 +79,18 @@
   padding-bottom: 100%;
 }
 
+.text-input {
+  @apply text-size-[1.25rem] <md:text-size-[1rem];
+  text-align: center;
+}
+
+.text-input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.text-input:-moz-placeholder {
+  text-align: center;
+}
 </style>
 
 <route lang="yaml">
