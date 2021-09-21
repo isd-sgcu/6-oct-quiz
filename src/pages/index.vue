@@ -80,16 +80,7 @@ const handleSubmit = () => {
 }
 
 .text-input {
-  @apply text-size-[1.25rem] <md:text-size-[1rem];
-  text-align: center;
-}
-
-.text-input::-webkit-input-placeholder {
-  text-align: center;
-}
-
-.text-input:-moz-placeholder {
-  text-align: center;
+  @apply text-size-[1.25rem] <md:text-size-[1rem] text-center;
 }
 </style>
 
