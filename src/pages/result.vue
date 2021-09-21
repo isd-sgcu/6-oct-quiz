@@ -5,17 +5,27 @@
 //   name: string
 // }>()
 
-const firstName = 'สุธรรม'
-const lastName = 'แสงประทุม'
-const fullName = `${firstName}\n${lastName}`
+const { width } = useWindowSize()
+
+const fullName = 'สุธรรม แสงประทุม'
 const detail = 'เรซิน บาบูนแหววเอ๋อ ไพลินตี๋อุปนายิกาซีเรียส ซีเนียร์ธรรมาสงบสุข ซูมถ่ายทำเอ็กซ์เพรสโรลออน เบอร์เกอร์แจม เย้วเช็งเม้ง ซินโดรมบลูเบอร์รี่แกสโซฮอล์ ดีพาร์ตเมนต์แฟรนไชส์ม้าหินอ่อนลิมิต นินจาช็อปเปอร์เฟอร์รี่ เรซิน บาบูนแหววเอ๋อ ไพลินตี๋อุปนายิกาซีเรียส ซีเนียร์ธรรมาสงบสุข ซูมถ่ายทำเอ็กซ์เพรสโรลออน เบอร์เกอร์แจม'
+
+const name = computed(() => {
+  return width.value < 1024 ? fullName.replace(' ', '\n') : fullName
+})
 </script>
 
 <template>
-  <div class="relative pt-20 lg:(flex pt-0 min-h-screen items-center w-10xl mx-auto justify-between)">
+  <div
+    class="relative pt-20 lg:(flex pt-0 min-h-screen items-center w-10xl mx-auto justify-between)"
+  >
     <ResultPicture class="absolute r-result-picture" />
     <div class="r-result-layout">
-      <ResultTextGroup :result-full-name="fullName" :result-detail="detail" class="pt-60 lg:(pt-0)" />
+      <ResultTextGroup
+        :result-full-name="name"
+        :result-detail="detail"
+        class="pt-60 lg:(pt-0)"
+      />
       <ResultIconGroup class="mt-8" />
       <ResultButtonGroup class="mt-10" />
     </div>
