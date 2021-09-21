@@ -1,16 +1,16 @@
 <template>
-  <div class="flex justify-center pt-30 pb-20">
-    <div class="z-10 flex flex-col w-full self-center">
-      <div v-for="(item, key) in dummyData" :key="key" class="flex justify-start pb-20 relative overflow-hidden px-20 <md:px-10" :class="!(key & 1) ? 'justify-start': 'justify-end'">
+  <div class="flex justify-center pt-40 pb-20">
+    <div class="z-10 flex flex-col w-full max-w-[1280px] self-center ">
+      <div v-for="(item, key) in dummyData" :key="key" class="flex justify-start pb-20 relative <2xl:overflow-x-hidden px-20 <md:px-10" :class="!(key & 1) ? 'justify-start': 'justify-end'">
         <div class="max-w-[500px]">
-          <HeaderText class="mb-5 text-size-[3rem] <md:text-size-[2rem]">
+          <HeaderText class="mb-5 text-size-[3rem] <md:text-size-[2rem] transition-all">
             {{ item.title }}
           </HeaderText>
-          <ParagraphText class="leading-10 text-size-[1.5rem] <md:(text-size-[1rem] leading-5)">
+          <ParagraphText class="transition-all leading-10 text-size-[1.5rem] <md:(text-size-[1rem] leading-5)">
             {{ item.details }}
           </ParagraphText>
         </div>
-        <div class="absolute w-[400px] h-[400px] overflow-hidden color-circle <md:(w-[200px] h-[200px]) rounded-full" :class="!(key & 1) ? 'left-[-200px] <md:left-[-100px]': 'right-[-200px] <md:right-[-100px]'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
+        <div class="transition-all absolute w-[350px] h-[350px] color-circle <md:(w-[200px] h-[200px]) rounded-full" :class="!(key & 1) ? 'left-[-100px]': 'right-[-100px]'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
         </div>
       </div>
       <Button class="w-full max-w-[200px] self-center bg-[#FCFBF5] hover:bg-cream transition-colors" @click="$router.push('/story')">
