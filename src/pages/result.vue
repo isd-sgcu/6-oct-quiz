@@ -17,7 +17,7 @@ const name = computed(() => {
 
 <template>
   <div
-    class="relative pt-20 lg:(flex pt-0 min-h-screen items-center w-10xl mx-auto justify-between)"
+    class="relative pt-20 lg:(flex pt-0 min-h-screen items-center w-9xl mx-auto justify-between)"
   >
     <ResultPicture class="absolute r-result-picture" />
     <div class="r-result-layout">
