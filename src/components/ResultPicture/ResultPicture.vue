@@ -9,7 +9,7 @@ const dumbImg = 'https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2
 
 <template>
   <div>
-    <div class="relative w-55 h-55 xs:(w-60 h-60) sm:(w-70 h-70) lg:(w-80 h-80)">
+    <div class="relative w-55 h-55 xs:(w-60 h-60) sm:(w-70 h-70) lg:(w-80 h-80) 2xl:(w-100 h-100)">
       <div
         class="ellipses-common rounded-full z-2 overflow-hidden"
       >
