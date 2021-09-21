@@ -24,7 +24,7 @@ const knowMore = () => {
 
 <style>
 .result-button {
-  @apply w-30 lg:(w-42 h-15);
+  @apply w-30 lg:(w-42 h-13);
 }
 .result-button-text {
   @apply text-sm font-medium lg:(text-xl);
