@@ -12,10 +12,10 @@ const detail = 'เรซิน บาบูนแหววเอ๋อ ไพ�
 </script>
 
 <template>
-  <div class="relative pt-20">
-    <ResultPicture class="absolute pt-20 top-6 r-result-picture" />
+  <div class="relative pt-20 lg:(flex pt-0 min-h-screen items-center w-10xl mx-auto justify-between)">
+    <ResultPicture class="absolute r-result-picture" />
     <div class="r-result-layout">
-      <ResultTextGroup :result-full-name="fullName" :result-detail="detail" class="pt-60" />
+      <ResultTextGroup :result-full-name="fullName" :result-detail="detail" class="pt-60 lg:(pt-0)" />
       <ResultIconGroup class="mt-8" />
       <ResultButtonGroup class="mt-10" />
     </div>
@@ -24,9 +24,9 @@ const detail = 'เรซิน บาบูนแหววเอ๋อ ไพ�
 
 <style>
 .r-result-picture {
-  @apply right-3 xs:(right-10) sm:(top-2 right-12) md:() lg:() xl:() 2xl:();
+  @apply pt-20 top-6 right-3 xs:(right-10) sm:(top-2 right-12) lg:(static pt-0) xl:() 2xl:();
 }
 .r-result-layout {
-  @apply mx-5 xs:(mx-8) sm:() md:() lg:() xl:() 2xl:();
+  @apply mx-5 xs:(mx-8) sm:() md:() lg:(pt-10 mx-0 ml-15 space-y-15) xl:() 2xl:();
 }
 </style>
