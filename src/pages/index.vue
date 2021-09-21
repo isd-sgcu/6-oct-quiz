@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const name = ref<string>()
-const isInvalid = ref<boolean>()
+const name = ref<string>('')
+const isInvalid = ref<boolean>(false)
 
 const handleSubmit = () => {
   if (name.value === '') {
@@ -30,9 +30,9 @@ const handleSubmit = () => {
         กรอกชื่อเล่นของคุณเพื่อเริ่มทดสอบ
       </ParagraphText>
       <div class="p-2 pl-4 pr-4 mt-2 rounded-lg border-black border-width-[1px] bg-white w-full max-w-[350px]" :class="isInvalid && 'invalid'">
-        <input class="outline-none w-full font-Trirong text-input" type="text" placeholder="กรอกชื่อเล่น">
+        <input v-model="name" class="outline-none w-full font-Trirong text-input" type="text" placeholder="กรอกชื่อเล่น">
       </div>
-      <Button class="max-w-max p-6 !py-2 mt-5 bg-white hover:bg-cream transition-colors" @submit="() => handleSubmit()">
+      <Button class="max-w-max p-6 !py-2 mt-5 bg-white hover:bg-cream transition-colors" @click="() => handleSubmit()">
         <ParagraphText>
           เริ่มการทดสอบ
         </ParagraphText>
@@ -54,7 +54,7 @@ const handleSubmit = () => {
 }
 
 .invalid {
-  @apply border-red;
+  @apply border-red border-width-[2px] text-red;
 }
 
 .topic {
