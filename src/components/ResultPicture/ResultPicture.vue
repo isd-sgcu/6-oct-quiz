@@ -9,18 +9,18 @@ const dumbImg = 'https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2
 
 <template>
   <div>
-    <div class="w-60 h-60 relative">
+    <div class="w-55 h-55 relative">
       <div
         class="ellipses-common rounded-full z-2 overflow-hidden"
       >
         <img class="h-full object-center object-cover" :src="dumbImg" :alt="''" />
       </div>
       <img
-        class="ellipses-common transform -translate-x-2 translate-y-2"
+        class="ellipses-common transform -translate-x-1.5 translate-y-1.5"
         src="/ellipses/mobile/yellow.svg"
       />
       <img
-        class="ellipses-common transform translate-x-2 -translate-y-2"
+        class="ellipses-common transform translate-x-1.5 -translate-y-1.5"
         src="/ellipses/mobile/red.svg"
       />
     </div>
