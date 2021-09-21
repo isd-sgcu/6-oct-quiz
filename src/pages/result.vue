@@ -12,7 +12,7 @@ const detail = 'เรซิน บาบูนแหววเอ๋อ ไพ�
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative mt-18">
     <ResultPicture class="absolute top-6 right-3" />
     <div class="mx-5">
       <ResultTextGroup :result-full-name="fullName" :result-detail="detail" class="pt-65" />
