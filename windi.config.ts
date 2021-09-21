@@ -8,6 +8,14 @@ export default defineConfig({
   plugins: [],
 
   theme: {
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     colors: {
       black: {
         DEFAULT: '#020202',
