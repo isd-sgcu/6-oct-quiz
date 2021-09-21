@@ -11,7 +11,7 @@ const props = defineProps<{
       <h1>{{ props.resultFullName }}</h1>
     </HeaderText>
     <ParagraphText class="mt-3">
-      {{ props.resultDetail }}
+      <p>{{ props.resultDetail }}</p>
     </ParagraphText>
   </div>
 </template>
