@@ -7,11 +7,11 @@ const props = defineProps<{
 
 <template>
   <div>
-    <div class="max-w-5xl">
+    <div>
       <HeaderText class="whitespace-pre text-2rem sm:(text-2.3rem) lg:(text-5xl)">
         <h1>{{ props.resultFullName }}</h1>
       </HeaderText>
-      <ParagraphText class="mt-3 font-light sm:(text-1.1rem leading-8) lg:(text-2xl leading-10 mt-10)">
+      <ParagraphText class="mt-3 font-light sm:(text-1.1rem leading-8) lg:(text-xl leading-8 mt-10)">
         <p>{{ props.resultDetail }}</p>
       </ParagraphText>
     </div>

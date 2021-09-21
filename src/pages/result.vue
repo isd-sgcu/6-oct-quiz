@@ -17,7 +17,7 @@ const name = computed(() => {
 
 <template>
   <div
-    class="relative pt-20 lg:(flex pt-0 min-h-screen items-center justify-center gap-16)"
+    class="relative pt-20 lg:(flex pt-0 min-h-screen items-center justify-center w-4xl mx-auto gap-10)"
   >
     <ResultPicture class="absolute r-result-picture" />
     <div class="r-result-layout">
@@ -37,6 +37,6 @@ const name = computed(() => {
   @apply pt-20 top-6 right-3 xs:(right-10) sm:(top-2 right-12) lg:(static pt-0) xl:() 2xl:();
 }
 .r-result-layout {
-  @apply mx-5 xs:(mx-8) sm:() md:() lg:(pt-10 mx-0 space-y-15) xl:() 2xl:();
+  @apply mx-5 xs:(mx-8) sm:() md:() lg:(pt-10 mx-0 space-y-8) xl:() 2xl:();
 }
 </style>
