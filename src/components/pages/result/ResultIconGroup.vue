@@ -16,7 +16,7 @@ const shareIcon3Src = 'https://pbs.twimg.com/profile_images/1350525503740862465/
 
 <template>
   <div class="space-x-4 flex items-center">
-    <ParagraphText class="text-lg font-semibold">
+    <ParagraphText class="text-lg font-semibold lg:(text-2xl)">
       แชร์:
     </ParagraphText>
     <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
