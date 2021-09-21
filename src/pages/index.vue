@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
 const name = ref<string>('')
 const isInvalid = ref<boolean>(false)
+const router = useRouter()
 
 const handleSubmit = () => {
   if (name.value === '') {
@@ -10,6 +13,8 @@ const handleSubmit = () => {
 
   isInvalid.value = false
   // Save name logic here
+
+  router.push('/intro')
 }
 </script>
 
@@ -32,7 +37,7 @@ const handleSubmit = () => {
       <div class="p-2 pl-4 pr-4 mt-2 rounded-lg border-black border-width-[1px] bg-white w-full max-w-[350px]" :class="isInvalid && 'invalid'">
         <input v-model="name" class="outline-none w-full font-Trirong text-input" type="text" placeholder="กรอกชื่อเล่น">
       </div>
-      <Button class="max-w-max p-6 !py-2 mt-5 bg-white hover:bg-cream transition-colors" @click="() => handleSubmit()">
+      <Button class="max-w-max p-6 !py-2 mt-5 bg-white hover:bg-cream transition-colors" @click="handleSubmit">
         <ParagraphText>
           เริ่มการทดสอบ
         </ParagraphText>
