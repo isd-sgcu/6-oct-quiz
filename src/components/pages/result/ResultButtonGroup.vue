@@ -8,7 +8,7 @@ const knowMore = () => {
 </script>
 
 <template>
-  <div class="flex justify-evenly pb-11">
+  <div class="flex justify-evenly pb-11 sm:(justify-start gap-6)">
     <Button class="w-30" @click="replay">
       <ParagraphText class="result-button-text">
         เล่นอีกรอบ

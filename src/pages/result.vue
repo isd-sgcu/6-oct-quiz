@@ -24,7 +24,7 @@ const detail = 'เรซิน บาบูนแหววเอ๋อ ไพ�
 
 <style>
 .r-result-picture {
-  @apply right-3 xs:(right-10) sm:() md:() lg:() xl:() 2xl:();
+  @apply right-3 xs:(right-10) sm:(top-2 right-12) md:() lg:() xl:() 2xl:();
 }
 .r-result-layout {
   @apply mx-5 xs:(mx-8) sm:() md:() lg:() xl:() 2xl:();
