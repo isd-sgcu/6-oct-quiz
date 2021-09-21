@@ -7,12 +7,12 @@ const props = defineProps<{
 
 <template>
   <div>
-    <h1 class="text-2rem whitespace-pre">
-      {{ props.resultFullName }}
-    </h1>
-    <p class="mt-3">
+    <HeaderText class="text-2rem whitespace-pre">
+      <h1>{{ props.resultFullName }}</h1>
+    </HeaderText>
+    <ParagraphText class="mt-3">
       {{ props.resultDetail }}
-    </p>
+    </ParagraphText>
   </div>
 </template>
 
