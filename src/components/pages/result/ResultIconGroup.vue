@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const icon1OnClick = () => {
 
 }
@@ -17,7 +16,9 @@ const shareIcon3Src = 'https://pbs.twimg.com/profile_images/1350525503740862465/
 
 <template>
   <div class="space-x-4 flex items-center">
-    <span class="text-lg">แชร์:</span>
+    <ParagraphText class="text-lg font-semibold">
+      แชร์:
+    </ParagraphText>
     <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
     <RoundedIcon :img-src="shareIcon2Src" :img-alt="'cat 2'" @click="icon2OnClick" />
     <RoundedIcon :img-src="shareIcon3Src" :img-alt="'cat 3'" @click="icon3OnClick" />

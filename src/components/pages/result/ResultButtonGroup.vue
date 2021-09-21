@@ -10,10 +10,20 @@ const knowMore = () => {
 <template>
   <div class="flex justify-evenly pb-11">
     <Button class="w-30" @click="replay">
-      <span class="text-sm">เล่นอีกรอบ</span>
+      <ParagraphText class="result-button-text">
+        เล่นอีกรอบ
+      </ParagraphText>
     </Button>
     <Button class="w-30" @click="knowMore">
-      <span class="text-sm">รู้จักเขาให้มากขึ้น</span>
+      <ParagraphText class="result-button-text">
+        รู้จักเขาให้มากขึ้น
+      </ParagraphText>
     </Button>
   </div>
 </template>
+
+<style>
+.result-button-text {
+  @apply text-sm font-medium;
+}
+</style>
