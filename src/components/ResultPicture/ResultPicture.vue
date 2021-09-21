@@ -17,11 +17,11 @@ const dumbImg = 'https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2
       </div>
       <img
         class="ellipses-common transform -translate-x-1.5 translate-y-1.5 lg:(-translate-x-8 translate-y-10)"
-        src="/ellipses/mobile/yellow.svg"
+        src="/ellipses/yellow.svg"
       />
       <img
         class="ellipses-common transform translate-x-1.5 -translate-y-1.5 lg:(translate-x-2 -translate-y-2)"
-        src="/ellipses/mobile/red.svg"
+        src="/ellipses/red.svg"
       />
     </div>
   </div>
