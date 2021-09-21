@@ -28,7 +28,7 @@ $ firebase deploy
 ```
 $ firebase hosting:channel:deploy <CHANNEL_ID>
 ```
-To redeploy to the same channel, run the same command with the same channel ID. Channel ID is arbitary and will create a new channel when the channel ID doesn't previously exist.
+To redeploy to the same channel, run the same command with the same channel ID. Channel ID is required but can be anything. If the preview channel with given channel ID does not exist, it will create a new channel with the channel ID.
 
 Note: No need to init firebase. It's already initialized in repo.
 
