@@ -5,19 +5,24 @@
         {{ questionText }}
       </QuestionText>
     </div>
-    <ButtonList @submit.prevent="handleSubmit ?? doNothing" />
+    <ButtonList @submit="updateQuestion" />
   </div>
 </template>
 
 <script setup lang='ts'>
 import { QuestionChoice } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   questionText: string
-  handleSubmit?: (answer: QuestionChoice) => void
 }>()
 
-const doNothing = (answer: QuestionChoice) => {}
+const emit = defineEmits<{
+  (e: 'updateQuestion', answer: QuestionChoice): void
+}>()
+
+const updateQuestion = (answer: QuestionChoice) => {
+  emit('updateQuestion', answer)
+}
 </script>
 
 <style>
