@@ -39,6 +39,10 @@ export default defineConfig({
       white: {
         DEFAULT: '#FCFBF5',
       },
+      darkBrown: {
+        DEFAULT: '#784C30',
+
+      },
     },
     backgroundImage: {
       // e.g. bg-grad-1

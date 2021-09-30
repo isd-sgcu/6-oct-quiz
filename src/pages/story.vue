@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="absolute bottom-0 w-full overflow-hidden">
-      <div class="white-fill -z-10" />
+      <div class="building" />
     </div>
   </div>
 </template>
@@ -29,12 +29,9 @@
 </script>
 
 <style>
-.white-fill {
-  @apply h-[300px] w-full;
-  filter: brightness(0) invert(1);
-  background: url('../assets/city.svg') repeat-x center;
-  /* animation: displace 2s linear infinite;
-  -webkit-animation: displace 2s linear infinite; */
+.building {
+  @apply h-[274px] md:h-[300px] w-full;
+  background: url('../assets/city_brown.svg') repeat-x center;
 }
 
 .question-part {
@@ -46,11 +43,12 @@
 }
 
 .button-list {
-  @apply  flex flex-col items-center w-full mt-[36px] md:(flex-row flex-wrap justify-center);
+  @apply flex flex-col items-center w-full mt-[36px] font-Trirong
+                        md:(flex-row flex-wrap justify-center font-semibold text-[24px]);
 }
 
 .button-list Button {
-  @apply bg-[#FCFBF5] min-w-32 h-12 mb-4 md:(mb-0 mr-6 text-[24px] min-w-48 h-14);
+  @apply bg-[#FCFBF5] min-w-32 h-12 mb-4 md:(mb-0 mr-6 min-w-48 h-14);
 }
 
 .button-list Button:last-child {
