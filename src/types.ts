@@ -7,3 +7,8 @@ export enum QuestionChoice {
   NotKnow = 1,
   Never = 0,
 }
+
+export type QuestionInfo = {
+  text: string
+  relatedPersons: string[]
+}

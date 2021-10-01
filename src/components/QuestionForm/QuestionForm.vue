@@ -12,7 +12,7 @@
 <script setup lang='ts'>
 import { QuestionChoice } from '~/types'
 
-const props = defineProps<{
+defineProps<{
   questionText: string
 }>()
 
@@ -20,6 +20,7 @@ const emit = defineEmits<{
   (e: 'updateQuestion', answer: QuestionChoice): void
 }>()
 
+// chain submit event to parent element
 const updateQuestion = (answer: QuestionChoice) => {
   emit('updateQuestion', answer)
 }
