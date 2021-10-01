@@ -57,7 +57,7 @@ onMounted(() => {
       elHeight.push(el.offsetTop)
   }
   window.onscroll = () => {
-    if (window.scrollY + window.screen.height >= document.documentElement.scrollHeight - 10)
+    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
       isHide.value = true
 
     else
