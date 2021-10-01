@@ -11,6 +11,7 @@ import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
+import ViteRadar from 'vite-plugin-radar'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
@@ -114,6 +115,12 @@ export default defineConfig({
     Inspect({
       // change this to enable inspect for debugging
       enabled: false,
+    }),
+
+    ViteRadar({
+      analytics: {
+        id: 'G-9M3RZQMV91',
+      },
     }),
   ],
 

@@ -31,6 +31,7 @@ specifiers:
   vite-plugin-md: ^0.11.0
   vite-plugin-pages: ^0.18.1
   vite-plugin-pwa: ^0.11.2
+  vite-plugin-radar: ^0.2.0
   vite-plugin-vue-layouts: ^0.4.1
   vite-plugin-windicss: ^1.4.3
   vite-ssg: ^0.15.2
@@ -77,6 +78,7 @@ devDependencies:
   vite-plugin-md: 0.11.0_vite@2.5.8
   vite-plugin-pages: 0.18.1_feb30ba9f53af83529c8716caf3daee2
   vite-plugin-pwa: 0.11.2_vite@2.5.8
+  vite-plugin-radar: 0.2.0_vite@2.5.8
   vite-plugin-vue-layouts: 0.4.1_vite@2.5.8
   vite-plugin-windicss: 1.4.3_typescript@4.4.3+vite@2.5.8
   vite-ssg: 0.15.2_2294cea4aaf3fcbdc1821ff990ac98c7
@@ -3937,6 +3939,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -6742,6 +6745,14 @@ packages:
     transitivePeerDependencies:
       - '@types/babel__core'
       - supports-color
+    dev: true
+
+  /vite-plugin-radar/0.2.0_vite@2.5.8:
+    resolution: {integrity: sha512-z6I0Nki872Y6uG17s6hoVrEhsQXVsQ2iYVism0YbRZYg2HCsj85kg+TKlsPvx5UheBjRbJlE3yWLv2kLjyyfgw==}
+    peerDependencies:
+      vite: ^2.0.0
+    dependencies:
+      vite: 2.5.8
     dev: true
 
   /vite-plugin-vue-layouts/0.4.1_vite@2.5.8:
