@@ -21,8 +21,8 @@ const handleSubmit = () => {
       </div>
     </div>
     <div class="z-10 flex flex-col items-center w-full px-10">
-      <Button class="max-w-max p-6 !py-4 mt-5 bg-white hover:bg-cream transition-colors" @click="handleSubmit">
-        <ParagraphText class="text-size-[1.75rem]">
+      <Button class="w-full max-w-[400px] p-6 !py-4 mt-5 bg-white hover:bg-cream transition-colors" @click="handleSubmit">
+        <ParagraphText class="text-size-[1.5rem]">
           เริ่มการทดสอบ
         </ParagraphText>
       </Button>
