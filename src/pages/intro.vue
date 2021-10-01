@@ -24,6 +24,9 @@
 </template>
 
 <script setup lang="ts">
+import { elementScrollIntoViewPolyfill, elementScrollIntoView } from 'seamless-scroll-polyfill'
+
+elementScrollIntoViewPolyfill()
 const dummyData = [
   {
     title: 'ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙',
@@ -82,6 +85,6 @@ const handleScroll = () => {
   if (isHide.value) return
   const nextIdx = Math.min(elHeight.length, presentNum.value + 1)
   const el = document.getElementById(`el-${nextIdx}`)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
+  if (el) elementScrollIntoView(el, { behavior: 'smooth' })
 }
 </script>
