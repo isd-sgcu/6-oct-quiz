@@ -1,19 +1,19 @@
 <template>
-  <div class="flex justify-center pt-50 <xl:pt-40 <sm:pt-30 pb-20 overflow-hidden">
+  <div class="flex justify-center pt-20 pb-20 overflow-hidden">
     <div class="z-10 flex flex-col w-full self-center ">
-      <div v-for="(item, key) in dummyData" :key="key" class="flex justify-start pb-15 pt-3 relative px-20 <md:px-10" :class="!(key & 1) ? 'justify-start': 'justify-end'">
-        <div class="max-w-[1000px] overflow-hidden" :class="(key & 1) && 'flex flex-col items-end text-right'">
-          <HeaderText class="mb-5 leading-relaxed text-size-[3.5rem] <xl:(text-size-[3rem] leading-relaxed) <md:(text-size-[2rem] leading-10) transition-all">
+      <div v-for="(item, key) in dummyData" :key="key" class="flex justify-start pb-15 pt-3 relative px-20 <md:px-10 h-screen items-center" :class="!(key & 1) ? 'justify-start': 'justify-end'">
+        <div class="max-w-[1000px] overflow-hidden flex flex-col" :class="(key & 1) && 'flex flex-col items-end text-right'">
+          <HeaderText class="mb-5 text-size-[3.5rem] leading-20 <xl:(text-size-[3rem] leading-16) <md:(text-size-[2.5rem] leading-12) transition-all">
             {{ item.title }}
           </HeaderText>
-          <ParagraphText class="transition-all leading-relaxed text-size-[2rem] <xl:(text-size-[1.5rem] leading-10) leading-10 <md:(text-size-[1rem] leading-6)">
+          <ParagraphText class="transition-all text-size-[2rem] leading-14 <xl:(text-size-[1.5rem] leading-10) <md:(text-size-[1.25rem] leading-10)">
             {{ item.details }}
           </ParagraphText>
         </div>
-        <div class="transition-all color-circle absolute w-[400px] h-[400px] <xl:(w-[350px] h-[350px]) <md:(w-[250px] h-[250px]) rounded-full" :class="!(key & 1) ? 'left-[-200px] <xl:(left-[-175px]) <md:(left-[-125px])': 'right-[-200px] <xl:(right-[-175px]) <md:(right-[-125px])'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
+        <div class="transition-all absolute w-[800px] h-[800px] <xl:(w-[750px] h-[750px]) <md:(w-[620px] h-[620px]) rounded-full" :class="!(key & 1) ? 'left-[-400px] <xl:(left-[-375px]) <md:(left-[-310px])': 'right-[-400px] <xl:(right-[-375px]) <md:(right-[-310px])'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
         </div>
       </div>
-      <Button class="w-full max-w-[300px] max-h-max py-4 mt-5 <sm:mt-1 self-center bg-[#FCFBF5] hover:bg-cream transition-colors" @click="$router.push('/story')">
+      <Button class="w-full max-w-[300px] max-h-max py-4 <md:mt-5 <sm:mt-4 self-center bg-[#FCFBF5] hover:bg-cream transition-colors" @click="$router.push('/story')">
         <ParagraphText class="text-size-[1.5rem]">
           เริ่มการทดสอบ
         </ParagraphText>
@@ -41,10 +41,3 @@ const dummyData = [
   },
 ]
 </script>
-
-<style scoped>
-.color-circle {
-  top: 50%;
-  transform: translateY(-55%);
-}
-</style>
