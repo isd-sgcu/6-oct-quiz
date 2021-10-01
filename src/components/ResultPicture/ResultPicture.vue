@@ -9,7 +9,7 @@ const dumbImg = 'https://c.tenor.com/mljLgH4Csu0AAAAd/cat-cat-vibing.gif'
 
 <template>
   <div>
-    <div class="relative w-55 h-55 xs:(w-60 h-60) sm:(w-70 h-70) lg:(w-80 h-80) 2xl:(w-100 h-100)">
+    <div class="relative w-55 h-55 xs:(w-60 h-60) sm:(w-70 h-70) lg:(w-100 h-100) 2xl:(w-120 h-120)">
       <div
         class="ellipses-common rounded-full z-2 overflow-hidden"
       >
