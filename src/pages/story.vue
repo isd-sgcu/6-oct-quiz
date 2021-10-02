@@ -16,33 +16,40 @@
 </template>
 
 <script setup lang="ts">
-import { QuestionChoice, QuestionInfo } from '~/types'
+import { QuestionChoice } from '~/types'
 import { useGameStore } from '~/stores/game'
 
 const gameStore = useGameStore()
-gameStore.initNewQuiz('test')
-const currentQuestion = ref<QuestionInfo>(gameStore.getCurrentQuestion())
+gameStore.initNewQuiz()
 
 // Speciftic the order of a question
-const qNumber = ref(gameStore.getCurrentIndex() + 1)
+const qNumber = computed(() => gameStore.currentIndex + 1)
+const currentQuestion = computed(() => gameStore.questionList[gameStore.currentIndex])
 
 const updateQuestion = (answer: QuestionChoice) => {
+  if (gameStore.finish) return
+
   const relatedPersons = currentQuestion.value.relatedPersons
   if (answer === QuestionChoice.TotallyYes) {
     for (let i = 0; i < relatedPersons.length; i++) {
       const character = relatedPersons[i]
-      gameStore.updateScore(character, 1)
+      gameStore.updateScore(character, 2)
     }
   }
   else if (answer === QuestionChoice.Never) {
     for (let i = 0; i < relatedPersons.length; i++) {
       const character = relatedPersons[i]
-      gameStore.updateScore(character, -1)
+      gameStore.updateScore(character, -2)
     }
   }
+  else {
+    gameStore.updateScore('ตัวคุณเอง', 1)
+  }
+  console.log(gameStore.scoreMap)
   gameStore.nextQuestion()
-  currentQuestion.value = gameStore.getCurrentQuestion()
-  qNumber.value = gameStore.getCurrentIndex() + 1
+
+  if (gameStore.finish)
+    console.log(gameStore.determineCharacter())
 }
 </script>
 

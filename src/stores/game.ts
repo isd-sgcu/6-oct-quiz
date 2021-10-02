@@ -1,13 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { QuestionInfo } from '~/types'
-
-const characterName = ['สุธรรม  แสงประทุม', 'อเนก  เหล่าธรรมทัศน์', 'สุรชาติ  บําารุงสุข', 'วิชิตชัย  อมรกุล', 'วิภา  ดาวมณี', 'ภูมิธรรม  เวชยชัย', 'เกรียงกมล  เลาหไพโรจน์', 'บรรยง พงศ์พาณิชย์']
+import QuestionStore from '~/logic/questionStore'
 
 export const useGameStore = defineStore('game', () => {
-  /** index of the current selected question */
+  const MAX_QUESTION_COUNT = 10
+  // index of the current selected question
   const currentIndex = ref(0)
-  /** name of the player who's playing this quiz */
-  const playerName = ref<string | undefined>()
   /**
    * a randomized list of possible questions
    * @type {{text: string, relatedPerson: string[]}}
@@ -18,63 +16,95 @@ export const useGameStore = defineStore('game', () => {
    * @key character's name @value score
    */
   const scoreMap = ref<Map<string, number>>(new Map<string, number>())
+  // check if game is over
+  const finish = ref<boolean>(false)
 
-  // Setters
+  const resultCharacter = ref<string>()
+
+  /* Setters */
   const setCurrentIndex = (index: number) => {
     currentIndex.value = index
   }
 
-  const setPlayerName = (name: string) => {
-    playerName.value = name
+  const setScore = (name: string, score: number) => {
+    if (scoreMap.value.has(name))
+      scoreMap.value.set(name, score)
   }
 
-  const updateScore = (name: string, score: number) => {
-    const oldscore = scoreMap.value.get(name)
-    if (oldscore)
-      scoreMap.value.set(name, oldscore + score)
+  /* Methods */
+  const updateScore = (name: string, add: number) => {
+    if (scoreMap.value.has(name)) {
+      const oldscore = scoreMap.value.get(name)
+      scoreMap.value.set(name, oldscore! + add)
+    }
   }
-  // Getters
-  const getCurrentIndex = () => currentIndex.value
 
-  const getPlayerName = () => playerName.value
-
-  const getCurrentQuestion = () => questionList.value[currentIndex.value]
-
-  const getScoreMap = () => scoreMap.value
-  // Actions
   const resetScore = () => {
     scoreMap.value.clear()
-    characterName.forEach((name) => {
+    QuestionStore.characterName.forEach((name) => {
       scoreMap.value.set(name, 0)
     })
   }
-
-  const initNewQuiz = (name: string) => {
-    // questionList.value = getRandomQuestions()
+  const initNewQuiz = () => {
+    questionList.value = QuestionStore.getRandomQuestions(MAX_QUESTION_COUNT)
     setCurrentIndex(0)
-    setPlayerName(name)
     resetScore()
+    resultCharacter.value = undefined
   }
 
   /**
- *Go to next question and set state of the quiz according to user's answer
- **/
+   * Add the index of current question
+   * if @var finish is false and @var currentIndex + 1 < length then go
+  **/
   const nextQuestion = () => {
-    if (currentIndex.value < questionList.value.length)
+    if (!finish.value) {
+      if (currentIndex.value + 1 === questionList.value.length) {
+        console.log('game finish')
+        finish.value = true
+        return
+      }
       currentIndex.value += 1
+    }
+  }
+
+  const determineCharacter = () => {
+    if (!finish.value)
+      throw new Error('Call result character before game end')
+    if (resultCharacter.value)
+      return resultCharacter.value
+
+    const processArr: any = [[]]
+    const candidates = new Array<string>()
+
+    for (const kv of scoreMap.value)
+      processArr.push([kv[1], kv[0]])
+
+    processArr.sort()
+
+    let i = processArr.length - 1
+    const maxScore = processArr[i][0]
+
+    if (maxScore <= 0) return 'ตัวคุณเอง'
+
+    while (processArr[i][0] === maxScore && i > 0) {
+      candidates.push(processArr[i][1])
+      i--
+    }
+    return candidates[Math.floor(Math.random() * candidates.length)]
   }
 
   return {
+    currentIndex,
+    questionList,
+    finish,
+    scoreMap,
     setCurrentIndex,
-    setPlayerName,
+    setScore,
     updateScore,
-    getCurrentIndex,
-    getPlayerName,
-    getCurrentQuestion,
-    getScoreMap,
     resetScore,
     initNewQuiz,
     nextQuestion,
+    determineCharacter,
   }
 })
 
