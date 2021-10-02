@@ -1,25 +1,20 @@
 <template>
-  <div class="flex justify-center pt-20 pb-20 overflow-hidden relative">
+  <div class="flex justify-center pt-10 overflow-hidden relative">
     <div class="z-10 flex flex-col w-full self-center <md:px-5">
-      <div v-for="(item, key) in info" :id="`el-${key}`" :key="key" class="flex justify-start pb-15 pt-3 relative px-20 <md:px-0 h-screen items-center transition-all duration-1000" :class="`${!(key & 1) ? 'justify-start': 'justify-end'} ${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
-        <div class="max-w-[1000px] overflow-hidden flex flex-col" :class="(key & 1) && 'flex flex-col items-end text-right'">
-          <HeaderText class="mb-5 text-size-[3.5rem] leading-20 <xl:(text-size-[3rem] leading-16) <md:(text-size-[2.5rem] leading-12) transition-all">
-            {{ item.title }}
-          </HeaderText>
-          <ParagraphText class="transition-all text-size-[2rem] leading-14 <xl:(text-size-[1.5rem] leading-10)">
-            {{ item.details }}
+      <div v-for="(item, key) in info" :id="`el-${key}`" :key="key" class="flex justify-center pb-15 pt-3 relative px-20 <md:px-0 h-screen items-center transition-all duration-1000" :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
+        <div :id="`el-text-${key}`" class="max-w-[600px] overflow-hidden flex flex-col text-center">
+          <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all text-size-[2rem] mb-7 leading-14 <xl:(text-size-[1.5rem] leading-12) <md:(text-size-[1.25rem] leading-10)">
+            {{ text }}
           </ParagraphText>
-        </div>
-        <div class="transition-all absolute w-[800px] h-[800px] <xl:(w-[750px] h-[750px]) <md:(w-[620px] h-[620px]) rounded-full" :class="!(key & 1) ? 'left-[-400px] <xl:(left-[-375px]) <md:(left-[-310px])': 'right-[-400px] <xl:(right-[-375px]) <md:(right-[-310px])'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
+          <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity mt-5 " @click="$router.push('/story')">
+            <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
+              เริ่มการทดสอบ
+            </ParagraphText>
+          </Button>
         </div>
       </div>
-      <Button :id="`el-${info.length}`" class="w-full max-w-[300px] max-h-max py-4 self-center bg-[#FCFBF5] hover:bg-cream transition-colors mt-5 " :class="`${(presentNum === info.length - 1) ? 'opacity-100': 'opacity-0'}`" @click="playQuiz">
-        <ParagraphText class="text-size-[1.75rem]">
-          เริ่มการทดสอบ
-        </ParagraphText>
-      </Button>
     </div>
-    <mdi-arrow-down-circle-outline class="fixed bottom-10 text-[#444444] text-size-[3rem] cursor-pointer transition-opacity duration-500" :class="isHide ? 'opacity-0': 'opacity-50 z-30'" @click="handleScroll" />
+    <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-[#444444] text-size-[3rem] cursor-pointer transition-opacity duration-500" :class="isHide ? 'opacity-0': 'opacity-50 z-30'" @click="handleScroll" />
   </div>
 </template>
 
@@ -39,23 +34,20 @@ setMetadata({
 const info = [
 
   {
-    title: 'ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙',
-    details: ' มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา',
+    details: ['ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙', 'มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา'],
     bgColor: '#FFAE11',
   },
   {
-    title: '6 ตุลาฯ',
-    details: 'พรากหลายอย่างจากพวกเขาและเธอไปมากมาย แต่กระนั้นความสูญเสียนี้ก็ให้บทเรียนล้ำค่าและสร้างตัวตนของคนเดือนตุลาฯ มาไม่น้อย เขาและเธอเหล่านี้เลือกเส้นทางประชาธิปไตยอย่างแน่วแน่มาตลอด แต่บางคนก็เปลี่ยนแปลงไป มากบ้างน้อยบ้าง',
+    details: ['6 ตุลาฯ พรากหลายอย่างจากพวกเขาและเธอไปมากมาย', 'แต่กระนั้นความสูญเสียนี้ก็ให้บทเรียนล้ำค่าและสร้างตัวตนของคนเดือนตุลาฯ มาไม่น้อย', 'เขาและเธอเหล่านี้เลือกเส้นทางประชาธิปไตยอย่างแน่วแน่มาตลอด แต่บางคนก็เปลี่ยนแปลงไป มากบ้างน้อยบ้าง'],
     bgColor: '#EC371F',
   },
   {
-    title: 'คุณคือใครใน 6 ตุลาฯ',
-    details: 'คน 6 ตุลาฯ สร้างอะไรไว้ให้สังคมมากมาย จิตวิญญาณของพวกเขาและความเป็นคน 6 ตุลาฯ เติบโตในทุก ๆ ที่ คุณอยากรู้รึเปล่า ว่าจิตวิญญาณของพวกเขาเติบโตในตัวคุณบ้างไหม คุณคือใครใน 6 ตุลาฯ',
+    details: ['คน 6 ตุลาฯ สร้างอะไรไว้ให้สังคมมากมาย จิตวิญญาณของพวกเขาและความเป็นคน 6 ตุลาฯ เติบโตในทุก ๆ ที่', 'คุณอยากรู้รึเปล่า ว่าจิตวิญญาณของพวกเขาเติบโตในตัวคุณบ้างไหม คุณคือใครใน 6 ตุลาฯ'],
     bgColor: '#9F79B7',
   },
 ]
 
-const presentNum = ref<number>(0)
+const presentNum = ref<number>(-1)
 const isHide = ref<boolean>(false)
 let elHeight: number[] = []
 
@@ -63,6 +55,7 @@ onMounted(() => {
   const elSz = info.length
   for (let i = 0; i < elSz; i++) {
     const el = document.getElementById(`el-${i}`)
+
     if (el)
       elHeight.push(el.offsetTop)
   }
@@ -74,7 +67,7 @@ onMounted(() => {
       isHide.value = false
 
     for (let i = elSz - 1; i >= 0; i--) {
-      if (elHeight[i] - 300 <= window.scrollY) {
+      if (elHeight[i] - 200 <= window.scrollY) {
         presentNum.value = Math.max(0, i)
         break
       }
@@ -89,6 +82,8 @@ onMounted(() => {
         elHeight.push(el.offsetTop)
     }
   }
+
+  setTimeout(() => presentNum.value = 0, 1000)
 })
 
 function scrollToSmoothly(pos: number, time: number) {
@@ -111,12 +106,11 @@ function scrollToSmoothly(pos: number, time: number) {
 
 const handleScroll = () => {
   if (isHide.value) return
-  const nextIdx = Math.min(elHeight.length, presentNum.value + 1)
+  const nextIdx = Math.min(elHeight.length - 1, presentNum.value + 1)
   const el = document.getElementById(`el-${nextIdx}`)
 
   if (el) scrollToSmoothly(el.offsetTop, 200)
 }
-
 
 const playQuiz = () => {
   game.initNewQuiz()
@@ -124,3 +118,20 @@ const playQuiz = () => {
 }
 
 </script>
+
+<style scoped>
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.scroll-button {
+  animation: bounce 1s infinite ease-out;
+}
+</style>
