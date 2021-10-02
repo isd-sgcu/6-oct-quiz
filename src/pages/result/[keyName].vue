@@ -1,14 +1,14 @@
 <script setup lang="ts">
-// const route = useRoute()
-
-const props = defineProps<{
-  keyName: string
-}>()
+import characters from '~/assets/characters'
+import { CharacterKeyOption } from '~/types'
 
 const { width } = useWindowSize()
 
-const fullName = 'สุธรรม แสงประทุม'
-const detail = 'เรซิน บาบูนแหววเอ๋อ ไพลินตี๋อุปนายิกาซีเรียส ซีเนียร์ธรรมาสงบสุข ซูมถ่ายทำเอ็กซ์เพรสโรลออน เบอร์เกอร์แจม เย้วเช็งเม้ง ซินโดรมบลูเบอร์รี่แกสโซฮอล์ ดีพาร์ตเมนต์แฟรนไชส์ม้าหินอ่อนลิมิต นินจาช็อปเปอร์เฟอร์รี่ เรซิน บาบูนแหววเอ๋อ ไพลินตี๋อุปนายิกาซีเรียส ซีเนียร์ธรรมาสงบสุข ซูมถ่ายทำเอ็กซ์เพรสโรลออน เบอร์เกอร์แจม'
+const props = defineProps<{
+  keyName: CharacterKeyOption
+}>()
+
+const { fullName, detail } = characters[props.keyName]
 
 const computedName = computed(() => {
   return width.value < 1024 ? fullName.replace(' ', '\n') : fullName
