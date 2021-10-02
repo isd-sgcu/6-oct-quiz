@@ -19,7 +19,7 @@
         </ParagraphText>
       </Button>
     </div>
-    <mdi-arrow-down-circle-outline class="fixed bottom-10 text-size-[3rem] cursor-pointer transition-opacity duration-500" :class="isHide ? 'opacity-0': 'opacity-100 z-30'" @click="handleScroll" />
+    <mdi-arrow-down-circle-outline class="fixed bottom-10 text-[#444444] text-size-[3rem] cursor-pointer transition-opacity duration-500" :class="isHide ? 'opacity-0': 'opacity-50 z-30'" @click="handleScroll" />
   </div>
 </template>
 
@@ -101,6 +101,6 @@ const handleScroll = () => {
   const nextIdx = Math.min(elHeight.length, presentNum.value + 1)
   const el = document.getElementById(`el-${nextIdx}`)
 
-  if (el) scrollToSmoothly(el.offsetTop, 600)
+  if (el) scrollToSmoothly(el.offsetTop, 200)
 }
 </script>
