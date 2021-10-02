@@ -1,5 +1,4 @@
-const router = useRouter()
-
 export const replay = () => {
+  const router = useRouter()
   router.replace('/')
 }
