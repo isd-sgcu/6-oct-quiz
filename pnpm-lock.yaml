@@ -22,7 +22,6 @@ specifiers:
   pinia: ^2.0.0-rc.9
   pnpm: ^6.15.1
   prism-theme-vars: ^0.2.2
-  seamless-scroll-polyfill: ^2.1.4
   typescript: ^4.4.3
   unplugin-auto-import: ^0.4.6
   unplugin-icons: ^0.11.3
@@ -49,7 +48,6 @@ dependencies:
   nprogress: 0.2.0
   pinia: 2.0.0-rc.9_typescript@4.4.3+vue@3.2.11
   prism-theme-vars: 0.2.2
-  seamless-scroll-polyfill: 2.1.4
   vue: 3.2.11
   vue-demi: 0.11.4_vue@3.2.11
   vue-i18n: 9.1.7_vue@3.2.11
@@ -5879,10 +5877,6 @@ packages:
     dependencies:
       xmlchars: 2.2.0
     dev: true
-
-  /seamless-scroll-polyfill/2.1.4:
-    resolution: {integrity: sha512-8KWwLmWrXJuQG5URmrrnuHiS24x43ra8DHmLRVEyrlp7p9EgyKDAzSmyFex4r1ZkERd4IIpotOLk7qiQpvGSbA==}
-    dev: false
 
   /section-matter/1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
