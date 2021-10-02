@@ -3,6 +3,7 @@
 
 // const props = defineProps<{
 //   name: string
+//   detail: string
 // }>()
 
 const { width } = useWindowSize()
@@ -10,7 +11,7 @@ const { width } = useWindowSize()
 const fullName = 'สุธรรม แสงประทุม'
 const detail = 'เรซิน บาบูนแหววเอ๋อ ไพลินตี๋อุปนายิกาซีเรียส ซีเนียร์ธรรมาสงบสุข ซูมถ่ายทำเอ็กซ์เพรสโรลออน เบอร์เกอร์แจม เย้วเช็งเม้ง ซินโดรมบลูเบอร์รี่แกสโซฮอล์ ดีพาร์ตเมนต์แฟรนไชส์ม้าหินอ่อนลิมิต นินจาช็อปเปอร์เฟอร์รี่ เรซิน บาบูนแหววเอ๋อ ไพลินตี๋อุปนายิกาซีเรียส ซีเนียร์ธรรมาสงบสุข ซูมถ่ายทำเอ็กซ์เพรสโรลออน เบอร์เกอร์แจม'
 
-const name = computed(() => {
+const computedName = computed(() => {
   return width.value < 1024 ? fullName.replace(' ', '\n') : fullName
 })
 </script>
@@ -22,7 +23,7 @@ const name = computed(() => {
     <ResultPicture class="absolute r-result-picture" />
     <div class="r-result-layout">
       <ResultTextGroup
-        :result-full-name="name"
+        :result-full-name="computedName"
         :result-detail="detail"
         class="pt-60 lg:(pt-0)"
       />
