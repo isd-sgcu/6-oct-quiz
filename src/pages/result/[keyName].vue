@@ -1,10 +1,9 @@
 <script setup lang="ts">
 // const route = useRoute()
 
-// const props = defineProps<{
-//   name: string
-//   detail: string
-// }>()
+const props = defineProps<{
+  keyName: string
+}>()
 
 const { width } = useWindowSize()
 
