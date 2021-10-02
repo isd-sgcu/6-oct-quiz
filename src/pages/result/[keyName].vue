@@ -2,11 +2,15 @@
 import characters from '~/assets/characters'
 import { CharacterKeyOption } from '~/types'
 
+const router = useRouter()
 const { width } = useWindowSize()
 
 const props = defineProps<{
   keyName: CharacterKeyOption
 }>()
+
+if (!(props.keyName in characters))
+  router.replace('/')
 
 const { fullName, detail } = characters[props.keyName]
 
