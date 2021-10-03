@@ -3,13 +3,19 @@ export const replay = () => {
   router.replace('/')
 }
 
+
+export const isPersistedState = (stateName: string): any => {
+  const sessionState = sessionStorage.getItem(stateName)
+  return sessionState && JSON.parse(sessionState)
+}
+
 export const setMetadata = ({
   title = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
   description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ”',
   image = '',
   url = 'https://www.google.com',
   siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
-}) => {
+  }) => {
   return useHead({
     title,
     meta: [
@@ -28,7 +34,6 @@ export const setMetadata = ({
       { property: 'twitter:title', content: title },
       { property: 'twitter:description', content: description },
       { property: 'twitter:image', content: image },
-
-    ],
-  })
+     ],
+   })
 }

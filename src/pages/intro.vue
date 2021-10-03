@@ -13,7 +13,7 @@
         <div class="transition-all absolute w-[800px] h-[800px] <xl:(w-[750px] h-[750px]) <md:(w-[620px] h-[620px]) rounded-full" :class="!(key & 1) ? 'left-[-400px] <xl:(left-[-375px]) <md:(left-[-310px])': 'right-[-400px] <xl:(right-[-375px]) <md:(right-[-310px])'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
         </div>
       </div>
-      <Button :id="`el-${info.length}`" class="w-full max-w-[300px] max-h-max py-4 self-center bg-[#FCFBF5] hover:bg-cream transition-colors mt-5 " :class="`${(presentNum === info.length - 1) ? 'opacity-100': 'opacity-0'}`" @click="$router.push('/story')">
+      <Button :id="`el-${info.length}`" class="w-full max-w-[300px] max-h-max py-4 self-center bg-[#FCFBF5] hover:bg-cream transition-colors mt-5 " :class="`${(presentNum === info.length - 1) ? 'opacity-100': 'opacity-0'}`" @click="playQuiz">
         <ParagraphText class="text-size-[1.75rem]">
           เริ่มการทดสอบ
         </ParagraphText>
@@ -24,8 +24,12 @@
 </template>
 
 <script setup lang="ts">
+import { useGameStore } from '~/stores/game'
 import appDescription from '~/assets/description'
 import { setMetadata } from '~/utils'
+
+const game = useGameStore()
+const router = useRouter()
 
 setMetadata({
   title: 'คำอธิบาย',
@@ -33,6 +37,7 @@ setMetadata({
 })
 
 const info = [
+
   {
     title: 'ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙',
     details: ' มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา',
@@ -111,4 +116,11 @@ const handleScroll = () => {
 
   if (el) scrollToSmoothly(el.offsetTop, 200)
 }
+
+
+const playQuiz = () => {
+  game.initNewQuiz()
+  router.push('/story')
+}
+
 </script>
