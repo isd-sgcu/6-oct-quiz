@@ -1,23 +1,3 @@
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-
-const name = ref<string>('')
-const isInvalid = ref<boolean>(false)
-const router = useRouter()
-
-const handleSubmit = () => {
-  if (name.value === '') {
-    isInvalid.value = true
-    return
-  }
-
-  isInvalid.value = false
-  // Save name logic here
-
-  router.push('/intro')
-}
-</script>
-
 <template>
   <div class="flex justify-center items-center h-full flex-col">
     <div class="z-10 m-10 flex items-center flex-wrap">
@@ -31,14 +11,8 @@ const handleSubmit = () => {
       </div>
     </div>
     <div class="z-10 flex flex-col items-center w-full px-10">
-      <ParagraphText class="text-size-[1.5rem] <md:text-size-[1rem] mb-5">
-        กรอกชื่อเล่นของคุณเพื่อเริ่มทดสอบ
-      </ParagraphText>
-      <div class="p-2 pl-4 pr-4 mt-2 rounded-lg border-black border-width-[1px] bg-white w-full max-w-[350px]" :class="isInvalid && 'invalid'">
-        <input v-model="name" class="outline-none w-full font-Trirong text-input" type="text" placeholder="กรอกชื่อเล่น">
-      </div>
-      <Button class="max-w-max p-6 !py-2 mt-5 bg-white hover:bg-cream transition-colors" @click="handleSubmit">
-        <ParagraphText>
+      <Button class="w-full max-w-[400px] p-6 !py-4 mt-5 bg-white hover:bg-cream transition-colors" @click="$router.push('/intro')">
+        <ParagraphText class="text-size-[1.5rem]">
           เริ่มการทดสอบ
         </ParagraphText>
       </Button>
