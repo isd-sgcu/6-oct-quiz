@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { replay } from '~/utils'
+// import { replay } from '~/utils'
 
 const title = 'This is the title'
 const description = 'This is the description. I have things to do but I am lazy so I lay down on my bed with my phone.'
@@ -28,7 +28,7 @@ useHead({
   ],
 })
 
-replay()
+// replay()
 </script>
 
 <template>
