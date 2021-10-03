@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import characters from '~/assets/characters'
 import { CharacterKeyOption } from '~/types'
+import { setMetadata } from '~/utils'
 
 const router = useRouter()
 const { width } = useWindowSize()
@@ -13,6 +14,11 @@ if (!(props.keyName in characters))
   router.replace('/')
 
 const { fullName, detail } = characters[props.keyName]
+
+setMetadata({
+  title: `คุณคือ ${fullName}`,
+  description: detail,
+})
 
 const computedName = computed(() => {
   return width.value < 1024 ? fullName.replace(' ', '\n') : fullName
