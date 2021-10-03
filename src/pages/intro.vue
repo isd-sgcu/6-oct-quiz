@@ -28,6 +28,7 @@ import appDescription from '~/assets/description'
 import { setMetadata } from '~/utils'
 
 setMetadata({
+  title: 'คำอธิบาย',
   description: appDescription,
 })
 
