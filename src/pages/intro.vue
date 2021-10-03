@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center pt-10 overflow-hidden relative">
     <div class="z-10 flex flex-col w-full self-center <md:px-5">
-      <div v-for="(item, key) in info" :id="`el-${key}`" :key="key" class="flex justify-center pb-15 pt-3 relative px-20 <md:px-0 h-screen items-center transition-all duration-1000" :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
+      <div v-for="(item, key) in info" :id="`el-${key}`" :key="key" class="flex justify-center pb-15 pt-3 relative px-20 <md:px-0 h-screen items-center transition-all duration-2500" :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
         <div :id="`el-text-${key}`" class="max-w-[600px] overflow-hidden flex flex-col text-center">
           <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all text-size-[2rem] mb-7 leading-14 <xl:(text-size-[1.5rem] leading-12) <md:(text-size-[1.25rem] leading-10)">
             {{ text }}
@@ -48,7 +48,8 @@ const presentNum = ref<number>(-1)
 const isHide = ref<boolean>(false)
 let elHeight: number[][] = []
 
-let tresholdOffset = 0
+let tresholdOffset = window.innerHeight / 2
+let timeOutNo = -1
 
 onMounted(() => {
   tresholdOffset = window.innerHeight / 2
@@ -74,6 +75,17 @@ onMounted(() => {
       else {
         presentNum.value = -1
       }
+    }
+
+    if (!isHide.value) {
+      if (timeOutNo !== -1) return
+
+      isHide.value = true
+      timeOutNo = window.setTimeout(() => {
+        if (window.innerHeight + window.pageYOffset < document.documentElement.scrollHeight)
+          isHide.value = false
+        timeOutNo = -1
+      }, 1000)
     }
   }
 
@@ -113,7 +125,7 @@ const handleScroll = () => {
   const nextIdx = Math.min(elHeight.length - 1, presentNum.value + 1)
   const el = document.getElementById(`el-${nextIdx}`)
 
-  if (el) scrollToSmoothly(el.offsetTop, 200)
+  if (el) scrollToSmoothly(el.offsetTop, 600)
 }
 
 const playQuiz = () => {
