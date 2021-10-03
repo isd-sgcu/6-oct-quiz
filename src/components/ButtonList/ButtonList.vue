@@ -1,12 +1,12 @@
 <template>
   <div class="button-list">
-    <Button @click="$emit('submit', QuestionChoice.TotallyYes)">
+    <Button button @click="handleClick(1)">
       ใช่ที่สุด
     </Button>
-    <Button @click="$emit('submit', QuestionChoice.NotKnow)">
+    <Button button @click="handleClick(0)">
       ไม่รู้
     </Button>
-    <Button @click="$emit('submit', QuestionChoice.Never)">
+    <Button @click="handleClick(2)">
       ไม่ใช่เลย
     </Button>
   </div>
@@ -15,9 +15,28 @@
 <script setup lang='ts'>
 import { QuestionChoice } from '~/types'
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'submit', label: QuestionChoice): void
 }>()
+
+const disable = ref(false)
+
+const handleClick = (choice: number) => {
+  if (!disable.value) {
+    switch (choice) {
+      case 1:
+        emit('submit', QuestionChoice.TotallyYes)
+        break
+      case 2:
+        emit('submit', QuestionChoice.Never)
+        break
+      default:
+        emit('submit', QuestionChoice.NotKnow)
+    }
+  }
+  disable.value = true
+}
+
 </script>
 
 <style>
@@ -27,7 +46,7 @@ defineEmits<{
 }
 
 .button-list Button {
-  @apply bg-[#FCFBF5] min-w-32 h-12 mb-4 md:(mb-0 mr-6 min-w-48 h-14);
+  @apply bg-[#FCFBF5] min-w-32 h-12 mb-4 md:(mb-0 mr-6 min-w-48 h-14) transition hover:(bg-[#F8E39B] transform scale-110);
 }
 
 .button-list Button:last-child {

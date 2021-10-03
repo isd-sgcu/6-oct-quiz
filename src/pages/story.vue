@@ -69,10 +69,10 @@ const updateQuestion = (answer: QuestionChoice) => {
 
 /* durations and timing functions.*/
 .slide-fade-enter-active {
-  transition: all .8s ease;
+  transition: all .7s ease;
 }
 .slide-fade-leave-active {
-  transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
 /* Set animation state of the element before entering or after leaving */
