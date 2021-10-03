@@ -105,13 +105,18 @@ onMounted(() => {
 function scrollToSmoothly(pos: number, time: number) {
   const currentPos = window.pageYOffset
   let start: number | null = null
+  const calculateEase = (x: number) => {
+    return x * x * x * (10 + x * (6 * x - 15))
+  }
   window.requestAnimationFrame(function step(currentTime) {
     start = !start ? currentTime : start
     const progress = currentTime - start
+
+    const varX = progress / time
     if (currentPos < pos)
-      window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos)
+      window.scrollTo(0, ((pos - currentPos) * calculateEase(varX)) + currentPos)
     else
-      window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time))
+      window.scrollTo(0, currentPos - ((currentPos - pos) * calculateEase(varX)))
 
     if (progress < time)
       window.requestAnimationFrame(step)
