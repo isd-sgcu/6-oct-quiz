@@ -6,8 +6,8 @@ export const replay = () => {
 export const setMetadata = (
   title: string,
   description: string,
-  url: string,
-  image: string,
+  image = '',
+  url = 'https://www.google.com',
   siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
 ) => useHead({
   title,
