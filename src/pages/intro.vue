@@ -64,7 +64,7 @@ onMounted(() => {
     if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
       isHide.value = true
 
-    else
+    else if (timeOutNo === -1)
       isHide.value = false
 
     for (let i = elSz - 1; i >= 0; i--) {
@@ -85,7 +85,7 @@ onMounted(() => {
         if (window.innerHeight + window.pageYOffset < document.documentElement.scrollHeight)
           isHide.value = false
         timeOutNo = -1
-      }, 1000)
+      }, 1500)
     }
   }
 
