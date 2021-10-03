@@ -5,7 +5,7 @@ export const replay = () => {
 
 export const setMetadata = ({
   title = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
-  description = 'เข้าร่วมทำแบบประเมินเพื่อค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ',
+  description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ”',
   image = '',
   url = 'https://www.google.com',
   siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
