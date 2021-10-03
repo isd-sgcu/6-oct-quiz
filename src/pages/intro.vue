@@ -13,7 +13,7 @@
         <div class="transition-all absolute w-[300px] h-[300px] color-circle <md:(w-[200px] h-[200px]) rounded-full" :class="!(key & 1) ? 'left-[-100px] <2x': 'right-[-100px]'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
         </div>
       </div>
-      <Button class="w-full max-w-[200px] self-center bg-[#FCFBF5] hover:bg-cream transition-colors" @click="$router.push('/story')">
+      <Button class="w-full max-w-[200px] self-center bg-[#FCFBF5] hover:bg-cream transition-colors" @click="playQuiz">
         <ParagraphText>
           เริ่มการทดสอบ
         </ParagraphText>
@@ -23,6 +23,11 @@
 </template>
 
 <script setup lang="ts">
+import { useGameStore } from '~/stores/game'
+
+const game = useGameStore()
+const router = useRouter()
+
 const dummyData = [
   {
     title: 'คำอธิบาย 1',
@@ -40,6 +45,11 @@ const dummyData = [
     bgColor: '#9F79B7',
   },
 ]
+
+const playQuiz = () => {
+  game.initNewQuiz()
+  router.push('/story')
+}
 </script>
 
 <style scoped>

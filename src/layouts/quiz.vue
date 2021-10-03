@@ -1,6 +1,6 @@
 <template>
   <main
-    class="sky min-h-screen w-full transition ease-in-out duration-500"
+    class="sky min-h-screen w-full overflow-hidden"
     :class="'bg-grad-' + qNumber"
   >
     <router-view />

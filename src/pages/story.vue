@@ -19,37 +19,37 @@
 import { QuestionChoice } from '~/types'
 import { useGameStore } from '~/stores/game'
 
-const gameStore = useGameStore()
-gameStore.initNewQuiz()
+const game = useGameStore()
+const router = useRouter()
+game.initNewQuiz()
 
 // Speciftic the order of a question
-const qNumber = computed(() => gameStore.currentIndex + 1)
-const currentQuestion = computed(() => gameStore.questionList[gameStore.currentIndex])
+const qNumber = computed(() => game.currentIndex + 1)
+const currentQuestion = computed(() => game.questionList[game.currentIndex])
 
 const updateQuestion = (answer: QuestionChoice) => {
-  if (gameStore.finish) return
+  if (game.finish) return
 
   const relatedPersons = currentQuestion.value.relatedPersons
   if (answer === QuestionChoice.TotallyYes) {
     for (let i = 0; i < relatedPersons.length; i++) {
       const character = relatedPersons[i]
-      gameStore.updateScore(character, 2)
+      game.updateScore(character, 2)
     }
   }
   else if (answer === QuestionChoice.Never) {
     for (let i = 0; i < relatedPersons.length; i++) {
       const character = relatedPersons[i]
-      gameStore.updateScore(character, -2)
+      game.updateScore(character, -2)
     }
   }
   else {
-    gameStore.updateScore('ตัวคุณเอง', 1)
+    game.updateScore('ตัวคุณเอง', 1)
   }
-  console.log(gameStore.scoreMap)
-  gameStore.nextQuestion()
+  game.nextQuestion()
 
-  if (gameStore.finish)
-    console.log(gameStore.determineCharacter())
+  if (game.finish)
+    router.push('pre-result')
 }
 </script>
 
