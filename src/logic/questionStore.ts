@@ -4,83 +4,83 @@ class QuestionStore {
   static questions: QuestionInfo[] = [
     {
       text: 'คุณเป็นนิสิตที่พร้อมรับกับการเปลี่ยนแปลงใหม่ ๆ อยู่เสมอ',
-      relatedPersons: ['sb', 'pw', 'kl'],
+      relatedPeople: ['sb', 'pw', 'kl'],
     },
     {
       text: 'คุณชอบทํากิจกรรมต่าง ๆ มากกว่าการเรียน และคุณไม่ค่อยสนใจผลการเรียนตัวเองเท่าไร',
-      relatedPersons: ['sb'],
+      relatedPeople: ['sb'],
     },
     {
       text: 'คุณเป็นคนเห็นอกเห็นใจผู้อื่น และมักนึกถึงผู้อื่นก่อนตัวเอง',
-      relatedPersons: ['wa'],
+      relatedPeople: ['wa'],
     },
     {
       text: 'คุณเหนื่อยและหมดกําลังใจง่าย',
-      relatedPersons: ['al', 'wd'],
+      relatedPeople: ['al', 'wd'],
     },
     {
       text: 'คุณเป็นคนที่เมื่อได้เห็นคนอื่นทุกข์ใจจะทําให้คุณทุกข์ใจตาม',
-      relatedPersons: ['sb', 'kl', 'wa'],
+      relatedPeople: ['sb', 'kl', 'wa'],
     },
     {
       text: 'คุณกล้าจะยอมรับตัวตนของตัวเอง',
-      relatedPersons: ['bp', 'wd'],
+      relatedPeople: ['bp', 'wd'],
     },
     {
       text: 'คุณไม่ค่อยสนใจการเมืองเท่าไร',
-      relatedPersons: ['bp'],
+      relatedPeople: ['bp'],
     },
     {
       text: 'คุณสับสนกับตัวเองบ่อยครั้ง ไม่แน่ใจในความคิดตัวเองอยู่เสมอ',
-      relatedPersons: ['al'],
+      relatedPeople: ['al'],
     },
     {
       text: 'คุณชื่นชอบความเสี่ยง และยินดีรับความท้าทายใหม่ ๆ',
-      relatedPersons: ['sb', 'ss'],
+      relatedPeople: ['sb', 'ss'],
     },
     {
       text: 'คุณคิดว่าการเป็นผู้นําเป็นอะไรที่รับมือได้ง่าย',
-      relatedPersons: ['ss', 'kl'],
+      relatedPeople: ['ss', 'kl'],
     },
     {
       text: 'คุณเป็นคนที่สามารถดูแลความรู้สึกตัวเองได้',
-      relatedPersons: ['wd'],
+      relatedPeople: ['wd'],
     },
     {
       text: 'คุณยอมรับประเพณีเก่า ค่านิยม หรือธรรมเนียมที่ยึดถือกันมาได้ง่าย และไม่ค่อยตั้งคําถาม',
-      relatedPersons: ['bp'],
+      relatedPeople: ['bp'],
     },
     {
       text: 'คุณคิดว่าปัญหาเป็นเรื่องน่าสนใจ และสนุกไปกับเรื่องยากลําบากต่าง ๆ',
-      relatedPersons: ['kl', 'ss', 'sb', 'wa', 'pw'],
+      relatedPeople: ['kl', 'ss', 'sb', 'wa', 'pw'],
     },
     {
       text: 'คุณใช้ความรักนําทางชีวิต ไม่ว่าจะเป็นความรักต่ออะไรก็ตาม',
-      relatedPersons: ['wa'],
+      relatedPeople: ['wa'],
     },
     {
       text: 'คุณเป็นคนเข้มแข็ง และสามารถส่งต่อความเข้มแข็งให้ผู้อื่นได้',
-      relatedPersons: ['ss', 'kl', 'wd'],
+      relatedPeople: ['ss', 'kl', 'wd'],
     },
     {
       text: 'คุณเชื่อมั่นในตัวเอง เชื่อมั่นในความสามารถ และยินดีที่จะลองเรียนรู้อะไรใหม่ ๆ',
-      relatedPersons: ['kl', 'ss'],
+      relatedPeople: ['kl', 'ss'],
     },
     {
       text: 'คุณยึดถือความถูกต้องเป็นหลัก',
-      relatedPersons: ['kl', 'ss', 'sb', 'wa'],
+      relatedPeople: ['kl', 'ss', 'sb', 'wa'],
     },
     {
       text: 'คุณเป็นคนกล้าหาญ และไม่ค่อยเกรงกลัวอะไร',
-      relatedPersons: ['kl', 'ss', 'sb', 'wa', 'pw'],
+      relatedPeople: ['kl', 'ss', 'sb', 'wa', 'pw'],
     },
     {
       text: 'คุณเลือกที่จะเห็นแก่ตัว ถ้ามันทําให้คุณรู้สึกดี',
-      relatedPersons: ['al', 'bp'],
+      relatedPeople: ['al', 'bp'],
     },
     {
       text: 'คุณสามารถอดทนทําบางอย่างได้เป็นเวลานาน แม้ว่าจะไม่ค่อยมีคนเห็นค่าสิ่งที่คุณทํา และคุณยืนหยัดที่จะทําต่อไป',
-      relatedPersons: ['wd', 'sb'],
+      relatedPeople: ['wd', 'sb'],
     },
   ]
 

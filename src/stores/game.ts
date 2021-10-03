@@ -73,8 +73,8 @@ export const useGameStore = defineStore('game', () => {
   /* Methods */
   const updateScore = (name: CharacterKeyOption, add: number) => {
     if (scoreMap.value && scoreMap.value.has(name)) {
-      const oldscore = scoreMap.value.get(name)
-      scoreMap.value.set(name, oldscore! + add)
+      const oldscore = scoreMap.value.get(name) as number
+      scoreMap.value.set(name, oldscore + add)
     }
   }
 
@@ -127,18 +127,16 @@ export const useGameStore = defineStore('game', () => {
     /**
      * used for sorting @type [number, CharacterKeyOption]
      */
-    const processArr: any = [[]]
-    // set of characters that have the same score
-    const candidates = new Array<CharacterKeyOption>()
-
-    for (const kv of scoreMap.value)
-      processArr.push([kv[1], kv[0]])
+    const processArr: [number, CharacterKeyOption][] = []
+    for (const [key, score] of scoreMap.value)
+      processArr.push([score, key])
 
     processArr.sort()
 
     // get index of the maxScore
-    let i = processArr.length - 1
-    const maxScore = processArr[i][0]
+    const maxScore = processArr[processArr.length - 1][0]
+    // set of characters that have the same score
+    const candidates = processArr.filter(([score, key]) => score === maxScore)
 
     // maxScore less than or equal zero mean that player doesn't fit to any characters.
     if (maxScore <= 0) {
@@ -146,11 +144,7 @@ export const useGameStore = defineStore('game', () => {
       saveToStorage()
       return resultCharacter.value
     }
-    // find all characters that has score equal to maxScore
-    while (processArr[i][0] === maxScore && i > 0) {
-      candidates.push(processArr[i][1])
-      i--
-    }
+
     saveToStorage()
     return candidates[Math.floor(Math.random() * candidates.length)]
   }

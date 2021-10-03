@@ -35,25 +35,24 @@ const updateQuestion = (answer: QuestionChoice) => {
   if (game.finish) return
 
   // get a set of characters that related to the question
-  const relatedPersons = currentQuestion.value.relatedPersons
-  if (answer === QuestionChoice.TotallyYes) {
+  const relatedPeople = currentQuestion.value.relatedPersons
+  for (let i = 0; i < currentQuestion.value.relatedPersons.length; i++) {
+    const character = relatedPeople[i]
+    if (answer === QuestionChoice.TotallyYes) {
     // if player answer yes, add score ty each person by 2
-    for (let i = 0; i < relatedPersons.length; i++) {
-      const character = relatedPersons[i]
       game.updateScore(character, 2)
     }
-  }
-  else if (answer === QuestionChoice.Never) {
+    else if (answer === QuestionChoice.Never) {
     // if player answer no, subtract score from each person by 2
-    for (let i = 0; i < relatedPersons.length; i++) {
-      const character = relatedPersons[i]
       game.updateScore(character, -2)
     }
   }
-  else {
+
+  if (answer === QuestionChoice.Never) {
     // if player answer not know, add score to anonymous by 1
     game.updateScore('empty', 1)
   }
+
   game.nextQuestion()
   // quiz is end go to the next route
   if (game.finish)
