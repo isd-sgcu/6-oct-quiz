@@ -1,17 +1,13 @@
 <script setup lang="ts">
-const icon1OnClick = () => {
+const facebook = () => {
 
 }
-const icon2OnClick = () => {
+const instagram = () => {
 
 }
-const icon3OnClick = () => {
+const twitter = () => {
 
 }
-
-const shareIcon1Src = 'https://thumbs.gfycat.com/EmptyPleasedHorseshoecrab-small.gif'
-const shareIcon2Src = 'https://c.tenor.com/0Mg3R5jZUnQAAAAd/thanos-dance.gif'
-const shareIcon3Src = 'https://thumbs.gfycat.com/BelatedGentleHusky-size_restricted.gif'
 </script>
 
 <template>
@@ -19,12 +15,14 @@ const shareIcon3Src = 'https://thumbs.gfycat.com/BelatedGentleHusky-size_restric
     <ParagraphText class="text-lg font-semibold lg:(text-2xl)">
       แชร์:
     </ParagraphText>
-    <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
-    <RoundedIcon :img-src="shareIcon2Src" :img-alt="'cat 2'" @click="icon2OnClick" />
-    <RoundedIcon :img-src="shareIcon3Src" :img-alt="'cat 3'" @click="icon3OnClick" />
+    <grommet-icons:facebook class="result-icon" @click="facebook" />
+    <grommet-icons:instagram class="result-icon" @click="instagram" />
+    <grommet-icons:twitter class="result-icon" @click="twitter" />
   </div>
 </template>
 
 <style>
-
+.result-icon {
+  @apply rounded-5px w-4 h-4 object-center overflow-hidden cursor-pointer lg:(h-7 w-7);
+}
 </style>
