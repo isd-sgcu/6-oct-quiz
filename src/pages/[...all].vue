@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { replay } from '~/utils'
+import { replay, setMetadata } from '~/utils'
+setMetadata({})
 replay()
 </script>
 
