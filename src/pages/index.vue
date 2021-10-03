@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import appDescription from '~/assets/description'
+import { setMetadata } from '~/utils'
+setMetadata({
+  description: appDescription,
+})
+</script>
+
 <template>
   <div class="flex justify-center items-center h-full flex-col">
     <div class="z-10 m-10 flex items-center flex-wrap">
