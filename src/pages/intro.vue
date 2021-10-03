@@ -49,15 +49,18 @@ const info = [
 
 const presentNum = ref<number>(-1)
 const isHide = ref<boolean>(false)
-let elHeight: number[] = []
+let elHeight: number[][] = []
+
+let tresholdOffset = 0
 
 onMounted(() => {
+  tresholdOffset = window.innerHeight / 2
   const elSz = info.length
   for (let i = 0; i < elSz; i++) {
     const el = document.getElementById(`el-${i}`)
 
     if (el)
-      elHeight.push(el.offsetTop)
+      elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
   }
   window.onscroll = () => {
     if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
@@ -67,19 +70,23 @@ onMounted(() => {
       isHide.value = false
 
     for (let i = elSz - 1; i >= 0; i--) {
-      if (elHeight[i] - 200 <= window.scrollY) {
+      if (elHeight[i][0] <= window.scrollY && window.scrollY <= elHeight[i][1]) {
         presentNum.value = Math.max(0, i)
         break
+      }
+      else {
+        presentNum.value = -1
       }
     }
   }
 
   window.onresize = () => {
     elHeight = []
+    tresholdOffset = window.innerHeight / 2
     for (let i = 0; i < elSz; i++) {
       const el = document.getElementById(`el-${i}`)
       if (el)
-        elHeight.push(el.offsetTop)
+        elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
     }
   }
 
