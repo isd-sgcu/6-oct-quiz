@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { replay, setMetadata } from '~/utils'
-setMetadata({})
+
+setMetadata({
+  title: 'คุณคือ วิชิตชัย อมรกุล',
+  image: 'https://i.kym-cdn.com/entries/icons/original/000/034/915/vibingcatttt.gif',
+})
+
 replay()
 </script>
 

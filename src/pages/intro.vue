@@ -25,9 +25,16 @@
 
 <script setup lang="ts">
 import { useGameStore } from '~/stores/game'
+import appDescription from '~/assets/description'
+import { setMetadata } from '~/utils'
 
 const game = useGameStore()
 const router = useRouter()
+
+setMetadata({
+  title: 'คำอธิบาย',
+  description: appDescription,
+})
 
 const info = [
 
