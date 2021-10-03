@@ -24,7 +24,10 @@ const router = useRouter()
 
 // Speciftic the order of a question and set currentQuestion
 const qNumber = computed(() => game.currentIndex + 1)
-const currentQuestion = computed(() => game.questionList[game.currentIndex])
+const currentQuestion = computed(() => {
+  const question = game.questionList
+  return question ? question[game.currentIndex] : undefined
+})
 
 /**
  * @callback Calculate new score according to a player's answer and set the next question
@@ -32,11 +35,11 @@ const currentQuestion = computed(() => game.questionList[game.currentIndex])
  * @var answer get from custom event of QuestionForm component
  */
 const updateQuestion = (answer: QuestionChoice) => {
-  if (game.finish) return
+  if (game.finish || !currentQuestion.value) return
 
   // get a set of characters that related to the question
-  const relatedPeople = currentQuestion.value.relatedPersons
-  for (let i = 0; i < currentQuestion.value.relatedPersons.length; i++) {
+  const relatedPeople = currentQuestion.value.relatedPeople
+  for (let i = 0; i < relatedPeople.length; i++) {
     const character = relatedPeople[i]
     if (answer === QuestionChoice.TotallyYes) {
     // if player answer yes, add score ty each person by 2
