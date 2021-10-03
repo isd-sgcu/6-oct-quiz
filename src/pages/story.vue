@@ -4,7 +4,7 @@
     <transition name="slide-fade" mode="out-in">
       <QuestionForm
         :key="qNumber"
-        :question-text="currentQuestion.text"
+        :question-text="currentQuestion ? currentQuestion.text : ''"
         @update-question="updateQuestion"
       />
     </transition>
@@ -52,7 +52,7 @@ const updateQuestion = (answer: QuestionChoice) => {
   }
   else {
     // if player answer not know, add score to anonymous by 1
-    game.updateScore('ตัวคุณเอง', 1)
+    game.updateScore('empty', 1)
   }
   game.nextQuestion()
   // quiz is end go to the next route
