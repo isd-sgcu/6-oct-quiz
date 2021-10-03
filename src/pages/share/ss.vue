@@ -17,5 +17,5 @@ replay()
 
 <route lang="yaml">
 meta:
-  layout: invite
+  layout: share
 </route>
