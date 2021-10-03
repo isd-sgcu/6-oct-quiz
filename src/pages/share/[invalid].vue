@@ -10,5 +10,5 @@ replay()
 
 <route lang="yaml">
 meta:
-  layout: share
+  layout: empty
 </route>
