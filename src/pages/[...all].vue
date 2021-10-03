@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { replay } from '~/utils'
+replay()
 </script>
 
 <template>
-  <div>
-    <h1>Not found 🙄</h1>
-  </div>
+  <div></div>
 </template>
 
 <route lang="yaml">
 meta:
-  layout: 404
+  layout: empty
 </route>
