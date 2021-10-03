@@ -2,6 +2,8 @@ import { ViteSSGContext } from 'vite-ssg'
 
 export type UserModule = (ctx: ViteSSGContext) => void
 
+export type CharacterKeyOption = 'ss' | 'al' | 'sb' | 'wa' | 'wd' | 'pw' | 'kl' | 'bp' | 'empty'
+
 export enum QuestionChoice {
   TotallyYes = 2,
   NotKnow = 1,
@@ -10,5 +12,5 @@ export enum QuestionChoice {
 
 export type QuestionInfo = {
   text: string
-  relatedPersons: string[]
+  relatedPersons: CharacterKeyOption[]
 }

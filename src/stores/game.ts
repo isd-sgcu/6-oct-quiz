@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { QuestionInfo } from '~/types'
+import { QuestionInfo, CharacterKeyOption } from '~/types'
 import QuestionStore from '~/logic/questionStore'
 
 export const useGameStore = defineStore('game', () => {
@@ -13,26 +13,26 @@ export const useGameStore = defineStore('game', () => {
   const questionList = ref<Array<QuestionInfo>>([])
   /**
    * store the score of each of the characters
-   * @key character's name @value score
+   * @key character's key @value score
    */
-  const scoreMap = ref<Map<string, number>>(new Map<string, number>())
+  const scoreMap = ref<Map<CharacterKeyOption, number>>(new Map<CharacterKeyOption, number>())
   // check if game is over
   const finish = ref<boolean>(false)
 
-  const resultCharacter = ref<string>()
+  const resultCharacter = ref<CharacterKeyOption>()
 
   /* Setters */
   const setCurrentIndex = (index: number) => {
     currentIndex.value = index
   }
 
-  const setScore = (name: string, score: number) => {
+  const setScore = (name: CharacterKeyOption, score: number) => {
     if (scoreMap.value.has(name))
       scoreMap.value.set(name, score)
   }
 
   /* Methods */
-  const updateScore = (name: string, add: number) => {
+  const updateScore = (name: CharacterKeyOption, add: number) => {
     if (scoreMap.value.has(name)) {
       const oldscore = scoreMap.value.get(name)
       scoreMap.value.set(name, oldscore! + add)
@@ -67,25 +67,37 @@ export const useGameStore = defineStore('game', () => {
     }
   }
 
+  /**
+   * Find the character that has the most score in @var scoreMap
+   * give result only after game finishes
+   * @returns key of the character
+   */
   const determineCharacter = () => {
     if (!finish.value)
-      throw new Error('Call result character before game end')
+      return undefined
     if (resultCharacter.value)
       return resultCharacter.value
 
+    /**
+     * used for sorting @type [number, CharacterKeyOption]
+     */
     const processArr: any = [[]]
-    const candidates = new Array<string>()
+    // set of characters that have the same score
+    const candidates = new Array<CharacterKeyOption>()
 
     for (const kv of scoreMap.value)
       processArr.push([kv[1], kv[0]])
 
     processArr.sort()
 
+    // get index of the maxScore
     let i = processArr.length - 1
     const maxScore = processArr[i][0]
 
-    if (maxScore <= 0) return 'ตัวคุณเอง'
+    // maxScore less than or equal zero mean that player doesn't fit to any characters.
+    if (maxScore <= 0) return 'empty'
 
+    // find all characters that has score equal to maxScore
     while (processArr[i][0] === maxScore && i > 0) {
       candidates.push(processArr[i][1])
       i--

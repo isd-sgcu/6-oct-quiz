@@ -21,33 +21,41 @@ import { useGameStore } from '~/stores/game'
 
 const game = useGameStore()
 const router = useRouter()
-game.initNewQuiz()
 
-// Speciftic the order of a question
+// Speciftic the order of a question and set currentQuestion
 const qNumber = computed(() => game.currentIndex + 1)
 const currentQuestion = computed(() => game.questionList[game.currentIndex])
 
+/**
+ * @callback Calculate new score according to a player's answer and set the next question
+ * if all of the questions are answer set route to /pre-result
+ * @var answer get from custom event of QuestionForm component
+ */
 const updateQuestion = (answer: QuestionChoice) => {
   if (game.finish) return
 
+  // get a set of characters that related to the question
   const relatedPersons = currentQuestion.value.relatedPersons
   if (answer === QuestionChoice.TotallyYes) {
+    // if player answer yes, add score ty each person by 2
     for (let i = 0; i < relatedPersons.length; i++) {
       const character = relatedPersons[i]
       game.updateScore(character, 2)
     }
   }
   else if (answer === QuestionChoice.Never) {
+    // if player answer no, subtract score from each person by 2
     for (let i = 0; i < relatedPersons.length; i++) {
       const character = relatedPersons[i]
       game.updateScore(character, -2)
     }
   }
   else {
+    // if player answer not know, add score to anonymous by 1
     game.updateScore('ตัวคุณเอง', 1)
   }
   game.nextQuestion()
-
+  // quiz is end go to the next route
   if (game.finish)
     router.push('pre-result')
 }

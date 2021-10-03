@@ -15,9 +15,11 @@ const game = useGameStore()
 const router = useRouter()
 
 setTimeout(() => {
-  router.push('result')
+  // second call return a result, don't calculate
+  const characterkey = game.determineCharacter()
+  router.push(`result/${characterkey}`)
 }, 1500)
-game.determineCharacter()
+game.determineCharacter() // first call calcalute a result
 
 </script>
 
