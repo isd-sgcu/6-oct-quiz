@@ -14,3 +14,9 @@ const gameStore = useGameStore()
 
 const qNumber = computed(() => gameStore.currentIndex + 1)
 </script>
+
+<style>
+.sky {
+  transition: 0.5s background-image ease;
+}
+</style>

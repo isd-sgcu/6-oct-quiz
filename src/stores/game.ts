@@ -6,7 +6,7 @@ import { isPersistedState } from '~/utils'
 interface GameState {
   index: number
   questions: Array<QuestionInfo>
-  scores: Map<CharacterKeyOption, number>
+  scores: [CharacterKeyOption, number][]
   finish: boolean
   result: CharacterKeyOption | undefined
 }
@@ -32,11 +32,11 @@ export const useGameStore = defineStore('game', () => {
 
   /* Storage Manipulation */
   const saveToStorage = () => {
-    if (questionList) {
+    if (questionList.value && scoreMap.value) {
       const state = {
         index: currentIndex.value,
         questions: questionList.value,
-        scores: scoreMap.value,
+        scores: Array.from(scoreMap.value),
         finish: finish.value,
         result: resultCharacter.value,
       }
@@ -45,17 +45,14 @@ export const useGameStore = defineStore('game', () => {
   }
 
   const getFromStorage = () => {
-    if (questionList) {
-      const sessionStore = isPersistedState('gameState')
-
-      if (sessionStore) {
-        const state = sessionStore as GameState
-        currentIndex.value = state.index
-        questionList.value = state.questions
-        scoreMap.value = state.scores
-        finish.value = state.finish
-        resultCharacter.value = state.result
-      }
+    const sessionStore = isPersistedState('gameState')
+    if (sessionStore) {
+      const state = sessionStore as GameState
+      currentIndex.value = state.index
+      questionList.value = state.questions
+      scoreMap.value = new Map(Array.from(state.scores))
+      finish.value = state.finish
+      resultCharacter.value = state.result
     }
   }
 
@@ -90,7 +87,9 @@ export const useGameStore = defineStore('game', () => {
   const initNewQuiz = () => {
     reset()
     questionList.value = QuestionStore.getRandomQuestions(MAX_QUESTION_COUNT)
-    if (!scoreMap.value) scoreMap.value = new Map<CharacterKeyOption, number>()
+    if (!scoreMap.value)
+      scoreMap.value = new Map<CharacterKeyOption, number>()
+
     QuestionStore.characterName.forEach((name) => {
       scoreMap.value!.set(name, 0)
     })
