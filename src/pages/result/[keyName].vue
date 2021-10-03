@@ -36,7 +36,7 @@ const computedName = computed(() => {
         :result-detail="detail"
         class="pt-60 lg:(pt-0)"
       />
-      <ResultIconGroup class="mt-8" />
+      <ResultIconGroup :character-key="props.keyName" class="mt-8" />
       <ResultButtonGroup class="mt-10" />
     </div>
   </div>

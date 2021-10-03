@@ -1,6 +1,16 @@
 <script setup lang="ts">
-const facebook = () => {
+import { CharacterKeyOption } from '~/types'
 
+const props = defineProps<{
+  characterKey: CharacterKeyOption
+}>()
+
+const text = 'This is the caption of the post.'
+const base = 'https://oct-quiz--pr21-metadata-ss2pvu1d.web.app'
+const shareLink = `${base}/share/${props.characterKey}`
+
+const facebook = () => {
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareLink}&quote=${text.replaceAll(' ', '+')}`, '_blank')
 }
 const instagram = () => {
 
