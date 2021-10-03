@@ -13,7 +13,8 @@ export enum QuestionChoice {
 export type QuestionInfo = {
   text: string
   relatedPersons: CharacterKeyOption[]
-  
+}
+
 export type Character = {
   fullName: string
   detail: string
