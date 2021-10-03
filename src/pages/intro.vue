@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import appDescription from '~/assets/description'
-import { setMetadata } from '~/utils'
-setMetadata({
-  description: appDescription,
-})
-</script>
-
 <template>
   <div class="flex justify-center pt-20 pb-20 overflow-hidden relative">
     <div class="z-10 flex flex-col w-full self-center <md:px-5">
@@ -32,6 +24,13 @@ setMetadata({
 </template>
 
 <script setup lang="ts">
+import appDescription from '~/assets/description'
+import { setMetadata } from '~/utils'
+
+setMetadata({
+  description: appDescription,
+})
+
 const info = [
   {
     title: 'ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙',
