@@ -1,3 +1,6 @@
+import characters from './assets/characters'
+import { CharacterKeyOption } from './types'
+
 export const goToIndex = () => {
   const router = useRouter()
   router.replace('/')
@@ -5,7 +8,7 @@ export const goToIndex = () => {
 
 export const getShareKey = () => {
   const route = useRoute()
-  return route.path.split('/')[2]
+  return route.path.split('/')[2] as CharacterKeyOption
 }
 
 export const isPersistedState = (stateName: string): any => {
@@ -39,5 +42,13 @@ export const setMetadata = ({
       { property: 'twitter:description', content: description },
       { property: 'twitter:image', content: image },
     ],
+  })
+}
+
+export const setShareMetadata = (key: CharacterKeyOption) => {
+  const { fullName, image } = characters[key]
+  setMetadata({
+    title: `คุณคือ ${fullName}`,
+    image,
   })
 }
