@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CharacterKeyOption } from '~/types'
 import { setResult } from '~/utils'
-const characterKey: CharacterKeyOption = 'al'
+const characterKey: CharacterKeyOption = 'anek'
 const { fullName, detail, url, image } = setResult(characterKey)
 </script>
 
