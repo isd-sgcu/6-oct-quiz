@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { CharacterKeyOption } from '~/types'
 import { setResult } from '~/utils'
-const { fullName, detail, url, image } = setResult('empty')
+const characterKey: CharacterKeyOption = 'empty'
+const { fullName, detail, url, image } = setResult(characterKey)
 </script>
 
 <template>
@@ -9,5 +11,6 @@ const { fullName, detail, url, image } = setResult('empty')
     :full-name="fullName"
     :detail="detail"
     :url="url"
+    :character-key="characterKey"
   />
 </template>

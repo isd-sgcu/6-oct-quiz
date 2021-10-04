@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CharacterKeyOption } from '~/types'
+
 const { width } = useWindowSize()
 
 const props = defineProps<{
@@ -6,6 +8,7 @@ const props = defineProps<{
   detail: string
   url: string
   image: string
+  characterKey: CharacterKeyOption
 }>()
 const computedName = computed(() => {
   return width.value < 1024 ? props.fullName.replace(' ', '\n') : props.fullName
@@ -23,7 +26,7 @@ const computedName = computed(() => {
         :result-detail="props.detail"
         class="pt-60 lg:(pt-0)"
       />
-      <ResultIconGroup :character-key="props.keyName" class="mt-8" />
+      <ResultIconGroup :character-key="props.characterKey" class="mt-8" />
       <ResultButtonGroup :url="url" class="mt-10" />
     </div>
   </div>
