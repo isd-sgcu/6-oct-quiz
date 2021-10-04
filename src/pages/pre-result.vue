@@ -30,7 +30,7 @@ catch (error) {
 <style>
 .temple {
   @apply w-full h-[400px] md:h-[500px];
-  background: url('../assets/temple.svg') repeat-x right bottom;
+  background: url('../assets/building.svg') repeat-x right bottom;
 }
 </style>
 <route lang="yaml">

@@ -69,10 +69,10 @@ const updateQuestion = (answer: QuestionChoice) => {
 }
 </script>
 
-<style>
+<style scoped>
 .building {
   @apply h-[274px] md:h-[300px] w-full;
-  background: url('../assets/city_brown.svg') repeat-x center;
+  background: url('../assets/building.svg') repeat-x center;
 }
 
 .question-part {
