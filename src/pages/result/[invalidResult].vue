@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { setShareMetadata, goToIndex } from '~/utils'
-setShareMetadata('sb')
+import { goToIndex, setMetadata } from '~/utils'
+setMetadata({})
 goToIndex()
 </script>
 

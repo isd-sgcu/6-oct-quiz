@@ -1,10 +1,8 @@
 <script setup lang="ts">
-// const props = defineProps<{
-//   imgSrc: string
-//   imgAlt: string
-// }>()
-
-const dumbImg = 'https://c.tenor.com/mljLgH4Csu0AAAAd/cat-cat-vibing.gif'
+const props = defineProps<{
+  image: string
+  alt: string
+}>()
 </script>
 
 <template>
@@ -13,7 +11,7 @@ const dumbImg = 'https://c.tenor.com/mljLgH4Csu0AAAAd/cat-cat-vibing.gif'
       <div
         class="ellipses-common rounded-full z-2 overflow-hidden"
       >
-        <img class="h-full object-center object-cover" :src="dumbImg" :alt="''" />
+        <img class="h-full object-center object-cover" :src="props.image" :alt="props.alt" />
       </div>
       <img
         class="ellipses-common transform -translate-x-1.5 translate-y-1.5 lg:(-translate-x-8 translate-y-10)"

@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { goToIndex, setMetadata } from '~/utils'
-
-setMetadata({
-  title: 'คุณคือ บรรยง พงศ์พาณิชย์',
-  image: 'https://i.kym-cdn.com/entries/icons/original/000/034/915/vibingcatttt.gif',
-})
-
+import { setShareMetadata, goToIndex } from '~/utils'
+setShareMetadata('bp')
 goToIndex()
 </script>
 
