@@ -1,30 +1,42 @@
 <script setup lang="ts">
-const icon1OnClick = () => {
+import { CharacterKeyOption } from '~/types'
 
+const props = defineProps<{
+  characterKey: CharacterKeyOption
+}>()
+
+const text = 'This is the caption of the post.'
+const base = 'https://oct-quiz--pr21-metadata-ss2pvu1d.web.app'
+const shareLink = `${base}/share/${props.characterKey}`
+
+const facebook = () => {
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareLink}&quote=${text.replaceAll(' ', '+')}`, '_blank')
 }
-const icon2OnClick = () => {
+// const instagram = () => {
 
+// }
+const line = () => {
+  window.open(`https://social-plugins.line.me/lineit/share?url=${shareLink}`, '_blank')
 }
-const icon3OnClick = () => {
-
+const twitter = () => {
+  window.open(`http://twitter.com/share?text=${text.replaceAll(' ', '+')}&url=${shareLink}`, '_blank')
 }
-
-const shareIcon1Src = 'https://thumbs.gfycat.com/EmptyPleasedHorseshoecrab-small.gif'
-const shareIcon2Src = 'https://c.tenor.com/0Mg3R5jZUnQAAAAd/thanos-dance.gif'
-const shareIcon3Src = 'https://thumbs.gfycat.com/BelatedGentleHusky-size_restricted.gif'
 </script>
 
 <template>
   <div class="space-x-4 flex items-center">
     <ParagraphText class="text-lg font-semibold lg:(text-2xl)">
-      แชร์:
+      แชร์ผลลัพธ์:
     </ParagraphText>
-    <RoundedIcon :img-src="shareIcon1Src" :img-alt="'cat 1'" @click="icon1OnClick" />
-    <RoundedIcon :img-src="shareIcon2Src" :img-alt="'cat 2'" @click="icon2OnClick" />
-    <RoundedIcon :img-src="shareIcon3Src" :img-alt="'cat 3'" @click="icon3OnClick" />
+    <grommet-icons:facebook class="result-icon" color="#4267B2" @click="facebook" />
+    <!-- <grommet-icons:instagram class="result-icon" @click="instagram" /> -->
+    <bi:line class="result-icon" color="#00B900" @click="line" />
+    <grommet-icons:twitter class="result-icon" color="#1DA1F2" @click="twitter" />
   </div>
 </template>
 
 <style>
-
+.result-icon {
+  @apply rounded-5px w-4 h-4 object-center overflow-hidden cursor-pointer lg:(h-7 w-7);
+}
 </style>
