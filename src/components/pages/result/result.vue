@@ -9,6 +9,8 @@ const props = defineProps<{
   url: string
   image: string
   characterKey: CharacterKeyOption
+  credit: string
+  creditLink: string
 }>()
 const computedName = computed(() => {
   return width.value < 1024 ? props.fullName.replace(' ', '\n') : props.fullName
@@ -24,6 +26,8 @@ const computedName = computed(() => {
       <ResultTextGroup
         :result-full-name="computedName"
         :result-detail="props.detail"
+        :credit="props.credit"
+        :credit-link="props.creditLink"
         class="pt-60 lg:(pt-0)"
       />
       <ResultIconGroup :character-key="props.characterKey" class="mt-8" />
