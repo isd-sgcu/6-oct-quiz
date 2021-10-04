@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { setShareMetadata, goToIndex } from '~/utils'
-setShareMetadata('pw')
+setShareMetadata('wipha')
 goToIndex()
 </script>
 

@@ -4,87 +4,87 @@ class QuestionStore {
   static questions: QuestionInfo[] = [
     {
       text: 'คุณเป็นนิสิตที่พร้อมรับกับการเปลี่ยนแปลงใหม่ ๆ อยู่เสมอ',
-      relatedPeople: ['sb', 'pw', 'kl'],
+      relatedPeople: ['surachat', 'phumtham', 'kriangkamol'],
     },
     {
       text: 'คุณชอบทํากิจกรรมต่าง ๆ มากกว่าการเรียน และคุณไม่ค่อยสนใจผลการเรียนตัวเองเท่าไร',
-      relatedPeople: ['sb'],
+      relatedPeople: ['surachat'],
     },
     {
       text: 'คุณเป็นคนเห็นอกเห็นใจผู้อื่น และมักนึกถึงผู้อื่นก่อนตัวเอง',
-      relatedPeople: ['wa'],
+      relatedPeople: ['wichitchai'],
     },
     {
       text: 'คุณเหนื่อยและหมดกําลังใจง่าย',
-      relatedPeople: ['al', 'wd'],
+      relatedPeople: ['anek', 'wipha'],
     },
     {
       text: 'คุณเป็นคนที่เมื่อได้เห็นคนอื่นทุกข์ใจจะทําให้คุณทุกข์ใจตาม',
-      relatedPeople: ['sb', 'kl', 'wa'],
+      relatedPeople: ['surachat', 'kriangkamol', 'wichitchai'],
     },
     {
       text: 'คุณกล้าจะยอมรับตัวตนของตัวเอง',
-      relatedPeople: ['bp', 'wd'],
+      relatedPeople: ['banyong', 'wipha'],
     },
     {
       text: 'คุณไม่ค่อยสนใจการเมืองเท่าไร',
-      relatedPeople: ['bp'],
+      relatedPeople: ['banyong'],
     },
     {
       text: 'คุณสับสนกับตัวเองบ่อยครั้ง ไม่แน่ใจในความคิดตัวเองอยู่เสมอ',
-      relatedPeople: ['al'],
+      relatedPeople: ['anek'],
     },
     {
       text: 'คุณชื่นชอบความเสี่ยง และยินดีรับความท้าทายใหม่ ๆ',
-      relatedPeople: ['sb', 'ss'],
+      relatedPeople: ['surachat', 'sutham'],
     },
     {
       text: 'คุณคิดว่าการเป็นผู้นําเป็นอะไรที่รับมือได้ง่าย',
-      relatedPeople: ['ss', 'kl'],
+      relatedPeople: ['sutham', 'kriangkamol'],
     },
     {
       text: 'คุณเป็นคนที่สามารถดูแลความรู้สึกตัวเองได้',
-      relatedPeople: ['wd'],
+      relatedPeople: ['wipha'],
     },
     {
       text: 'คุณยอมรับประเพณีเก่า ค่านิยม หรือธรรมเนียมที่ยึดถือกันมาได้ง่าย และไม่ค่อยตั้งคําถาม',
-      relatedPeople: ['bp'],
+      relatedPeople: ['banyong'],
     },
     {
       text: 'คุณคิดว่าปัญหาเป็นเรื่องน่าสนใจ และสนุกไปกับเรื่องยากลําบากต่าง ๆ',
-      relatedPeople: ['kl', 'ss', 'sb', 'wa', 'pw'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham'],
     },
     {
       text: 'คุณใช้ความรักนําทางชีวิต ไม่ว่าจะเป็นความรักต่ออะไรก็ตาม',
-      relatedPeople: ['wa'],
+      relatedPeople: ['wichitchai'],
     },
     {
       text: 'คุณเป็นคนเข้มแข็ง และสามารถส่งต่อความเข้มแข็งให้ผู้อื่นได้',
-      relatedPeople: ['ss', 'kl', 'wd'],
+      relatedPeople: ['sutham', 'kriangkamol', 'wipha'],
     },
     {
       text: 'คุณเชื่อมั่นในตัวเอง เชื่อมั่นในความสามารถ และยินดีที่จะลองเรียนรู้อะไรใหม่ ๆ',
-      relatedPeople: ['kl', 'ss'],
+      relatedPeople: ['kriangkamol', 'sutham'],
     },
     {
       text: 'คุณยึดถือความถูกต้องเป็นหลัก',
-      relatedPeople: ['kl', 'ss', 'sb', 'wa'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai'],
     },
     {
       text: 'คุณเป็นคนกล้าหาญ และไม่ค่อยเกรงกลัวอะไร',
-      relatedPeople: ['kl', 'ss', 'sb', 'wa', 'pw'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham'],
     },
     {
       text: 'คุณเลือกที่จะเห็นแก่ตัว ถ้ามันทําให้คุณรู้สึกดี',
-      relatedPeople: ['al', 'bp'],
+      relatedPeople: ['anek', 'banyong'],
     },
     {
       text: 'คุณสามารถอดทนทําบางอย่างได้เป็นเวลานาน แม้ว่าจะไม่ค่อยมีคนเห็นค่าสิ่งที่คุณทํา และคุณยืนหยัดที่จะทําต่อไป',
-      relatedPeople: ['wd', 'sb'],
+      relatedPeople: ['wipha', 'surachat'],
     },
   ]
 
-  static characterName: CharacterKeyOption[] = ['ss', 'al', 'sb', 'wa', 'wd', 'pw', 'kl', 'bp', 'empty']
+  static characterName: CharacterKeyOption[] = ['sutham', 'anek', 'surachat', 'wichitchai', 'wipha', 'phumtham', 'kriangkamol', 'banyong', 'empty']
 
   /**
    * some part of the code get from https://javascript.info/task/shuffle
