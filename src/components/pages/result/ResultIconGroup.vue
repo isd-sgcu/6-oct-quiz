@@ -12,8 +12,11 @@ const shareLink = `${base}/share/${props.characterKey}`
 const facebook = () => {
   window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareLink}&quote=${text.replaceAll(' ', '+')}`, '_blank')
 }
-const instagram = () => {
+// const instagram = () => {
 
+// }
+const line = () => {
+  window.open(`https://social-plugins.line.me/lineit/share?url=${shareLink}`, '_blank')
 }
 const twitter = () => {
   window.open(`http://twitter.com/share?text=${text.replaceAll(' ', '+')}&url=${shareLink}`)
@@ -26,7 +29,8 @@ const twitter = () => {
       แชร์:
     </ParagraphText>
     <grommet-icons:facebook class="result-icon" @click="facebook" />
-    <grommet-icons:instagram class="result-icon" @click="instagram" />
+    <!-- <grommet-icons:instagram class="result-icon" @click="instagram" /> -->
+    <bi:line class="result-icon" @click="line" />
     <grommet-icons:twitter class="result-icon" @click="twitter" />
   </div>
 </template>
