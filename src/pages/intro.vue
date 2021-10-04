@@ -103,7 +103,7 @@ onMounted(() => {
 
       isHide.value = true
       timeOutNo = window.setTimeout(() => {
-        if ((window.scrollY + window.pageYOffset) <= document.documentElement.scrollHeight)
+        if ((window.scrollY + document.documentElement.clientHeight) < document.documentElement.scrollHeight - 80)
           isHide.value = false
         timeOutNo = -1
       }, 1500)
