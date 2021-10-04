@@ -6,9 +6,6 @@ const props = defineProps<{
 }>()
 
 const replay = () => {
-  /*
-  reset state here if any
-  */
   router.push('/story')
 }
 

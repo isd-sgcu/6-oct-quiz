@@ -1,13 +1,13 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { QuestionInfo, CharacterKeyOption } from '~/types'
+import { QuestionInfo, CharacterKeyOption, GameState } from '~/types'
 import QuestionStore from '~/logic/questionStore'
 import { isPersistedState } from '~/utils'
 
-interface GameState {
+interface State {
   index: number
   questions: Array<QuestionInfo>
   scores: [CharacterKeyOption, number][]
-  finish: boolean
+  gameState: GameState
   result: CharacterKeyOption | undefined
 }
 
@@ -19,45 +19,44 @@ export const useGameStore = defineStore('game', () => {
    * a randomized list of possible questions
    * @type {{text: string, relatedPerson: string[]}}
    */
-  const questionList = ref<Array<QuestionInfo>>()
+  const questionList = ref<Array<QuestionInfo>>([])
   /**
    * store the score of each of the characters
    * @key character's key @value score
    */
   const scoreMap = ref<Map<CharacterKeyOption, number>>()
-  // check if game is over
-  const finish = ref<boolean>(false)
+  const gameState = ref<GameState>('notPlay')
 
   const resultCharacter = ref<CharacterKeyOption>()
 
   /* Storage Manipulation */
   const saveToStorage = () => {
-    if (questionList.value && scoreMap.value) {
+    if (gameState.value === 'Playing' || gameState.value === 'End') {
       const state = {
         index: currentIndex.value,
         questions: questionList.value,
-        scores: Array.from(scoreMap.value),
-        finish: finish.value,
+        scores: Array.from(scoreMap.value!),
+        gameState: gameState.value,
         result: resultCharacter.value,
       }
-      sessionStorage.setItem('gameState', JSON.stringify(state))
+      sessionStorage.setItem('state', JSON.stringify(state))
     }
   }
 
   const getFromStorage = () => {
-    const sessionStore = isPersistedState('gameState')
+    const sessionStore = isPersistedState('state')
     if (sessionStore) {
-      const state = sessionStore as GameState
+      const state = sessionStore as State
       currentIndex.value = state.index
       questionList.value = state.questions
       scoreMap.value = new Map(Array.from(state.scores))
-      finish.value = state.finish
+      gameState.value = state.gameState
       resultCharacter.value = state.result
     }
   }
 
   const clearStorage = () => {
-    sessionStorage.removeItem('gameState')
+    sessionStorage.removeItem('state')
   }
 
   /* Setters */
@@ -70,6 +69,11 @@ export const useGameStore = defineStore('game', () => {
       scoreMap.value.set(name, score)
   }
 
+  const setResultCharacter = (key: CharacterKeyOption) => {
+    resultCharacter.value = key
+    saveToStorage()
+  }
+
   /* Methods */
   const updateScore = (name: CharacterKeyOption, add: number) => {
     if (scoreMap.value && scoreMap.value.has(name)) {
@@ -79,32 +83,37 @@ export const useGameStore = defineStore('game', () => {
   }
 
   const reset = () => {
-    setCurrentIndex(0)
-    finish.value = false
-    resultCharacter.value = undefined
+    gameState.value = 'notPlay'
+    questionList.value = []
+    scoreMap.value?.clear()
+    clearStorage()
   }
 
   const initNewQuiz = () => {
-    reset()
-    questionList.value = QuestionStore.getRandomQuestions(MAX_QUESTION_COUNT)
-    if (!scoreMap.value)
-      scoreMap.value = new Map<CharacterKeyOption, number>()
+    if (gameState.value === 'notPlay') {
+      setCurrentIndex(0)
+      resultCharacter.value = undefined
+      questionList.value = QuestionStore.getRandomQuestions(MAX_QUESTION_COUNT)
 
-    QuestionStore.characterName.forEach((name) => {
-      scoreMap.value!.set(name, 0)
-    })
-    saveToStorage()
+      scoreMap.value = new Map<CharacterKeyOption, number>()
+      QuestionStore.characterName.forEach((name) => {
+        scoreMap.value!.set(name, 0)
+      })
+      gameState.value = 'Playing'
+      saveToStorage()
+    }
   }
 
   /**
    * Add the index of current question
-   * if @var finish is false and @var currentIndex + 1 < length then go
   **/
   const nextQuestion = () => {
-    if (!finish.value && questionList.value) {
+    if (!questionList.value.length)
+      throw new TypeError('question list is not initialized yet')
+    if (gameState.value === 'Playing') {
       if (currentIndex.value + 1 === questionList.value.length) {
-        console.log('game finish')
-        finish.value = true
+        console.log('game end')
+        gameState.value = 'End'
       }
       else {
         currentIndex.value += 1
@@ -115,17 +124,20 @@ export const useGameStore = defineStore('game', () => {
 
   /**
    * Find the character that has the most score in @var scoreMap
-   * give result only after game finishes
+   * give result only after game gameStatees
    * @returns key of the character
    */
   const determineCharacter = () => {
-    if (!finish.value || !scoreMap.value)
-      return undefined
+    if (gameState.value !== 'End')
+      throw new Error('Cannot determine character when game isn\'t end')
+    if (!scoreMap.value)
+      throw new TypeError('ScoreMap is not initialized yet')
     if (resultCharacter.value)
-      return resultCharacter.value
+      return resultCharacter.value!
 
     /**
-     * used for sorting @type [number, CharacterKeyOption]
+     * used for sorting characters by score
+     * @type [number, CharacterKeyOption]
      */
     const processArr: [number, CharacterKeyOption][] = []
     for (const [key, score] of scoreMap.value)
@@ -139,14 +151,12 @@ export const useGameStore = defineStore('game', () => {
     const candidates = processArr.filter(([score, key]) => score === maxScore)
 
     // maxScore less than or equal zero mean that player doesn't fit to any characters.
-    if (maxScore <= 0) {
-      resultCharacter.value = 'empty'
-      saveToStorage()
-      return resultCharacter.value
-    }
+    if (maxScore <= 0)
+      setResultCharacter('empty')
+    else
+      setResultCharacter(candidates[Math.floor(Math.random() * candidates.length)][1])
 
-    saveToStorage()
-    return candidates[Math.floor(Math.random() * candidates.length)]
+    return resultCharacter.value!
   }
 
   getFromStorage() // call every time when the website's refreshed
@@ -154,11 +164,12 @@ export const useGameStore = defineStore('game', () => {
   return {
     currentIndex,
     questionList,
-    finish,
+    gameState,
     scoreMap,
     setCurrentIndex,
     setScore,
     updateScore,
+    reset,
     initNewQuiz,
     nextQuestion,
     determineCharacter,

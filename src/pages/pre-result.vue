@@ -3,7 +3,7 @@
     <HeaderText>คุณคือ...</HeaderText>
     <div class="absolute bottom-0 w-full overflow-hidden">
       <!--SVG IMAGE--->
-      <div class="building" />
+      <div class="temple" />
     </div>
   </div>
 </template>
@@ -13,18 +13,22 @@ import { useGameStore } from '~/stores/game'
 
 const game = useGameStore()
 const router = useRouter()
-
-setTimeout(() => {
-  // second call return a result, don't calculate
+try {
   const characterkey = game.determineCharacter()
-  router.push(`/result/${characterkey}`)
-}, 1500)
-game.determineCharacter() // first call calcalute a result
+  game.reset()
 
+  setTimeout(() => {
+    router.push(`/result/${characterkey}`)
+  }, 1500)
+}
+catch (error) {
+  console.log(error.message)
+  router.replace('/story')
+}
 </script>
 
 <style>
-.building {
+.temple {
   @apply w-full h-[400px] md:h-[500px];
   background: url('../assets/temple.svg') repeat-x right bottom;
 }
