@@ -25,7 +25,7 @@ setMetadata({
         </ParagraphText>
       </Button>
     </div>
-    <img class="absolute w-full bottom-0 left-0 white-fill " src="../assets/city.svg">
+    <img class="fixed w-full bottom-0 left-0 white-fill " src="../assets/city.svg">
   </div>
 </template>
 
