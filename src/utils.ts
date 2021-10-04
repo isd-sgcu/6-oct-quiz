@@ -52,3 +52,15 @@ export const setShareMetadata = (key: CharacterKeyOption) => {
     image,
   })
 }
+
+export const setResult = (key: CharacterKeyOption) => {
+  const { fullName, detail, url, image } = characters[key]
+
+  setMetadata({
+    title: `คุณคือ ${fullName}`,
+    description: detail,
+    image,
+  })
+
+  return { fullName, detail, image, url }
+}
