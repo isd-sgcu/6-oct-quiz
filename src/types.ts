@@ -22,4 +22,5 @@ export type Character = {
   detail: string
   url: string
   image: string
+  shareImage: string // og:image, twitter:image
 }

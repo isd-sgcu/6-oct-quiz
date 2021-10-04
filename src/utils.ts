@@ -19,7 +19,7 @@ export const isPersistedState = (stateName: string): any => {
 export const setMetadata = ({
   title = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
   description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ”',
-  image = '',
+  image = '', // for og:image and twitter:image
   url = 'https://www.google.com',
   siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
 }) => {
@@ -46,20 +46,20 @@ export const setMetadata = ({
 }
 
 export const setShareMetadata = (key: CharacterKeyOption) => {
-  const { fullName, image } = characters[key]
+  const { fullName, shareImage } = characters[key]
   setMetadata({
     title: `คุณคือ ${fullName}`,
-    image,
+    image: shareImage,
   })
 }
 
 export const setResult = (key: CharacterKeyOption) => {
-  const { fullName, detail, url, image } = characters[key]
+  const { fullName, detail, url, image, shareImage } = characters[key]
 
   setMetadata({
     title: `คุณคือ ${fullName}`,
     description: detail,
-    image,
+    image: shareImage,
   })
 
   return { fullName, detail, image, url }
