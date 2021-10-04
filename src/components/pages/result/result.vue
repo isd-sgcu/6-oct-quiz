@@ -5,7 +5,7 @@ const props = defineProps<{
   fullName: string
   detail: string
   url: string
-  // image: string
+  image: string
 }>()
 const computedName = computed(() => {
   return width.value < 1024 ? props.fullName.replace(' ', '\n') : props.fullName
@@ -16,7 +16,7 @@ const computedName = computed(() => {
   <div
     class="relative pt-20 lg:(flex pt-0 min-h-screen items-center justify-center w-4xl mx-auto gap-10) xl:(gap-15 w-5xl) 2xl:(gap-20 w-6xl)"
   >
-    <ResultPicture class="absolute r-result-picture" />
+    <ResultPicture :image="props.image" :alt="fullName" class="absolute r-result-picture" />
     <div class="r-result-layout">
       <ResultTextGroup
         :result-full-name="computedName"
