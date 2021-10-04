@@ -9,6 +9,8 @@ const characters: {
     url: '',
     image: '/characters/sutham.png',
     shareImage: '',
+    credit: 'สารคดีรำลึก 45 ปี 6 ตุลา “รุ่นพี่ เดือนตุลา 2516 - 2519”',
+    creditLink: 'https://www.youtube.com/watch?v=1iWOJoVKUTk',
   },
   anek: {
     fullName: 'อเนก เหล่าธรรมทัศน์',
@@ -16,6 +18,8 @@ const characters: {
     url: '',
     image: '/characters/anek.webp',
     shareImage: '',
+    credit: 'The101.world',
+    creditLink: 'https://www.the101.world/anek-laothamatas/',
   },
   surachat: {
     fullName: 'สุรชาติ บํารุงสุข',
@@ -23,6 +27,8 @@ const characters: {
     url: '',
     image: '/characters/surachat.png',
     shareImage: '',
+    credit: 'มติชน',
+    creditLink: 'https://www.matichon.co.th/prachachuen/interview/news_1082629',
   },
   wichitchai: {
     fullName: 'วิชิตชัย อมรกุล',
@@ -30,6 +36,8 @@ const characters: {
     url: '',
     image: '/characters/wichitchai.jpeg',
     shareImage: '',
+    credit: 'บันทึก 6 ตุลา (Documentation of Oct 6)',
+    creditLink: 'https://doct6.com/archives/8737',
   },
   wipha: {
     fullName: 'วิภา ดาวมณี',
@@ -37,6 +45,8 @@ const characters: {
     url: '',
     image: '/characters/wipha.jpeg',
     shareImage: '',
+    credit: 'ประชาไท',
+    creditLink: 'https://prachatai.com/journal/2014/10/55845',
   },
   phumtham: {
     fullName: 'ภูมิธรรม เวชยชัย',
@@ -44,6 +54,8 @@ const characters: {
     url: '',
     image: '/characters/phumtham.png',
     shareImage: '',
+    credit: 'พรรคเพื่อไทย',
+    creditLink: 'https://ptp.or.th/archives/8550',
   },
   kriangkamol: {
     fullName: 'เกรียงกมล เลาหไพโรจน์',
@@ -51,6 +63,8 @@ const characters: {
     url: '',
     image: '/characters/kriangkamol.jpeg',
     shareImage: '',
+    credit: 'เสวนา ‘หมดจิตหมดใจจะใฝ่ฝัน: ถึงทางตันขบวนการนักศึกษา?’',
+    creditLink: 'https://www.voicetv.co.th/read/49815',
   },
   banyong: {
     fullName: 'บรรยง พงศ์พาณิชย์',
@@ -58,6 +72,8 @@ const characters: {
     url: '',
     image: '/characters/banyong.jpeg',
     shareImage: '',
+    credit: 'มติชน',
+    creditLink: 'https://www.matichon.co.th/news-monitor/news_2179186',
   },
   empty: {
     fullName: 'ตัวของคุณเอง',
@@ -65,6 +81,8 @@ const characters: {
     url: '', // * must leave this empty becuase
     image: 'https://i.kym-cdn.com/entries/icons/original/000/034/915/vibingcatttt.gif',
     shareImage: '',
+    credit: '',
+    creditLink: '',
   },
 }
 
