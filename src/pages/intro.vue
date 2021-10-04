@@ -117,9 +117,8 @@ const handleScroll = () => {
   if (el) scrollToSmoothly(el.offsetTop, 200)
 }
 
-
 const playQuiz = () => {
-  game.initNewQuiz()
+  game.reset()
   router.push('/story')
 }
 
