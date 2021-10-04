@@ -158,7 +158,7 @@ const handleScroll = () => {
 }
 
 const playQuiz = () => {
-  game.reset()
+  game.initNewQuiz()
   router.push('/story')
 }
 

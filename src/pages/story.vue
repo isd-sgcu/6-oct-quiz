@@ -18,17 +18,9 @@
 <script setup lang="ts">
 import { QuestionChoice } from '~/types'
 import { useGameStore } from '~/stores/game'
-import { setMetadata } from '~/utils'
-
-setMetadata({
-  title: 'Quiz',
-  description: 'เลือกคำตอบที่คิดว่าตรงกับคุณที่สุด',
-})
 
 const game = useGameStore()
 const router = useRouter()
-
-game.initNewQuiz() // reset game state
 
 // Speciftic the order of a question and set currentQuestion
 const qNumber = computed(() => game.currentIndex + 1)
@@ -66,7 +58,7 @@ const updateQuestion = (answer: QuestionChoice) => {
 
   game.nextQuestion()
   // quiz is end go to the next route
-  if (game.gameState === 'End')
+  if (game.finish)
     router.push('pre-result')
 }
 </script>
