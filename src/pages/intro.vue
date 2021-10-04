@@ -32,13 +32,14 @@ import { useGameStore } from '~/stores/game'
 import appDescription from '~/assets/description'
 import { setMetadata } from '~/utils'
 
-const game = useGameStore()
-const router = useRouter()
-
+// setMetadata needs to be called before useGameStore to work
 setMetadata({
   title: 'คำอธิบาย',
   description: appDescription,
 })
+
+const router = useRouter()
+const game = useGameStore()
 
 const info = [
 
