@@ -17,10 +17,10 @@
               เริ่มการทดสอบ
             </ParagraphText>
           </Button>
-          <img v-if="key === 0" class="absolute w-full bottom-0 left-0" src="../assets/city.svg">
           <img v-if="key === 1" class="h-screen absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
           <img v-if="key === 3" class="h-screen absolute top-0 -bottom-[1px] left-0 right-0" src="../assets/continue.svg">
         </div>
+        <img v-if="key === 0" class="absolute w-full bottom-0 left-0" src="../assets/city.svg">
       </div>
     </div>
     <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 1 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
