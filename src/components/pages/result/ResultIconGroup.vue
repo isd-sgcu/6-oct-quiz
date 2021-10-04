@@ -16,7 +16,7 @@ const instagram = () => {
 
 }
 const twitter = () => {
-
+  window.open(`http://twitter.com/share?text=${text.replaceAll(' ', '+')}&url=${shareLink}`)
 }
 </script>
 
