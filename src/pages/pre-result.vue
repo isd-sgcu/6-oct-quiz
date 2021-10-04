@@ -15,6 +15,7 @@ const game = useGameStore()
 const router = useRouter()
 try {
   const characterkey = game.determineCharacter()
+  game.reset()
 
   setTimeout(() => {
     router.push(`/result/${characterkey}`)
@@ -22,7 +23,7 @@ try {
 }
 catch (error) {
   console.log(error.message)
-  router.replace('/')
+  router.replace('/story')
 }
 </script>
 
