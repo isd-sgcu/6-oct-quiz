@@ -70,6 +70,10 @@ export const useGameStore = defineStore('game', () => {
       scoreMap.value.set(name, score)
   }
 
+  const setResultCharacter = (key: CharacterKeyOption) => {
+    resultCharacter.value = key
+    saveToStorage()
+  }
   /* Methods */
   const updateScore = (name: CharacterKeyOption, add: number) => {
     if (scoreMap.value && scoreMap.value.has(name)) {
@@ -101,7 +105,9 @@ export const useGameStore = defineStore('game', () => {
    * if @var finish is false and @var currentIndex + 1 < length then go
   **/
   const nextQuestion = () => {
-    if (!finish.value && questionList.value) {
+    if (!questionList.value)
+      throw new TypeError('question list is not initialized yet')
+    if (!finish.value) {
       if (currentIndex.value + 1 === questionList.value.length) {
         console.log('game finish')
         finish.value = true
@@ -119,13 +125,16 @@ export const useGameStore = defineStore('game', () => {
    * @returns key of the character
    */
   const determineCharacter = () => {
-    if (!finish.value || !scoreMap.value)
-      return undefined
+    if (!finish.value)
+      throw new Error('Cannot determine character when game isn\'t finish')
+    if (!scoreMap.value)
+      throw new TypeError('ScoreMap is not initialized yet')
     if (resultCharacter.value)
-      return resultCharacter.value
+      return resultCharacter.value!
 
     /**
-     * used for sorting @type [number, CharacterKeyOption]
+     * used for sorting characters by score
+     * @type [number, CharacterKeyOption]
      */
     const processArr: [number, CharacterKeyOption][] = []
     for (const [key, score] of scoreMap.value)
@@ -139,14 +148,12 @@ export const useGameStore = defineStore('game', () => {
     const candidates = processArr.filter(([score, key]) => score === maxScore)
 
     // maxScore less than or equal zero mean that player doesn't fit to any characters.
-    if (maxScore <= 0) {
-      resultCharacter.value = 'empty'
-      saveToStorage()
-      return resultCharacter.value
-    }
+    if (maxScore <= 0)
+      setResultCharacter('empty')
+    else
+      setResultCharacter(candidates[Math.floor(Math.random() * candidates.length)][1])
 
-    saveToStorage()
-    return candidates[Math.floor(Math.random() * candidates.length)]
+    return resultCharacter.value!
   }
 
   getFromStorage() // call every time when the website's refreshed
