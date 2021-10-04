@@ -19,4 +19,5 @@ export type Character = {
   fullName: string
   detail: string
   url: string
+  image: string
 }
