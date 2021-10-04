@@ -2,7 +2,7 @@
 import { CharacterKeyOption } from '~/types'
 import { setResult } from '~/utils'
 const characterKey: CharacterKeyOption = 'surachat'
-const { fullName, detail, url, image } = setResult(characterKey)
+const { fullName, detail, url, image, credit, creditLink } = setResult(characterKey)
 </script>
 
 <template>
@@ -12,5 +12,7 @@ const { fullName, detail, url, image } = setResult(characterKey)
     :detail="detail"
     :url="url"
     :character-key="characterKey"
+    :credit="credit"
+    :credit-link="creditLink"
   />
 </template>
