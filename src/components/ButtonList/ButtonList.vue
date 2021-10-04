@@ -46,7 +46,7 @@ const handleClick = (choice: number) => {
 }
 
 .button-list Button {
-  @apply bg-[#FCFBF5] min-w-32 h-12 mb-4 md:(mb-0 mr-6 min-w-48 h-14) transition hover:(bg-[#F8E39B] transform scale-110);
+  @apply bg-[#FCFBF5] w-32 h-12 mb-4 md:(mb-0 mr-6 w-46 h-14) xl:(w-1/5 h-18)transition hover:(bg-[#F8E39B] transform scale-110);
 }
 
 .button-list Button:last-child {
