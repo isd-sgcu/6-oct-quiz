@@ -26,12 +26,12 @@ const twitter = () => {
 <template>
   <div class="space-x-4 flex items-center">
     <ParagraphText class="text-lg font-semibold lg:(text-2xl)">
-      แชร์:
+      แชร์ผลลัพธ์:
     </ParagraphText>
-    <grommet-icons:facebook class="result-icon" @click="facebook" />
+    <grommet-icons:facebook class="result-icon" color="#4267B2" @click="facebook" />
     <!-- <grommet-icons:instagram class="result-icon" @click="instagram" /> -->
-    <bi:line class="result-icon" @click="line" />
-    <grommet-icons:twitter class="result-icon" @click="twitter" />
+    <bi:line class="result-icon" color="#00B900" @click="line" />
+    <grommet-icons:twitter class="result-icon" color="#1DA1F2" @click="twitter" />
   </div>
 </template>
 
