@@ -25,19 +25,13 @@ setMetadata({
         </ParagraphText>
       </Button>
     </div>
-    <div class="absolute bottom-0 w-full overflow-hidden">
-      <div class="white-fill" />
-    </div>
+    <img class="absolute w-full bottom-0 left-0 white-fill " src="../assets/city.svg">
   </div>
 </template>
 
 <style scoped>
 .white-fill {
-  @apply h-[300px] w-full;
   filter: brightness(0) invert(1);
-  background: url('../assets/city.svg') repeat-x left center;
-  /* animation: displace 2s linear infinite;
-  -webkit-animation: displace 2s linear infinite; */
 }
 
 .invalid {
