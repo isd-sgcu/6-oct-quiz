@@ -2,8 +2,7 @@
   <div class="flex items-center justify-center h-screen w-full flex-col px-8">
     <HeaderText>คุณคือ...</HeaderText>
     <div class="absolute bottom-0 w-full overflow-hidden">
-      <!--SVG IMAGE--->
-      <div class="temple" />
+      <div class="pre-result-temple" />
     </div>
   </div>
 </template>
@@ -28,7 +27,7 @@ catch (error) {
 </script>
 
 <style>
-.temple {
+.pre-result-temple {
   @apply w-full h-[400px] md:h-[500px];
   background: url('../assets/temple.svg') repeat-x right bottom;
 }
