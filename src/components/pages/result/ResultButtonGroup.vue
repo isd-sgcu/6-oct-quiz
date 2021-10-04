@@ -24,7 +24,7 @@ const knowMore = () => {
         เล่นอีกรอบ
       </ParagraphText>
     </Button>
-    <Button class="result-button" @click="knowMore">
+    <Button v-show="props.url" class="result-button" @click="knowMore">
       <ParagraphText class="result-button-text">
         รู้จักเขาให้มากขึ้น
       </ParagraphText>
