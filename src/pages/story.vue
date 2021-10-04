@@ -22,6 +22,8 @@ import { useGameStore } from '~/stores/game'
 const game = useGameStore()
 const router = useRouter()
 
+game.initNewQuiz() // reset game state
+
 // Speciftic the order of a question and set currentQuestion
 const qNumber = computed(() => game.currentIndex + 1)
 const currentQuestion = computed(() => {
@@ -58,7 +60,7 @@ const updateQuestion = (answer: QuestionChoice) => {
 
   game.nextQuestion()
   // quiz is end go to the next route
-  if (game.finish)
+  if (game.gameState === 'End')
     router.push('pre-result')
 }
 </script>
