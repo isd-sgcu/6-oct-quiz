@@ -19,7 +19,7 @@ const line = () => {
   window.open(`https://social-plugins.line.me/lineit/share?url=${shareLink}`, '_blank')
 }
 const twitter = () => {
-  window.open(`http://twitter.com/share?text=${text.replaceAll(' ', '+')}&url=${shareLink}`)
+  window.open(`http://twitter.com/share?text=${text.replaceAll(' ', '+')}&url=${shareLink}`, '_blank')
 }
 </script>
 
