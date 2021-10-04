@@ -42,7 +42,7 @@ const handleClick = (choice: number) => {
 <style scoped>
 .button-list {
   @apply flex flex-col items-center w-full mt-[36px] font-Trirong
-                        md:(flex-row flex-wrap justify-center font-semibold text-[24px]);
+                        md:(flex-row flex-wrap justify-center font-semibold text-[22px]) xl:text-[26px];
 }
 
 .button-list Button {
