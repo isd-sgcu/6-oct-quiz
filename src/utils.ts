@@ -3,6 +3,11 @@ export const goToIndex = () => {
   router.replace('/')
 }
 
+export const getShareKey = () => {
+  const route = useRoute()
+  return route.path.split('/')[2]
+}
+
 export const isPersistedState = (stateName: string): any => {
   const sessionState = sessionStorage.getItem(stateName)
   return sessionState && JSON.parse(sessionState)
