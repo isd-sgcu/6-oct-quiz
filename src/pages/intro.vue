@@ -5,7 +5,7 @@
         v-for="(item, key) in info"
         :id="`el-${key}`"
         :key="key"
-        class="flex justify-center pb-15 pt-3 relative px-20 <md:px-0 h-screen items-center"
+        class="flex justify-center pb-15 pt-5 relative px-20 <md:px-0 h-screen items-center"
         :style="{backgroundColor: item.bgColor}"
       >
         <div :id="`el-text-${key}`" class="max-w-[600px] w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
