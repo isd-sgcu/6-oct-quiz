@@ -7,7 +7,7 @@ setMetadata({
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-full flex-col">
+  <div class="flex pt-5 justify-center items-center h-full flex-col">
     <div class="z-10 m-10 flex items-center flex-wrap">
       <HeaderText class="topic">
         คุณคือใครในเหตุการณ์
