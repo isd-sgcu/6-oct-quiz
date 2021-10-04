@@ -1,6 +1,7 @@
 import { defineConfig } from 'windicss/helpers'
 
 export default defineConfig({
+  safelist: 'bg-grad-1 bg-grad-2 bg-grad-3 bg-grad-4 bg-grad-5 bg-grad-6 bg-grad-7 bg-grad-8 bg-grad-9 bg-grad-10',
   darkMode: 'class',
   // https://windicss.org/posts/v30.html#attributify-mode
   attributify: true,
@@ -38,6 +39,10 @@ export default defineConfig({
       },
       white: {
         DEFAULT: '#FCFBF5',
+      },
+      darkBrown: {
+        DEFAULT: '#784C30',
+
       },
     },
     backgroundImage: {

@@ -1,6 +1,11 @@
-export const replay = () => {
+export const goToIndex = () => {
   const router = useRouter()
   router.replace('/')
+}
+
+export const isPersistedState = (stateName: string): any => {
+  const sessionState = sessionStorage.getItem(stateName)
+  return sessionState && JSON.parse(sessionState)
 }
 
 export const setMetadata = ({
@@ -28,7 +33,6 @@ export const setMetadata = ({
       { property: 'twitter:title', content: title },
       { property: 'twitter:description', content: description },
       { property: 'twitter:image', content: image },
-
     ],
   })
 }

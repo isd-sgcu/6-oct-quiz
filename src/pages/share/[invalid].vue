@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { replay, setMetadata } from '~/utils'
+import { goToIndex, setMetadata } from '~/utils'
 setMetadata({})
-replay()
+goToIndex()
 </script>
 
 <template>

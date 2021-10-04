@@ -13,7 +13,7 @@ const props = defineProps<{
 if (!(props.keyName in characters))
   router.replace('/')
 
-const { fullName, detail } = characters[props.keyName]
+const { fullName, detail, url } = characters[props.keyName]
 
 setMetadata({
   title: `คุณคือ ${fullName}`,
@@ -37,7 +37,7 @@ const computedName = computed(() => {
         class="pt-60 lg:(pt-0)"
       />
       <ResultIconGroup :character-key="props.keyName" class="mt-8" />
-      <ResultButtonGroup class="mt-10" />
+      <ResultButtonGroup :url="url" class="mt-10" />
     </div>
   </div>
 </template>

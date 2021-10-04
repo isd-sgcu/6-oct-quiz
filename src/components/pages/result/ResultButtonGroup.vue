@@ -1,9 +1,19 @@
 <script setup lang="ts">
+const router = useRouter()
+
+const props = defineProps<{
+  url: string
+}>()
+
 const replay = () => {
-
+  /*
+  reset state here if any
+  */
+  router.push('/story')
 }
-const knowMore = () => {
 
+const knowMore = () => {
+  window.open(props.url, '_blank')
 }
 </script>
 

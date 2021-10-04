@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { replay, setMetadata } from '~/utils'
+import { goToIndex, setMetadata } from '~/utils'
 
 setMetadata({
   title: 'คุณคือ วิภา ดาวมณี',
   image: 'https://i.kym-cdn.com/entries/icons/original/000/034/915/vibingcatttt.gif',
 })
 
-replay()
+goToIndex()
 </script>
 
 <template>
