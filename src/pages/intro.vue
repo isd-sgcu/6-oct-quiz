@@ -1,25 +1,29 @@
 <template>
-  <div class="flex justify-center pt-20 pb-20 overflow-hidden relative">
-    <div class="z-10 flex flex-col w-full self-center <md:px-5">
-      <div v-for="(item, key) in info" :id="`el-${key}`" :key="key" class="flex justify-start pb-15 pt-3 relative px-20 <md:px-0 h-screen items-center transition-all duration-1000" :class="`${!(key & 1) ? 'justify-start': 'justify-end'} ${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
-        <div class="max-w-[1000px] overflow-hidden flex flex-col" :class="(key & 1) && 'flex flex-col items-end text-right'">
-          <HeaderText class="mb-5 text-size-[3.5rem] leading-20 <xl:(text-size-[3rem] leading-16) <md:(text-size-[2.5rem] leading-12) transition-all">
-            {{ item.title }}
-          </HeaderText>
-          <ParagraphText class="transition-all text-size-[2rem] leading-14 <xl:(text-size-[1.5rem] leading-10)">
-            {{ item.details }}
+  <div class="flex justify-center overflow-hidden relative">
+    <div class="z-10 flex flex-col w-full self-center">
+      <div
+        v-for="(item, key) in info"
+        :id="`el-${key}`"
+        :key="key"
+        class="flex justify-center pb-15 pt-5 relative px-20 <md:px-0 h-screen items-center"
+        :style="{backgroundColor: item.bgColor}"
+      >
+        <div :id="`el-text-${key}`" class="max-w-[600px] w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
+          <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all text-size-[2rem] mb-7 z-50 leading-14 <xl:(text-size-[1.5rem] leading-12) <md:(text-size-[1.25rem] leading-10)" :style="{ color: item.textColor}">
+            {{ text }}
           </ParagraphText>
+          <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity mt-5" @click="playQuiz">
+            <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
+              เริ่มการทดสอบ
+            </ParagraphText>
+          </Button>
+          <img v-if="key === 1" class="h-screen absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
+          <img v-if="key === 3" class="h-screen absolute top-0 -bottom-[1px] left-0 right-0" src="../assets/continue.svg">
         </div>
-        <div class="transition-all absolute w-[800px] h-[800px] <xl:(w-[750px] h-[750px]) <md:(w-[620px] h-[620px]) rounded-full" :class="!(key & 1) ? 'left-[-400px] <xl:(left-[-375px]) <md:(left-[-310px])': 'right-[-400px] <xl:(right-[-375px]) <md:(right-[-310px])'" style="z-index: -1;" :style="{ backgroundColor: item.bgColor}">
-        </div>
+        <img v-if="key === 0" class="absolute w-full bottom-0 left-0" src="../assets/city.svg">
       </div>
-      <Button :id="`el-${info.length}`" class="w-full max-w-[300px] max-h-max py-4 self-center bg-[#FCFBF5] hover:bg-cream transition-colors mt-5 " :class="`${(presentNum === info.length - 1) ? 'opacity-100': 'opacity-0'}`" @click="playQuiz">
-        <ParagraphText class="text-size-[1.75rem]">
-          เริ่มการทดสอบ
-        </ParagraphText>
-      </Button>
     </div>
-    <mdi-arrow-down-circle-outline class="fixed bottom-10 text-[#444444] text-size-[3rem] cursor-pointer transition-opacity duration-500" :class="isHide ? 'opacity-0': 'opacity-50 z-30'" @click="handleScroll" />
+    <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 1 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
   </div>
 </template>
 
@@ -28,79 +32,115 @@ import { useGameStore } from '~/stores/game'
 import appDescription from '~/assets/description'
 import { setMetadata } from '~/utils'
 
-const game = useGameStore()
-const router = useRouter()
-
+// setMetadata needs to be called before useGameStore to work
 setMetadata({
   title: 'คำอธิบาย',
   description: appDescription,
 })
 
+const router = useRouter()
+const game = useGameStore()
+
 const info = [
 
   {
-    title: 'ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙',
-    details: ' มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา',
-    bgColor: '#FFAE11',
+    details: ['ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙', 'มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา'],
+    bgColor: '#FFFFFF',
+    textColor: '#000000',
   },
   {
-    title: '6 ตุลาฯ',
-    details: 'พรากหลายอย่างจากพวกเขาและเธอไปมากมาย แต่กระนั้นความสูญเสียนี้ก็ให้บทเรียนล้ำค่าและสร้างตัวตนของคนเดือนตุลาฯ มาไม่น้อย เขาและเธอเหล่านี้เลือกเส้นทางประชาธิปไตยอย่างแน่วแน่มาตลอด แต่บางคนก็เปลี่ยนแปลงไป มากบ้างน้อยบ้าง',
-    bgColor: '#EC371F',
+    details: ['6 ตุลาฯ พรากหลายอย่างจากพวกเขาและเธอไปมากมาย', 'แต่กระนั้นความสูญเสียนี้ก็ให้บทเรียนล้ำค่าและสร้างตัวตนของคนเดือนตุลาฯ มาไม่น้อย', 'เขาและเธอเหล่านี้เลือกเส้นทางประชาธิปไตยอย่างแน่วแน่มาตลอด แต่บางคนก็เปลี่ยนแปลงไป มากบ้างน้อยบ้าง'],
+    bgColor: 'rgba(55, 41, 32, 0.9)',
+    textColor: '#FFFFFF',
   },
   {
-    title: 'คุณคือใครใน 6 ตุลาฯ',
-    details: 'คน 6 ตุลาฯ สร้างอะไรไว้ให้สังคมมากมาย จิตวิญญาณของพวกเขาและความเป็นคน 6 ตุลาฯ เติบโตในทุก ๆ ที่ คุณอยากรู้รึเปล่า ว่าจิตวิญญาณของพวกเขาเติบโตในตัวคุณบ้างไหม คุณคือใครใน 6 ตุลาฯ',
-    bgColor: '#9F79B7',
+    details: ['คน 6 ตุลาฯ สร้างอะไรไว้ให้สังคมมากมาย จิตวิญญาณของพวกเขาและความเป็นคน 6 ตุลาฯ เติบโตในทุก ๆ ที่', 'คุณอยากรู้รึเปล่า ว่าจิตวิญญาณของพวกเขาเติบโตในตัวคุณบ้างไหม คุณคือใครใน 6 ตุลาฯ'],
+    bgColor: '#FFFFFF',
+    textColor: '#000000',
+  },
+  {
+    details: [],
+    bgColor: '',
+    textColor: '',
   },
 ]
 
-const presentNum = ref<number>(0)
-const isHide = ref<boolean>(false)
-let elHeight: number[] = []
+const presentNum = ref<number>(-1)
+const isHide = ref<boolean>(true)
+let elHeight: number[][] = []
+
+let tresholdOffset = window.innerHeight / 2
+let timeOutNo = -1
 
 onMounted(() => {
+  tresholdOffset = window.innerHeight / 2
   const elSz = info.length
   for (let i = 0; i < elSz; i++) {
     const el = document.getElementById(`el-${i}`)
+
     if (el)
-      elHeight.push(el.offsetTop)
+      elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
   }
   window.onscroll = () => {
     if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
       isHide.value = true
 
-    else
+    else if (timeOutNo === -1)
       isHide.value = false
 
     for (let i = elSz - 1; i >= 0; i--) {
-      if (elHeight[i] - 300 <= window.scrollY) {
+      if (elHeight[i][0] <= window.scrollY && window.scrollY <= elHeight[i][1]) {
         presentNum.value = Math.max(0, i)
         break
       }
+      else {
+        presentNum.value = -1
+      }
+    }
+
+    if (!isHide.value) {
+      if (timeOutNo !== -1) return
+
+      isHide.value = true
+      timeOutNo = window.setTimeout(() => {
+        if ((window.scrollY + document.documentElement.clientHeight) < document.documentElement.scrollHeight - 80)
+          isHide.value = false
+        timeOutNo = -1
+      }, 1500)
     }
   }
 
   window.onresize = () => {
     elHeight = []
+    tresholdOffset = window.innerHeight / 2
     for (let i = 0; i < elSz; i++) {
       const el = document.getElementById(`el-${i}`)
       if (el)
-        elHeight.push(el.offsetTop)
+        elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
     }
   }
+
+  setTimeout(() => {
+    presentNum.value = 0
+    isHide.value = false
+  }, 1000)
 })
 
 function scrollToSmoothly(pos: number, time: number) {
   const currentPos = window.pageYOffset
   let start: number | null = null
+  const calculateEase = (x: number) => {
+    return x * x * x * (10 + x * (6 * x - 15))
+  }
   window.requestAnimationFrame(function step(currentTime) {
     start = !start ? currentTime : start
     const progress = currentTime - start
+
+    const varX = progress / time
     if (currentPos < pos)
-      window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos)
+      window.scrollTo(0, ((pos - currentPos) * calculateEase(varX)) + currentPos)
     else
-      window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time))
+      window.scrollTo(0, currentPos - ((currentPos - pos) * calculateEase(varX)))
 
     if (progress < time)
       window.requestAnimationFrame(step)
@@ -111,10 +151,10 @@ function scrollToSmoothly(pos: number, time: number) {
 
 const handleScroll = () => {
   if (isHide.value) return
-  const nextIdx = Math.min(elHeight.length, presentNum.value + 1)
+  const nextIdx = Math.min(elHeight.length - 1, presentNum.value + 1)
   const el = document.getElementById(`el-${nextIdx}`)
 
-  if (el) scrollToSmoothly(el.offsetTop, 200)
+  if (el) scrollToSmoothly(el.offsetTop, 600)
 }
 
 const playQuiz = () => {
@@ -123,3 +163,21 @@ const playQuiz = () => {
 }
 
 </script>
+
+<style scoped>
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.scroll-button {
+  animation: bounce 1s infinite ease-out;
+}
+
+</style>

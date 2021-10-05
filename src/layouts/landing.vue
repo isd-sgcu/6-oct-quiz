@@ -1,7 +1,6 @@
 <template>
-  <div class="relative bg-cream min-h-screen ">
-    <Nav />
-    <main class="pt-20 pb-20">
+  <div class="bg-cream min-h-screen ">
+    <main class="pt-4">
       <router-view />
     </main>
   </div>

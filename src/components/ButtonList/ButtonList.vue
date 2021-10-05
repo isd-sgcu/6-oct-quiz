@@ -39,7 +39,7 @@ const handleClick = (choice: number) => {
 
 </script>
 
-<style scoped>
+<style>
 .button-list {
   @apply flex flex-col items-center w-full mt-[36px] font-Trirong
                         md:(flex-row flex-wrap justify-center font-semibold text-[22px]) xl:text-[26px];
