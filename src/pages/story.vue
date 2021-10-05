@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden">
     <!--trigger transtion when the props are change--->
     <transition name="question-fade" mode="out-in">
-      <div :key="'question' + qNumber" class="question-form">
+      <div v-if="questions" :key="'question' + qNumber" class="question-form">
         <div class="question-part">
           <QuestionText>
             {{ currentQuestion.text }}
@@ -39,6 +39,8 @@ const currentQuestion = computed(() => questions[game.currentIndex])
  * @var answer get from custom event of QuestionForm component
  */
 const updateQuestion = (answer: QuestionChoice) => {
+  if (!currentQuestion.value) return
+
   // get a set of characters that related to the question
   const relatedPeople = currentQuestion.value.relatedPeople
   for (let i = 0; i < relatedPeople.length; i++) {
@@ -75,10 +77,10 @@ const updateQuestion = (answer: QuestionChoice) => {
 
 /* durations and timing functions.*/
 .question-fade-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in;
 }
 .question-fade-leave-active {
-  transition: all 0.4s ease-out;
+  transition: all 0.35s ease-out;
   transition-delay: 0.10s;
 }
 

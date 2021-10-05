@@ -108,7 +108,7 @@ export const useGameStore = defineStore('game', () => {
    * Add the index of current question
   **/
   const nextQuestion = () => {
-    if (!questionList.value.length)
+    if (!questionList.value)
       throw new TypeError('question list is not initialized yet')
     if (gameState.value === 'Playing') {
       if (currentIndex.value + 1 === questionList.value.length) {
@@ -148,7 +148,7 @@ export const useGameStore = defineStore('game', () => {
     // get index of the maxScore
     const maxScore = processArr[processArr.length - 1][0]
     // set of characters that have the same score
-    const candidates = processArr.filter(([score, key]) => score === maxScore)
+    const candidates = processArr.filter(([score]) => score === maxScore)
 
     // maxScore less than or equal zero mean that player doesn't fit to any characters.
     if (maxScore <= 0)

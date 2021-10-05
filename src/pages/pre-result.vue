@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center h-screen w-full flex-col px-8">
     <QuestionText class="wave">
-      <span v-for="(letter, index) in text" :style="{'--c':(index + 1) + ''}" >
+      <span v-for="(letter, index) in text" :style="{'--c':(index + 1) + ''}">
         {{ letter }}
       </span>
     </QuestionText>
@@ -14,14 +14,14 @@ import { useGameStore } from '~/stores/game'
 const game = useGameStore()
 const router = useRouter()
 
-const text = ['คุ', 'ณ', 'คื', 'อ', ' ', '.' , '.', '.']
+const text = ['คุ', 'ณ', 'คื', 'อ', ' ', '.', '.', '.']
 try {
   const characterkey = game.determineCharacter()
   game.reset()
 
   setTimeout(() => {
     router.push(`/result/${characterkey}`)
-  }, 3000)
+  }, 3200)
 }
 catch (error) {
   console.log(error.message)

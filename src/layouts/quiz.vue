@@ -4,7 +4,7 @@
   >
     <router-view />
   </main>
-  <transition-group name="fade">
+  <transition-group name="fade" mode="out-in">
     <div :key="'background' + qNumber" class="absolute min-h-screen w-full" :class="'bg-grad-' + qNumber"></div>
     <svg
       :key="'building' + qNumber"
@@ -100,13 +100,18 @@ const buildingColor = [
 }
 
 .fade-enter-active {
-  transition: all 1.75s ease;
-}
-.fade-leave-active {
-  transition: all 1s ease-out;
+  transition: all 1s linear;
 }
 
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
+.fade-leave-active {
+  transition: all 1s ease-in;
+}
+
+.fade-enter-from {
+  opacity: 0.6;
+}
+
+.fade-leave-to {
+  opacity: 0.4;
 }
 </style>
