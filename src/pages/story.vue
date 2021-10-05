@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden">
     <!--trigger transtion when the props are change--->
-    <transition name="slide-fade" mode="out-in">
-      <div v-if="questions !== []" :key="qNumber" class="question-form">
+    <transition name="question-fade" mode="out-in">
+      <div :key="'question' + qNumber" class="question-form">
         <div class="question-part">
           <QuestionText>
             {{ currentQuestion.text }}
@@ -65,7 +65,7 @@ const updateQuestion = (answer: QuestionChoice) => {
 }
 </script>
 
-<style scoped>
+<style>
 .question-form {
   @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-17 z-20 md:-translate-y-8 xl:(-translate-x-16 -translate-y-16);
 }
@@ -74,15 +74,16 @@ const updateQuestion = (answer: QuestionChoice) => {
 }
 
 /* durations and timing functions.*/
-.slide-fade-enter-active {
-  transition: all .7s ease;
+.question-fade-enter-active {
+  transition: all 0.5s ease;
 }
-.slide-fade-leave-active {
-  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+.question-fade-leave-active {
+  transition: all 0.4s ease-out;
+  transition-delay: 0.10s;
 }
 
 /* Set animation state of the element before entering or after leaving */
-.slide-fade-enter-from, .slide-fade-leave-to {
+.question-fade-enter-from, .question-fade-leave-to {
   opacity: 0;
 }
 </style>
