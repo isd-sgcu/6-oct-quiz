@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <div>
     <div>
-      <h1 class="font-Prachachon whitespace-pre text-2rem sm:(text-2.3rem) lg:(text-8xl) xl:(text-9xl) 2xl:(text-10xl)">
+      <h1 class="font-Prachachon whitespace-pre text-7xl leading-11 sm:(text-5rem leading-15) lg:(text-8xl) xl:(text-9xl) 2xl:(text-10xl)">
         {{ props.resultFullName }}
       </h1>
       <ParagraphText class="kjfhsdkfhksjdfhkjshwuef">
@@ -27,6 +27,6 @@ const props = defineProps<{
 
 <style>
 .kjfhsdkfhksjdfhkjshwuef {
-  @apply whitespace-pre-wrap mt-3 font-light sm:(text-1.1rem leading-8) lg:(text-xl leading-8 mt-3) xl:() 2xl:(text-2xl leading-9);
+  @apply whitespace-pre-wrap mt-6 font-light text-lg sm:(text-xl leading-8) lg:(text-xl leading-8 mt-3) xl:() 2xl:(text-2xl leading-9);
 }
 </style>
