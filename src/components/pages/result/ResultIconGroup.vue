@@ -25,7 +25,7 @@ const twitter = () => {
 
 <template>
   <div class="space-x-4 flex items-center">
-    <ParagraphText class="text-lg font-semibold text-lg sm:(text-xl leading-8) lg:(text-xl leading-8 mt-3) xl:() 2xl:(text-2xl leading-9)">
+    <ParagraphText class="text-lg font-semibold text-lg sm:(text-xl leading-8) lg:(text-xl leading-8) xl:() 2xl:(text-2xl leading-9)">
       แชร์ผลลัพธ์:
     </ParagraphText>
     <grommet-icons:facebook class="result-icon" @click="facebook" />
