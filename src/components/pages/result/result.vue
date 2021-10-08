@@ -19,7 +19,7 @@ const computedName = computed(() => {
 
 <template>
   <div
-    class="lg:(flex pt-0 h-content items-start justify-center w-4xl mx-auto gap-2 pt-20) xl:(w-5xl) 2xl:(gap-10 w-6xl)"
+    class="lg:(flex pt-0 h-content items-start justify-center w-4xl mx-auto gap-6 pt-20) xl:(w-5xl) 2xl:(gap-10 w-6xl)"
   >
     <ResultPicture :image="props.image" :alt="fullName" class="r-result-picture" />
     <div class="r-result-layout">
