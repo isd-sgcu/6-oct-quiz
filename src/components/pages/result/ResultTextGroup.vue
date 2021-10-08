@@ -14,7 +14,7 @@ const props = defineProps<{
         {{ props.resultFullName }}
       </h1>
       <ParagraphText class="kjfhsdkfhksjdfhkjshwuef">
-        <p>{{ props.resultDetail }}</p>
+        <p v-html="props.resultDetail"></p>
       </ParagraphText>
       <ParagraphText v-show="props.credit" class="kjfhsdkfhksjdfhkjshwuef">
         <br />
