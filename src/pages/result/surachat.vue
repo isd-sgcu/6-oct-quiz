@@ -16,3 +16,8 @@ const { fullName, detail, url, image, credit, creditLink } = setResult(character
     :credit-link="creditLink"
   />
 </template>
+
+<route lang="yaml">
+meta:
+  layout: result
+</route>
