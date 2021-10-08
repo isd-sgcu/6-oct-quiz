@@ -13,22 +13,21 @@ const props = defineProps<{
   creditLink: string
 }>()
 const computedName = computed(() => {
-  return width.value < 1024 ? props.fullName.replace(' ', '\n') : props.fullName
+  return width.value < 555 ? props.fullName.replace(' ', '\n') : props.fullName
 })
 </script>
 
 <template>
   <div
-    class="relative pt-20 lg:(flex pt-0 h-content items-start justify-center w-4xl mx-auto gap-2 pt-20) xl:(w-5xl) 2xl:(gap-10 w-6xl)"
+    class="lg:(flex pt-0 h-content items-start justify-center w-4xl mx-auto gap-2 pt-20) xl:(w-5xl) 2xl:(gap-10 w-6xl)"
   >
-    <ResultPicture :image="props.image" :alt="fullName" class="absolute r-result-picture" />
+    <ResultPicture :image="props.image" :alt="fullName" class="r-result-picture" />
     <div class="r-result-layout">
       <ResultTextGroup
         :result-full-name="computedName"
         :result-detail="props.detail"
         :credit="props.credit"
         :credit-link="props.creditLink"
-        class="pt-60 lg:(pt-0)"
       />
       <ResultIconGroup :character-key="props.characterKey" class="mt-8" />
       <ResultButtonGroup :url="url" class="mt-10" />
@@ -38,7 +37,7 @@ const computedName = computed(() => {
 
 <style>
 .r-result-picture {
-  @apply pt-20 top-4 right-3 xs:(right-10) sm:(top-2 right-12) lg:(!static pt-0) xl:() 2xl:();
+  @apply top-4 right-3 xs:(right-10) sm:(top-2 right-12) lg:(!static pt-0) xl:() 2xl:();
 }
 .r-result-layout {
   @apply mx-5 xs:(mx-8) sm:() md:() lg:(mx-0 space-y-8) xl:() 2xl:();
