@@ -17,8 +17,8 @@
               เริ่มการทดสอบ
             </ParagraphText>
           </Button>
-          <img v-if="key === 1" class="h-screen absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
-          <img v-if="key === 3" class="absolute w-full bottom-0 left-0" src="../assets/continue.svg">
+          <img v-if="key === 1" class="h-screen w-full absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
+          <img v-if="key === 3" class="absolute w-full min-w-[600px] bottom-0 left-0" src="../assets/continue.svg">
         </div>
         <img v-if="key === 0" class="absolute w-full bottom-0 left-0" src="../assets/city.svg">
       </div>
