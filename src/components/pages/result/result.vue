@@ -41,6 +41,6 @@ const computedName = computed(() => {
   @apply pt-20 top-4 right-3 xs:(right-10) sm:(top-2 right-12) lg:(!static pt-0) xl:() 2xl:();
 }
 .r-result-layout {
-  @apply mx-5 xs:(mx-8) sm:() md:() lg:(pt-10 mx-0 space-y-8) xl:() 2xl:();
+  @apply mx-5 xs:(mx-8) sm:() md:() lg:(mx-0 space-y-8) xl:() 2xl:();
 }
 </style>
