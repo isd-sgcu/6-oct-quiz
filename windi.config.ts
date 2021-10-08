@@ -62,6 +62,7 @@ export default defineConfig({
       fontFamily: {
         Chonburi: ['Chonburi', 'cursive'],
         Trirong: ['Trirong', 'serif'],
+        Prachachon: ['Prachachon', 'Trirong'],
       },
     },
   },
