@@ -14,7 +14,4 @@ const props = defineProps<{
 </template>
 
 <style>
-.ellipses-common {
-  @apply absolute h-full;
-}
 </style>
