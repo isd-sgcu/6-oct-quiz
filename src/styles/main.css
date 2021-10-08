@@ -21,3 +21,8 @@ body,
   width: 100%;
   height: 2px;
 }
+
+@font-face {
+  font-family: Prachachon;
+  src: url('/fonts/prachachon/TS-Prachachon-NP.ttf');
+}
