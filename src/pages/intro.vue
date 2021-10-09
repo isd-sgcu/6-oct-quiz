@@ -14,7 +14,7 @@
           </ParagraphText>
           <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity mt-5" @click="playQuiz">
             <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
-              เริ่มการทดสอบ
+              เริ่มทำ Quiz
             </ParagraphText>
           </Button>
           <img v-if="key === 1" class="absolute w-full h-screen bottom-0 left-0" src="../assets/image_set.svg">
