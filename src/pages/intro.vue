@@ -17,13 +17,13 @@
               เริ่มการทดสอบ
             </ParagraphText>
           </Button>
-          <img v-if="key === 1" class="h-screen w-full absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
-          <img v-if="key === 3" class="absolute w-full min-w-[600px] bottom-0 left-0" src="../assets/continue.svg">
+          <img v-if="key === 1" class="absolute w-full h-screen bottom-0 left-0" src="../assets/image_set.svg">
+          <img v-if="key === 2" class="h-screen w-full absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
+          <img v-if="key === 4" class="absolute w-full min-w-[600px] bottom-0 left-0" src="../assets/continue.svg">
         </div>
-        <img v-if="key === 0" class="absolute w-full bottom-0 left-0" src="../assets/city.svg">
       </div>
     </div>
-    <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 1 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
+    <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 2 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
   </div>
 </template>
 
@@ -47,6 +47,11 @@ const info = [
     details: ['ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙', 'มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา'],
     bgColor: '#FFFFFF',
     textColor: '#000000',
+  },
+  {
+    details: [],
+    bgColor: '',
+    textColor: '',
   },
   {
     details: ['6 ตุลาฯ พรากหลายอย่างจากพวกเขาและเธอไปมากมาย', 'แต่กระนั้นความสูญเสียนี้ก็ให้บทเรียนล้ำค่าและสร้างตัวตนของคนเดือนตุลาฯ มาไม่น้อย', 'เขาและเธอเหล่านี้เลือกเส้นทางประชาธิปไตยอย่างแน่วแน่มาตลอด แต่บางคนก็เปลี่ยนแปลงไป มากบ้างน้อยบ้าง'],
