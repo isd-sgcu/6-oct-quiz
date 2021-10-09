@@ -59,7 +59,7 @@ const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) =
 // This changes the actual ref value
 const singleTransition = (color: Ref<number>, diff: number, duration: number, intervalSize: number) => {
   const changePerInterval = (diff / duration) * intervalSize
-  const numberOfAllIntervals = duration / intervalSize
+  const numberOfAllIntervals = Math.round(duration / intervalSize)
   let intervalCount = 0
 
   const interval = setInterval(() => {
@@ -113,7 +113,7 @@ console.log(backgroundImage.value)
 
 <template>
   <div
-    :style="{ backgroundImage }"
+    :style="{ backgroundImage /* How do we do this? lol */ }"
   >
     <button @click="changeBackgroundGradient">
       Change background
