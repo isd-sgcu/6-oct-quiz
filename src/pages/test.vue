@@ -57,7 +57,7 @@ const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) =
 }
 
 // This changes the actual ref value
-const singleTransition = (color: Ref<number>, diff: number, duration: number, intervalSize: number) => {
+const singleTransition = (color: Ref<number>, diff: number, duration: Milisecond, intervalSize: Milisecond) => {
   const changePerInterval = (diff / duration) * intervalSize
   const numberOfAllIntervals = Math.round(duration / intervalSize)
   let intervalCount = 0
@@ -72,8 +72,8 @@ const singleTransition = (color: Ref<number>, diff: number, duration: number, in
 const transitionSingleRGB = (
   { r, g, b }: {r: Ref<number>; g: Ref<number>; b: Ref<number>},
   next: RGB,
-  duration: number,
-  intervalSize: number,
+  duration: Milisecond,
+  intervalSize: Milisecond,
 ) => {
   const { dr, dg, db } = getRGBDiff(r, g, b, next)
 
@@ -82,7 +82,7 @@ const transitionSingleRGB = (
   singleTransition(b, db, duration, intervalSize)
 }
 
-const transitionRGBs = (currentColorSet: ColorSet, nextColorSet: ColorSet, duration: number, intervalSize: number) => {
+const transitionRGBs = (currentColorSet: ColorSet, nextColorSet: ColorSet, duration: Milisecond, intervalSize: Milisecond) => {
   transitionSingleRGB({ ...toRefs(currentColorSet.first) }, nextColorSet.first, duration, intervalSize)
   transitionSingleRGB({ ...toRefs(currentColorSet.second) }, nextColorSet.second, duration, intervalSize)
   transitionSingleRGB({ ...toRefs(currentColorSet.third) }, nextColorSet.third, duration, intervalSize)
@@ -111,7 +111,9 @@ const changeBackgroundGradient = () => {
 // first linear-gradient
 console.log(backgroundImage.value)
 // logging the change to second linear-gradient
-watch(backgroundImage, () => console.log(backgroundImage.value))
+watch(backgroundImage, () => {
+  console.log(backgroundImage.value)
+})
 </script>
 
 <template>
