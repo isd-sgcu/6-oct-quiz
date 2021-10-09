@@ -35,6 +35,7 @@ const firstColorSet = getColorSet([120, 103, 103], [235, 196, 169], [204, 128, 1
 const nextColorSet = getColorSet([87, 70, 59], [230, 182, 149], [164, 57, 43])
 // secondPercent is the the percent where the second rgb value starts
 const secondPercent = ref(66)
+const transitionDur = ref<Milisecond>(1000)
 
 const currentColorSet = reactive({
   first: firstColorSet.first,
@@ -46,7 +47,7 @@ const backgroundImage = computed(() => {
   const { r: r1, g: g1, b: b1 } = toRefs(currentColorSet.first)
   const { r: r2, g: g2, b: b2 } = toRefs(currentColorSet.second)
   const { r: r3, g: g3, b: b3 } = toRefs(currentColorSet.third)
-  return `linear-gradient(180deg, rgb(${`${r1.value},${b1.value},${g1.value}`}) 0%, rgb(${`${r2.value},${b2.value},${g2.value}`}) ${secondPercent.value}%, rgb(${`${r3.value},${b3.value},${g3.value}`}) 100%,)`
+  return `linear-gradient(180deg, rgb(${`${r1.value},${b1.value},${g1.value}`}) 0%, rgb(${`${r2.value},${b2.value},${g2.value}`}) ${secondPercent.value}%, rgb(${`${r3.value},${b3.value},${g3.value}`}) 100%)`
 })
 
 const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) => {
@@ -60,11 +61,15 @@ const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) =
 const singleTransition = (value: Ref<number>, diff: number, duration: Milisecond, intervalSize: Milisecond, numberOfAllIntervals: number) => {
   const changePerInterval = (diff / duration) * intervalSize
   let intervalCount = 0
+  const valueAfter = value.value + diff
 
   const interval = setInterval(() => {
     value.value += changePerInterval
-    if (intervalCount++ === numberOfAllIntervals)
+    // value.value = Math.round(value.value)
+    if (intervalCount++ === numberOfAllIntervals) {
       clearInterval(interval)
+      value.value = valueAfter // to correct the little error
+    }
   }, intervalSize)
 }
 
@@ -99,30 +104,42 @@ const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, s
 
 // for on click
 const changeBackgroundGradient = () => {
-  const nextSecondPercent = 88
-  const transitionDur = 300
+  const nextSecondPercent = 67
   transitionGradient(
     currentColorSet,
     nextColorSet,
     secondPercent,
     nextSecondPercent,
-    transitionDur,
+    transitionDur.value,
   )
 }
 
-// first linear-gradient
-console.log(backgroundImage.value)
-// logging the change to second linear-gradient
-watch(backgroundImage, () => {
-  console.log(backgroundImage.value)
-})
 </script>
 
 <template>
-  <div :style="{ backgroundImage /* How do we do this? lol */ }">
-    <button @click="changeBackgroundGradient">
+  <div class="min-h-screen" :style="{ backgroundImage /* How do we do this? lol */ }">
+    <button class="bg-white p-3 rounded" @click="changeBackgroundGradient">
       Change background
     </button>
+    <h1 class="text-4xl text-white">
+      transition duration {{ transitionDur }} ms
+    </h1>
+    <input v-model="transitionDur" type="range" class="block" max="2000">
+    <h1 class="text-5xl mt-10 text-white">
+      current colors:
+    </h1>
+    <h2 class="text-3xl text-white">
+      {{ currentColorSet.first }}
+    </h2>
+    <h2 class="text-3xl text-white">
+      {{ currentColorSet.second }}
+    </h2>
+    <h2 class="text-3xl text-white">
+      {{ currentColorSet.third }}
+    </h2>
+    <h2 class="text-4xl text-white">
+      {{ backgroundImage }}
+    </h2>
   </div>
 </template>
 
