@@ -8,7 +8,7 @@ setMetadata({
 
 <template>
   <div class="flex pt-5 justify-center items-center h-full flex-col">
-    <div class="z-10 m-10 flex justify-center items-center flex-wrap">
+    <div class="z-10 m-10 flex md:(justify-center) <md:(justify-end) items-center flex-wrap">
       <HeaderText class="font-Prachachon topic">
         คุณคือใครในเหตุการณ์เดือน
       </HeaderText>
@@ -36,7 +36,7 @@ setMetadata({
 }
 
 .red-circle {
-  @apply text-size-[3.5rem] <md:text-size-[3rem];
+  @apply text-size-[3.5rem] <md:(text-size-[3rem] -mt-15);
   display: inline-flex;
   justify-content: center;
   align-items: center;
