@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center h-screen w-full flex-col px-8">
+  <div class="flex items-center justify-center h-screen w-full flex-col px-8 z-10">
     <QuestionText class="wave">
       <span v-for="(letter, index) in text" :style="{'--c':(index + 1) + ''}">
         {{ letter }}

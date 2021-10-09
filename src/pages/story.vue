@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden">
+  <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden z-10">
     <!--trigger transtion when the props are change--->
     <transition name="question-fade" mode="out-in">
       <div v-if="questions" :key="'question' + qNumber" class="question-form">
@@ -69,7 +69,7 @@ const updateQuestion = (answer: QuestionChoice) => {
 
 <style>
 .question-form {
-  @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-17 z-20 md:-translate-y-8 xl:(-translate-x-16 -translate-y-16);
+  @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-17 z-20 md:-translate-y-12;
 }
 .question-part {
   @apply box-border w-full text-center break-words;
