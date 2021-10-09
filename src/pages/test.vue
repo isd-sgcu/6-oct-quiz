@@ -57,9 +57,8 @@ const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) =
 }
 
 // This changes the actual ref value
-const singleTransition = (value: Ref<number>, diff: number, duration: Milisecond, intervalSize: Milisecond) => {
+const singleTransition = (value: Ref<number>, diff: number, duration: Milisecond, intervalSize: Milisecond, numberOfAllIntervals: number) => {
   const changePerInterval = (diff / duration) * intervalSize
-  const numberOfAllIntervals = Math.round(duration / intervalSize)
   let intervalCount = 0
 
   const interval = setInterval(() => {
@@ -70,29 +69,32 @@ const singleTransition = (value: Ref<number>, diff: number, duration: Milisecond
 }
 
 const transitionSingleRGB = (
-  { r, g, b }: {r: Ref<number>; g: Ref<number>; b: Ref<number>},
+  { r, g, b }: { r: Ref<number>; g: Ref<number>; b: Ref<number> },
   next: RGB,
   duration: Milisecond,
   intervalSize: Milisecond,
+  numberOfAllIntervals: number,
 ) => {
   const { dr, dg, db } = getRGBDiff(r, g, b, next)
 
-  singleTransition(r, dr, duration, intervalSize)
-  singleTransition(g, dg, duration, intervalSize)
-  singleTransition(b, db, duration, intervalSize)
+  singleTransition(r, dr, duration, intervalSize, numberOfAllIntervals)
+  singleTransition(g, dg, duration, intervalSize, numberOfAllIntervals)
+  singleTransition(b, db, duration, intervalSize, numberOfAllIntervals)
 }
 
-const transitionRGBs = (currentColorSet: ColorSet, nextColorSet: ColorSet, duration: Milisecond, intervalSize: Milisecond) => {
-  transitionSingleRGB({ ...toRefs(currentColorSet.first) }, nextColorSet.first, duration, intervalSize)
-  transitionSingleRGB({ ...toRefs(currentColorSet.second) }, nextColorSet.second, duration, intervalSize)
-  transitionSingleRGB({ ...toRefs(currentColorSet.third) }, nextColorSet.third, duration, intervalSize)
+const transitionRGBs = (currentColorSet: ColorSet, nextColorSet: ColorSet, duration: Milisecond, intervalSize: Milisecond, numberOfAllIntervals: number) => {
+  transitionSingleRGB({ ...toRefs(currentColorSet.first) }, nextColorSet.first, duration, intervalSize, numberOfAllIntervals)
+  transitionSingleRGB({ ...toRefs(currentColorSet.second) }, nextColorSet.second, duration, intervalSize, numberOfAllIntervals)
+  transitionSingleRGB({ ...toRefs(currentColorSet.third) }, nextColorSet.third, duration, intervalSize, numberOfAllIntervals)
 }
 
 const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, secondPercent: Ref<number>, nextSecondPercent: number, duration: Milisecond, intervalSize: Milisecond = 10) => {
-  transitionRGBs(currentColorSet, nextColorSet, duration, intervalSize)
+  const numberOfAllIntervals = Math.round(duration / intervalSize)
+
+  transitionRGBs(currentColorSet, nextColorSet, duration, intervalSize, numberOfAllIntervals)
 
   const dsecondPercent = nextSecondPercent - secondPercent.value
-  singleTransition(secondPercent, dsecondPercent, duration, intervalSize)
+  singleTransition(secondPercent, dsecondPercent, duration, intervalSize, numberOfAllIntervals)
 }
 
 // for on click
@@ -117,9 +119,7 @@ watch(backgroundImage, () => {
 </script>
 
 <template>
-  <div
-    :style="{ backgroundImage /* How do we do this? lol */ }"
-  >
+  <div :style="{ backgroundImage /* How do we do this? lol */ }">
     <button @click="changeBackgroundGradient">
       Change background
     </button>
