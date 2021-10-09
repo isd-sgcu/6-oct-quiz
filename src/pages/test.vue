@@ -97,7 +97,7 @@ const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, s
 
 // for on click
 const changeBackgroundGradient = () => {
-  const nextSecondPercent = 66
+  const nextSecondPercent = 88
   const transitionDur = 300
   transitionGradient(
     currentColorSet,
@@ -108,7 +108,10 @@ const changeBackgroundGradient = () => {
   )
 }
 
+// first linear-gradient
 console.log(backgroundImage.value)
+// logging the change to second linear-gradient
+watch(backgroundImage, () => console.log(backgroundImage.value))
 </script>
 
 <template>
