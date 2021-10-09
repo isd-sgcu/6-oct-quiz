@@ -7,6 +7,8 @@ type RGB = {
   b: number
 }
 
+// There are 3 rgb values in each linear-gradient,
+// hence first, second, and third
 type ColorSet = {
   first: RGB
   second: RGB
