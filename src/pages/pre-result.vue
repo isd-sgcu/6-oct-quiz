@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center h-screen w-full flex-col px-8 z-10">
     <QuestionText class="wave">
-      <span v-for="(letter, index) in text" :style="{'--c':(index + 1) + ''}">
+      <span v-for="(letter, index) in text" :key="index" :style="{'--c':(index + 1) + ''}">
         {{ letter }}
       </span>
     </QuestionText>
@@ -31,12 +31,10 @@ catch (error) {
 
 <style>
 .wave{
-  position: relative;
+  @apply relative;
 }
 .wave span{
-  position: relative;
-  display: inline-block;
-  color:#fff;
+  @apply relative inline-block black font-Trirong font-medium font-9 tracking-wide;
   animation:animate 1.5s ease-in-out infinite;
   animation-delay: calc(.1s * var(--c));
 }

@@ -69,7 +69,7 @@ const updateQuestion = (answer: QuestionChoice) => {
 
 <style>
 .question-form {
-  @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-17 z-20 md:-translate-y-12;
+  @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-15 z-20 md:-translate-y-12;
 }
 .question-part {
   @apply box-border w-full text-center break-words;
