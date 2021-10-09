@@ -30,60 +30,6 @@ import { useGameStore } from '~/stores/game'
 const gameStore = useGameStore()
 
 const qNumber = computed(() => gameStore.currentIndex + 1)
-
-// style object
-const buildingColor = [
-  { // 1
-    main: '#835131',
-    gradientTop: '#FF9243',
-    gradientBottom: 'white',
-  },
-  { // 2
-    main: '#784C30',
-    gradientTop: '#FF9243',
-    gradientBottom: 'white',
-  },
-  { // 3
-    main: '#6F482F',
-    gradientTop: '#FF9243',
-    gradientBottom: 'white',
-  },
-  { // 4
-    main: '#67442D',
-    gradientTop: '#FE8228',
-    gradientBottom: 'white',
-  },
-  { // 5
-    main: '#5E3F2B',
-    gradientTop: '#FE7528',
-    gradientBottom: '#FFE872',
-  },
-  { // 6
-    main: '#563B29',
-    gradientTop: '#FE5B28',
-    gradientBottom: '#FFE872',
-  },
-  { // 7
-    main: '#4E3627',
-    gradientTop: '#C95632',
-    gradientBottom: '#FFE872',
-  },
-  { // 8
-    main: '#463225',
-    gradientTop: '#844B2C',
-    gradientBottom: '#FFE872',
-  },
-  { // 9
-    main: '#3F2D22',
-    gradientTop: '#524E3A',
-    gradientBottom: '#E1D078',
-  },
-  { // 10
-    main: '#372920',
-    gradientTop: '#2E413D',
-    gradientBottom: '#CBCAA5',
-  },
-]
 </script>
 
 <style>

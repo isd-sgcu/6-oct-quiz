@@ -46,7 +46,7 @@ const handleClick = (choice: number) => {
 
 .button-list Button {
   @apply bg-[#FCFBF5] w-32 h-12 mb-4 font-Trirong font-medium md:(mb-0 mr-6 w-46 h-14 text-[22px])
-          xl:(w-1/5 text-[26px]) transition hover:(bg-[#F8E39B] transform scale-110);
+          xl:(w-1/5 text-[26px]) transition hover:(bg-[#C8BBB1] transform scale-110);
 }
 
 .button-list Button:last-child {
