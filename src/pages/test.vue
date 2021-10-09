@@ -57,13 +57,13 @@ const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) =
 }
 
 // This changes the actual ref value
-const singleTransition = (color: Ref<number>, diff: number, duration: Milisecond, intervalSize: Milisecond) => {
+const singleTransition = (value: Ref<number>, diff: number, duration: Milisecond, intervalSize: Milisecond) => {
   const changePerInterval = (diff / duration) * intervalSize
   const numberOfAllIntervals = Math.round(duration / intervalSize)
   let intervalCount = 0
 
   const interval = setInterval(() => {
-    color.value += changePerInterval
+    value.value += changePerInterval
     if (intervalCount++ === numberOfAllIntervals)
       clearInterval(interval)
   }, intervalSize)
