@@ -126,7 +126,14 @@ const useGradient3Transition = (
     )
   }
 
-  return { backgroundImage, next }
+  /**
+   * resets the color index so that the next call of 'next' changes the current gradient to the first gradient.
+   */
+  const reset = () => {
+    color3Index = -1
+  }
+
+  return { backgroundImage, next, reset }
 }
 
 export default useGradient3Transition
