@@ -27,16 +27,18 @@ const getColorSet = (first: number[], second: number[], third: number[]) => {
   }
 }
 
+// This is where we specify color sets
+// There are 3 rgb values in each set
 const firstColorSet = getColorSet([120, 103, 103], [235, 196, 169], [204, 128, 118])
 const nextColorSet = getColorSet([87, 70, 59], [230, 182, 149], [164, 57, 43])
+// secondPercent is the the percent where the second rgb value starts
+const secondPercent = ref(66)
 
-// const first = getReactiveRGB()
 const currentColorSet = reactive({
   first: firstColorSet.first,
   second: firstColorSet.second,
   third: firstColorSet.third,
 })
-const secondPercent = ref(66)
 
 const backgroundImage = computed(() => {
   const { r: r1, g: g1, b: b1 } = toRefs(currentColorSet.first)
@@ -52,6 +54,7 @@ const getRGBDiff = (r: Ref<number>, g: Ref<number>, b: Ref<number>, next: RGB) =
   return { dr, dg, db }
 }
 
+// This changes the actual ref value
 const singleTransition = (color: Ref<number>, diff: number, duration: number, intervalSize: number) => {
   const changePerInterval = (diff / duration) * intervalSize
   const numberOfAllIntervals = duration / intervalSize
@@ -77,19 +80,20 @@ const transitionSingleRGB = (
   singleTransition(b, db, duration, intervalSize)
 }
 
-const transitionRGBs = (currentColors: ColorSet, nextColorSet: ColorSet, duration: number, intervalSize: number) => {
-  transitionSingleRGB({ ...toRefs(currentColors.first) }, nextColorSet.first, duration, intervalSize)
-  transitionSingleRGB({ ...toRefs(currentColors.second) }, nextColorSet.second, duration, intervalSize)
-  transitionSingleRGB({ ...toRefs(currentColors.third) }, nextColorSet.third, duration, intervalSize)
+const transitionRGBs = (currentColorSet: ColorSet, nextColorSet: ColorSet, duration: number, intervalSize: number) => {
+  transitionSingleRGB({ ...toRefs(currentColorSet.first) }, nextColorSet.first, duration, intervalSize)
+  transitionSingleRGB({ ...toRefs(currentColorSet.second) }, nextColorSet.second, duration, intervalSize)
+  transitionSingleRGB({ ...toRefs(currentColorSet.third) }, nextColorSet.third, duration, intervalSize)
 }
 
-const transitionGradient = (currentColor: ColorSet, nextColorSet: ColorSet, secondPercent: Ref<number>, nextSecondPercent: number, duration: Milisecond, intervalSize: Milisecond = 10) => {
-  transitionRGBs(currentColor, nextColorSet, duration, intervalSize)
+const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, secondPercent: Ref<number>, nextSecondPercent: number, duration: Milisecond, intervalSize: Milisecond = 10) => {
+  transitionRGBs(currentColorSet, nextColorSet, duration, intervalSize)
 
   const dsecondPercent = nextSecondPercent - secondPercent.value
   singleTransition(secondPercent, dsecondPercent, duration, intervalSize)
 }
 
+// for on click
 const changeBackgroundGradient = () => {
   const nextSecondPercent = 66
   const transitionDur = 300
