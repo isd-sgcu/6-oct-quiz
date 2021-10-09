@@ -31,16 +31,22 @@ const getColorSet = (first: number[], second: number[], third: number[]) => {
 
 // This is where we specify color sets
 // There are 3 rgb values in each set
-const firstColorSet = getColorSet([120, 103, 103], [235, 196, 169], [204, 128, 118])
-const nextColorSet = getColorSet([87, 70, 59], [230, 182, 149], [164, 57, 43])
+const color3s = [
+  getColorSet([120, 103, 103], [235, 196, 169], [204, 128, 118]),
+  getColorSet([87, 70, 59], [230, 182, 149], [164, 57, 43]),
+  getColorSet([120, 103, 103], [235, 196, 169], [204, 128, 118]),
+  getColorSet([87, 70, 59], [230, 182, 149], [164, 57, 43]),
+]
 // secondPercent is the the percent where the second rgb value starts
+const secondPercents = [66, 66, 33, 33]
+let color3Index = 0
+
 const secondPercent = ref(66)
 const transitionDur = ref<Milisecond>(1000)
-
 const currentColorSet = reactive({
-  first: firstColorSet.first,
-  second: firstColorSet.second,
-  third: firstColorSet.third,
+  first: color3s[color3Index].first,
+  second: color3s[color3Index].second,
+  third: color3s[color3Index].third,
 })
 
 const backgroundImage = computed(() => {
@@ -104,12 +110,12 @@ const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, s
 
 // for on click
 const changeBackgroundGradient = () => {
-  const nextSecondPercent = 67
+  color3Index++
   transitionGradient(
     currentColorSet,
-    nextColorSet,
+    color3s[color3Index],
     secondPercent,
-    nextSecondPercent,
+    secondPercents[color3Index],
     transitionDur.value,
   )
 }
