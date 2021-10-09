@@ -16,9 +16,12 @@ setMetadata({
           </div>
         </div>
         <div class="relative md:flex">
-          <div class="flex flex-col justify-center items-center flex-wrap">
-            <div class="topic font-Prachachon">
+          <div class="flex flex-col justify-center md:items-center items-start flex-wrap">
+            <div class="topic font-Prachachon md:inline-block hidden">
               ในเหตุการณ์เดือน
+            </div>
+            <div class="topic font-Prachachon md:hidden inline-block">
+              ในเหตุการณ์
             </div>
             <Button class="w-full max-w-[300px] md:inline hidden p-6 !py-4 mt-5 bg-white hover:bg-cream transition-colors" @click="$router.push('/intro')">
               <div class="text-size-[1.5rem] font-bold">
@@ -26,9 +29,14 @@ setMetadata({
               </div>
             </Button>
           </div>
-          <div class="red-circle">
-            <div class="font-Prachachon p-5">
-              ตุลาฯ
+          <div class="flex">
+            <div class="topic font-Prachachon md:hidden inline-block">
+              เดือน
+            </div>
+            <div class="red-circle">
+              <div class="font-Prachachon p-5">
+                ตุลาฯ
+              </div>
             </div>
           </div>
         </div>
@@ -46,7 +54,6 @@ setMetadata({
 
 .topic {
   @apply z-0 text-size-[6rem] <md:text-size-[4rem] text-white mr-3;
-  display: inline-block;
 }
 
 .red-circle {
