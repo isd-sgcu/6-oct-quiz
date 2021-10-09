@@ -76,6 +76,13 @@ const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, s
 const useGradient3Transition = (
   rgbSets: RGB3Set[], secondPercents: number[], transitionDur: Millisecond,
 ) => {
+  if (!rgbSets || !secondPercents)
+    throw new Error('rgbSets and secondPercents cannot be empty.')
+  if (rgbSets.length !== secondPercents.length)
+    throw new Error('rgbSets and secondPercents must have the same length since they are related.')
+  if (transitionDur < 0)
+    throw new Error('transitionDur cannot be negative.')
+
   const color3s = rgbSets.map(set => getColorSet(set[0], set[1], set[2]))
   // secondPercent is the the percent where the second rgb value starts
   let color3Index = 0
@@ -107,7 +114,9 @@ const useGradient3Transition = (
     const secondPercent = overwrite?.secondPercent
     const dur = overwrite?.dur
 
-    color3Index++
+    if (color3Index++ === secondPercents.length - 1)
+      throw new Error('You have run out of colors to transition.')
+
     transitionGradient(
       currentColorSet,
       rgbSet ? getColorSet(rgbSet[0], rgbSet[1], rgbSet[2]) : color3s[color3Index],
