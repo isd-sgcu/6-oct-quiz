@@ -1,6 +1,6 @@
 <template>
-  <div class="bg min-h-screen ">
-    <main class="pt-4">
+  <div class="bg min-h-screen h-full">
+    <main class="h-full">
       <router-view />
     </main>
   </div>

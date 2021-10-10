@@ -7,7 +7,7 @@ setMetadata({
 </script>
 
 <template>
-  <div class="flex pt-5 h-full flex-col">
+  <div class="flex pb-20 h-full items-center justify-center">
     <div class="z-10 m-10 flex justify-center items-center flex-wrap">
       <div class="flex flex-col justify-center items-center">
         <div class="w-full">
@@ -53,11 +53,11 @@ setMetadata({
 <style scoped>
 
 .topic {
-  @apply z-0 text-size-[6rem] <md:text-size-[4rem] text-white mr-3;
+  @apply z-0 text-size-[9rem] <lg:text-size-[6rem] <md:text-size-[4rem] text-white mr-3;
 }
 
 .red-circle {
-  @apply text-size-[6rem] <md:(text-size-[4rem]);
+  @apply text-size-[9rem] <lg:text-size-[6rem] <md:(text-size-[4rem]);
   display: inline-flex;
   justify-content: center;
   align-items: center;
