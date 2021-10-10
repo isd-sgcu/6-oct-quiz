@@ -23,3 +23,23 @@ export type Character = {
   url: string
   image: string
 }
+
+export type RGB = {
+  r: number
+  g: number
+  b: number
+}
+
+// There are 3 rgb values in each linear-gradient,
+// hence first, second, and third
+export type ColorSet = {
+  first: RGB
+  second: RGB
+  third: RGB
+}
+
+export type RGBArray = [number, number, number]
+
+export type RGB3Set = [RGBArray, RGBArray, RGBArray]
+
+export type Millisecond = number
