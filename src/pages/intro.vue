@@ -17,7 +17,8 @@
               เริ่มทำ Quiz
             </ParagraphText>
           </Button>
-          <img v-if="key === 1" class="absolute w-full h-screen bottom-0 left-0" src="../assets/image_set.svg">
+          <img v-if="key === 1" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full md:hidden" src="../assets/image_set_small.png">
+          <img v-if="key === 1" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full <md:hidden" src="../assets/image_set_large.png">
           <img v-if="key === 2" class="h-screen w-full absolute top-0 bottom-0 left-0 right-0" src="../assets/chair.svg">
           <img v-if="key === 4" class="absolute w-full min-w-[600px] bottom-0 left-0" src="../assets/continue.svg">
         </div>
