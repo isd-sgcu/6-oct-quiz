@@ -8,7 +8,7 @@
         class="flex justify-center pb-5 pt-5 relative px-20 <md:px-0 h-screen items-center"
         :style="{backgroundColor: item.bgColor}"
       >
-        <div :id="`el-text-${key}`" class="max-w-[600px] w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
+        <div :id="`el-text-${key}`" class="max-w-[500px] w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
           <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all mb-7 z-50 text-size-[1.25rem] leading-10 <md:(text-size-[1rem] leading-8)" :style="{ color: item.textColor}">
             {{ text }}
           </ParagraphText>
