@@ -25,7 +25,7 @@ import { useGameStore } from '~/stores/game'
 
 const game = useGameStore()
 
-const { backgroundImage, next, reset } = useGradient3Transition(
+const { backgroundImage, next, setColorIndex } = useGradient3Transition(
   [
     [[255, 255, 255], [255, 255, 255], [255, 255, 255]],
     [[245, 245, 245], [245, 245, 245], [255, 248, 243]],
@@ -43,8 +43,13 @@ const { backgroundImage, next, reset } = useGradient3Transition(
   1200,
 )
 
-const qNumber = computed(() => (game.currentIndex + 1))
+const qNumber = computed(() => (game.currentIndex))
 watch(qNumber, () => {
+  next()
+})
+
+onMounted(() => {
+  setColorIndex(qNumber.value - 1)
   next()
 })
 </script>

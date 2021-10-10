@@ -136,7 +136,16 @@ const useGradient3Transition = (
     color3Index = -1
   }
 
-  return { backgroundImage, next, reset }
+  const setColorIndex = (idx: number) => {
+    if (idx >= rgbSets.length)
+      color3Index = rgbSets.length - 1
+    else if (idx < 0)
+      color3Index = -1
+    else
+      color3Index = idx
+  }
+
+  return { backgroundImage, next, reset, setColorIndex }
 }
 
 export default useGradient3Transition
