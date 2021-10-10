@@ -1,15 +1,15 @@
 import { Ref } from 'vue'
 import { RGB, Millisecond, ColorSet, RGB3Set, RGBArray } from './types'
 
-const getReactiveRGB = (r: number, g: number, b: number) => {
-  return reactive({ r, g, b })
+const getRGBObject = (r: number, g: number, b: number) => {
+  return { r, g, b }
 }
 
 export const getColorSet = (first: RGBArray, second: RGBArray, third: RGBArray) => {
   return {
-    first: getReactiveRGB(first[0], first[1], first[2]),
-    second: getReactiveRGB(second[0], second[1], second[2]),
-    third: getReactiveRGB(third[0], third[1], third[2]),
+    first: getRGBObject(first[0], first[1], first[2]),
+    second: getRGBObject(second[0], second[1], second[2]),
+    third: getRGBObject(third[0], third[1], third[2]),
   }
 }
 
@@ -117,7 +117,7 @@ const useGradient3Transition = (
     const secondPercent = overwrite?.secondPercent
     const dur = overwrite?.dur
 
-    if (color3Index++ === secondPercents.length - 1)
+    if (color3Index++ >= secondPercents.length - 1)
       throw new Error('You have run out of colors to transition.')
 
     transitionGradient(
