@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 2 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
+    <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] <md:(text-size-[2rem]) cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 2 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
   </div>
 </template>
 
