@@ -88,7 +88,6 @@ const useGradient3Transition = (
     throw new Error('transitionDur cannot be negative.')
 
   const color3s = rgbSets.map(set => getColorSet(set[0], set[1], set[2]))
-  // secondPercent is the the percent where the second rgb value starts
   let color3Index = 0
 
   const _secondPercent = ref(secondPercents[color3Index])
