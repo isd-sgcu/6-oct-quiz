@@ -47,16 +47,16 @@ export default defineConfig({
     },
     backgroundImage: {
       // e.g. bg-grad-1
-      'grad-1': 'linear-gradient(180deg, #FFA751 0%, #FFE259 34.38%, #FFFFFF 100%)',
-      'grad-2': 'linear-gradient(180deg, #FFA043 0%, #FFD159 34.38%, #FFFFFF 100%)',
-      'grad-3': 'linear-gradient(180deg, #FF9243 0%, #FFBD59 34.38%, #FFFFFF 100%)',
-      'grad-4': 'linear-gradient(180deg, #FE8228 0%, #FFBD59 52.4%, #FFFFFF 100%)',
-      'grad-5': 'linear-gradient(180deg, #FE7528 0%, #FFB359 65.42%, #FFE872 100%)',
-      'grad-6': 'linear-gradient(180deg, #FE5B28 10.73%, #FFB359 79.48%, #FFE872 100%)',
-      'grad-7': 'linear-gradient(180deg, #C95632 10.73%, #FFBD59 79.48%, #FFE872 100%)',
-      'grad-8': 'linear-gradient(180deg, #844B2C 10.73%, #FFBD59 79.48%, #FFE872 100%)',
-      'grad-9': 'linear-gradient(180deg, #524E3A 10.73%, #E1D078 100%)',
-      'grad-10': 'linear-gradient(180deg, #2E413D 0%, #CBCAA5 100%)',
+      'grad-1': '#FFF',
+      'grad-2': 'linear-gradient(180deg, #F5F5F5 0%, #FFF8F3 100%)',
+      'grad-3': 'linear-gradient(180deg, #EBEBEB 0%, #FCEDE3 100%)',
+      'grad-4': 'linear-gradient(180deg, #E4DFDF 0%, #F7E2D3 100%)',
+      'grad-5': 'linear-gradient(180deg, #CDC6C6 0%, #FBE0CC 83.12%, #FFD7D2 100%)',
+      'grad-6': 'linear-gradient(180deg, #BCB1B1 0%, #F4D6C0 83.12%, #EFC6C1 100%)',
+      'grad-7': 'linear-gradient(180deg, #A89D9D 0%, #F4D6C0 74.27%, #E7B6AF 100%)',
+      'grad-8': 'linear-gradient(180deg, #978686 0%, #EBC4A9 66.98%, #DE9C93 100%)',
+      'grad-9': 'linear-gradient(180deg, #786767 0%, #EBC4A9 66.98%, #CC8076 100%)',
+      'grad-10': 'linear-gradient(180deg, #57463B 0%, #E6B695 66.98%, #A4392B 100%)',
     },
     extend: {
       fontFamily: {

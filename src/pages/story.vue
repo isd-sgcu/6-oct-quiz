@@ -1,17 +1,16 @@
 <template>
-  <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8">
+  <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden z-10">
     <!--trigger transtion when the props are change--->
-    <transition name="slide-fade" mode="out-in">
-      <QuestionForm
-        :key="qNumber"
-        :question-text="currentQuestion ? currentQuestion.text : ''"
-        @update-question="updateQuestion"
-      />
+    <transition name="question-fade" mode="out-in">
+      <div v-if="questions" :key="'question' + qNumber" class="question-form">
+        <div class="question-part">
+          <QuestionText>
+            {{ currentQuestion.text }}
+          </QuestionText>
+        </div>
+        <ButtonList @submit="updateQuestion" />
+      </div>
     </transition>
-    <div class="absolute bottom-0 w-full overflow-hidden">
-      <!--SVG IMAGE--->
-      <div class="building" />
-    </div>
   </div>
 </template>
 
@@ -29,13 +28,10 @@ const game = useGameStore()
 const router = useRouter()
 
 game.initNewQuiz() // reset game state
-
+const questions = game.questionList
 // Speciftic the order of a question and set currentQuestion
 const qNumber = computed(() => game.currentIndex + 1)
-const currentQuestion = computed(() => {
-  const question = game.questionList
-  return question ? question[game.currentIndex] : undefined
-})
+const currentQuestion = computed(() => questions[game.currentIndex])
 
 /**
  * @callback Calculate new score according to a player's answer and set the next question
@@ -43,7 +39,7 @@ const currentQuestion = computed(() => {
  * @var answer get from custom event of QuestionForm component
  */
 const updateQuestion = (answer: QuestionChoice) => {
-  if (game.finish || !currentQuestion.value) return
+  if (!currentQuestion.value) return
 
   // get a set of characters that related to the question
   const relatedPeople = currentQuestion.value.relatedPeople
@@ -72,22 +68,24 @@ const updateQuestion = (answer: QuestionChoice) => {
 </script>
 
 <style>
-.building {
-  @apply h-[274px] md:h-[300px] w-full;
-  background: url('../assets/city_brown.svg') repeat-x center;
+.question-form {
+  @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-15 z-20 md:-translate-y-12;
+}
+.question-part {
+  @apply box-border w-full text-center break-words;
 }
 
 /* durations and timing functions.*/
-.slide-fade-enter-active {
-  transition: all .7s ease;
+.question-fade-enter-active {
+  transition: all 0.5s ease-in;
 }
-.slide-fade-leave-active {
-  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+.question-fade-leave-active {
+  transition: all 0.35s ease-out;
+  transition-delay: 0.10s;
 }
 
 /* Set animation state of the element before entering or after leaving */
-.slide-fade-enter-from, .slide-fade-leave-to {
-  transform: translateY(10px);
+.question-fade-enter-from, .question-fade-leave-to {
   opacity: 0;
 }
 </style>
