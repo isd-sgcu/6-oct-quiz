@@ -8,8 +8,8 @@
         class="flex justify-center pb-5 pt-5 relative px-20 <md:px-0 h-screen items-center"
         :style="{backgroundColor: item.bgColor}"
       >
-        <div :id="`el-text-${key}`" class="max-w-[700px] <xl:(max-w-[500px]) <md:(max-w-[300px]) w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
-          <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all mb-7 z-50 text-size-[1.75rem] leading-12 <xl:(text-size-[1.25rem] leading-10) <md:(text-size-[1rem] leading-8)" :style="{ color: item.textColor}">
+        <div :id="`el-text-${key}`" class="max-w-[700px] <xl:(max-w-[600px]) <md:(max-w-[300px]) w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
+          <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all mb-7 z-50 text-size-[1.75rem] leading-12 <xl:(text-size-[1.5rem] leading-10) <md:(text-size-[1.25rem] leading-8) break-words" :style="{ color: item.textColor}">
             {{ text }}
           </ParagraphText>
           <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity mt-5" @click="playQuiz">
@@ -45,7 +45,7 @@ const game = useGameStore()
 const info = [
 
   {
-    details: ['ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙', 'มีเพื่อนเราหลายคนผ่านเหตุการณ์สําคัญหนึ่งของชีวิตมา'],
+    details: ['ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙', 'มีเพื่อนเราหลายคนผ่านเหตุการณ์ที่สําคัญหนึ่งของชีวิตมา'],
     bgColor: '#FFFFFF',
     textColor: '#000000',
   },
