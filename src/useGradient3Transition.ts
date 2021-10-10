@@ -45,9 +45,12 @@ const transitionSingleRGB = (
 ) => {
   const { dr, dg, db } = getRGBDiff(r, g, b, next)
 
-  singleTransition(r, dr, duration, intervalSize, numberOfAllIntervals)
-  singleTransition(g, dg, duration, intervalSize, numberOfAllIntervals)
-  singleTransition(b, db, duration, intervalSize, numberOfAllIntervals)
+  if (dr)
+    singleTransition(r, dr, duration, intervalSize, numberOfAllIntervals)
+  if (dg)
+    singleTransition(g, dg, duration, intervalSize, numberOfAllIntervals)
+  if (db)
+    singleTransition(b, db, duration, intervalSize, numberOfAllIntervals)
 }
 
 const transitionRGBs = (currentColorSet: ColorSet, nextColorSet: ColorSet, duration: Millisecond, intervalSize: Millisecond, numberOfAllIntervals: number) => {
@@ -61,8 +64,9 @@ const transitionGradient = (currentColorSet: ColorSet, nextColorSet: ColorSet, s
 
   transitionRGBs(currentColorSet, nextColorSet, duration, intervalSize, numberOfAllIntervals)
 
-  const dsecondPercent = nextSecondPercent - secondPercent.value
-  singleTransition(secondPercent, dsecondPercent, duration, intervalSize, numberOfAllIntervals)
+  const dSecondPercent = nextSecondPercent - secondPercent.value
+  if (dSecondPercent)
+    singleTransition(secondPercent, dSecondPercent, duration, intervalSize, numberOfAllIntervals)
 }
 
 /**
