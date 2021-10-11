@@ -28,7 +28,7 @@ const { backgroundImage, next, color3s, setColorIndex } = useGradient3Transition
     <br />
     <br />
     <button class="text-5xl bg-purple rounded-lg p-3" @click="setColorIndex(0)">
-      setColorIndex(0)
+      setColorIndex(0) or the same as reset() then next()
     </button>
     <br />
     <span class="font-bold">{{ '^^ This does not change back to { "first": { "r": 255, "g": 255, "b": 255 }, "second": { "r": 255, "g": 255, "b": 255 }, "third": { "r": 255, "g": 255, "b": 255 } } ' }} </span>
