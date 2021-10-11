@@ -31,23 +31,23 @@ catch (error) {
 
 <style>
 .wave{
-  @apply relative;
+  @apply relative z-20;
 }
 .wave span{
-  @apply relative inline-block white font-Trirong font-medium font-9 tracking-wide z-20;
+  @apply relative inline-block transform font-Trirong font-bold font-10 tracking-wide -translate-y-10;
   animation:animate 1.5s ease-in-out infinite;
   animation-delay: calc(.1s * var(--c));
 }
 
 @keyframes animate{
   0%,100%{
-    transform: translateY(0px);
+    transform: translateY(-40px);
   }
   20%{
-    transform: translateY(-20px);
+    transform: translateY(-60px);
   }
   40%{
-    transform: translateY(0px);
+    transform: translateY(-40px);
   }
 }
 </style>
