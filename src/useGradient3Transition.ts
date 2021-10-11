@@ -136,7 +136,11 @@ const useGradient3Transition = (
     color3Index = -1
   }
 
-  const setColorIndex = (idx: number) => {
+  /**
+   * Moves the current index to the specified index and transitions the gradient to the color of that index
+   * @param idx The index of the new color to move to.
+   */
+  const moveToColor = (idx: number) => {
     const lastIndex = rgbSets.length - 1
     if (idx > lastIndex || idx < 0)
       throw new Error(`Invalid index. Valid indices are [${0}, ${lastIndex}]. Your index is ${idx}`)
@@ -145,7 +149,7 @@ const useGradient3Transition = (
     next()
   }
 
-  return { backgroundImage, next, reset, setColorIndex }
+  return { backgroundImage, next, reset, moveToColor }
 }
 
 export default useGradient3Transition
