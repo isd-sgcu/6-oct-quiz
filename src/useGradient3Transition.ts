@@ -92,6 +92,7 @@ const useGradient3Transition = (
 
   const _secondPercent = ref(secondPercents[color3Index])
   const currentColorSet = reactive({
+    // { ... } copies the colors preventing pass by reference bug
     first: { ...color3s[color3Index].first },
     second: { ...color3s[color3Index].second },
     third: { ...color3s[color3Index].third },
