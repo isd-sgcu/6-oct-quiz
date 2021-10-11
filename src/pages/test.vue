@@ -35,7 +35,7 @@ const { backgroundImage, next, color3s, setColorIndex } = useGradient3Transition
     <br />
     <br />
     <span>{{ backgroundImage }}</span><br /><br />
-    <span>{{ color3s[0] }}</span><span class="font-bold">{{ ' <- This is the color3s[0]' }}</span><br />
+    <span>{{ color3s[0] }}</span><span class="font-bold">{{ ' <- This is the color3s[0] which is always changed when next is called' }}</span><br />
     <span>{{ color3s[1] }}</span><br />
     <span>{{ color3s[2] }}</span><br />
     <span>{{ color3s[3] }}</span>
