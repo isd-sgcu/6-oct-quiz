@@ -141,12 +141,10 @@ const useGradient3Transition = (
     if (idx > lastIndex || idx < 0)
       throw new Error(`Invalid index. Valid indices are [${0}, ${lastIndex}]. Your index is ${idx}`)
 
-    currentColorSet.first = color3s[color3Index].first
-    currentColorSet.second = color3s[color3Index].second
-    currentColorSet.third = color3s[color3Index].third
-
-    _secondPercent.value = secondPercents[color3Index]
+    color3Index = idx - 1
+    next()
   }
+
   return { backgroundImage, next, reset, setColorIndex }
 }
 
