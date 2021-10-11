@@ -150,7 +150,7 @@ const useGradient3Transition = (
 
     _secondPercent.value = secondPercents[color3Index]
   }
-  return { backgroundImage, next, reset, setColorIndex }
+  return { backgroundImage, next, reset, setColorIndex, color3s }
 }
 
 export default useGradient3Transition
