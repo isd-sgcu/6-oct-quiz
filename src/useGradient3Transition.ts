@@ -140,11 +140,16 @@ const useGradient3Transition = (
     if (idx >= rgbSets.length)
       color3Index = rgbSets.length - 1
     else if (idx < 0)
-      color3Index = -1
+      color3Index = 0
     else
       color3Index = idx
-  }
 
+    currentColorSet.first = color3s[color3Index].first
+    currentColorSet.second = color3s[color3Index].second
+    currentColorSet.third = color3s[color3Index].third
+
+    _secondPercent.value = secondPercents[color3Index]
+  }
   return { backgroundImage, next, reset, setColorIndex }
 }
 

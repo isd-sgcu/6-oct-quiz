@@ -40,7 +40,7 @@ const { backgroundImage, next, setColorIndex } = useGradient3Transition(
     [[87, 70, 59], [229, 182, 149], [164, 57, 43]],
   ],
   [0, 0, 0, 0, 83.12, 83.12, 74.27, 66.98, 66.98, 66.98, 66.98],
-  1200,
+  1000,
 )
 
 const qNumber = computed(() => (game.currentIndex))
@@ -49,8 +49,7 @@ watch(qNumber, () => {
 })
 
 onMounted(() => {
-  setColorIndex(qNumber.value - 1)
-  next()
+  setColorIndex(qNumber.value)
 })
 </script>
 
