@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import useGradient3Transition from '~/useGradient3Transition'
 
-const { backgroundImage, next, reset, color3s } = useGradient3Transition(
+const { backgroundImage, next, color3s, setColorIndex } = useGradient3Transition(
   [
     [[255, 255, 255], [255, 255, 255], [255, 255, 255]],
     [[245, 245, 245], [245, 245, 245], [255, 248, 243]],
@@ -22,14 +22,20 @@ const { backgroundImage, next, reset, color3s } = useGradient3Transition(
 
 <template>
   <div class="min-h-screen" :style="{ backgroundImage }">
-    <h1 class="text-5xl" @click="next()">
+    <button class="text-5xl bg-purple rounded-lg p-3" @click="next()">
       Click me
-    </h1>
-    <h1 class="text-5xl" @click="reset">
-      reset
-    </h1>
-    <span>{{ backgroundImage }}</span><br />
-    <span>{{ color3s[0] }}</span><br /><br />
+    </button>
+    <br />
+    <br />
+    <button class="text-5xl bg-purple rounded-lg p-3" @click="setColorIndex(0)">
+      setColorIndex(0)
+    </button>
+    <br />
+    <span class="font-bold">{{ '^^ This does not change back to { "first": { "r": 255, "g": 255, "b": 255 }, "second": { "r": 255, "g": 255, "b": 255 }, "third": { "r": 255, "g": 255, "b": 255 } } ' }} </span>
+    <br />
+    <br />
+    <span>{{ backgroundImage }}</span><br /><br />
+    <span>{{ color3s[0] }}</span><span class="font-bold">{{ ' <- This is the color3s[0]' }}</span><br />
     <span>{{ color3s[1] }}</span><br />
     <span>{{ color3s[2] }}</span><br />
     <span>{{ color3s[3] }}</span>
