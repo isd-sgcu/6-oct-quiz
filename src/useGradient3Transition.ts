@@ -137,12 +137,9 @@ const useGradient3Transition = (
   }
 
   const setColorIndex = (idx: number) => {
-    if (idx >= rgbSets.length)
-      color3Index = rgbSets.length - 1
-    else if (idx < 0)
-      color3Index = 0
-    else
-      color3Index = idx
+    const lastIndex = rgbSets.length - 1
+    if (idx > lastIndex || idx < 0)
+      throw new Error(`Invalid index. Valid indices are [${0}, ${lastIndex}]. Your index is ${idx}`)
 
     currentColorSet.first = color3s[color3Index].first
     currentColorSet.second = color3s[color3Index].second
