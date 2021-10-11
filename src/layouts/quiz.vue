@@ -48,7 +48,10 @@ watch(qNumber, () => {
 })
 
 onMounted(() => {
-  moveToColor(qNumber.value)
+  // skips if qNumber.value is 0
+  // to prevent unneccessary call to moveToColor
+  if (qNumber.value)
+    moveToColor(qNumber.value)
 })
 </script>
 

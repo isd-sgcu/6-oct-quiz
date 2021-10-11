@@ -148,7 +148,7 @@ const useGradient3Transition = (
 
     color3Index = idx
     transitionGradient(
-      currentColorSet, color3s[idx], _secondPercent, secondPercents[idx], transitionDur
+      currentColorSet, color3s[idx], _secondPercent, secondPercents[idx], transitionDur,
     )
   }
 
