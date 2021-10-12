@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import appDescription from '~/assets/description'
 import { setMetadata } from '~/utils'
+
 setMetadata({
   description: appDescription,
 })
+
+onMounted(() => window.scrollTo(0, 1))
 </script>
 
 <template>
