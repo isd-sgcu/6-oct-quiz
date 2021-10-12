@@ -36,7 +36,7 @@ const show = () => {
   <div>
     <div class="mx-auto w-[80%] py-10 xs:(w-[70%]) sm:(w-100) lg:(w-90 py-0) xl:(w-110) 2xl:(w-120)">
       <pulse-loader :loading="!isLoaded" color="grey" :size="spinnerSize" class="flex justify-center my-36 xs:my-51 sm:my-57 lg:mt-60" />
-      <transition name="result-image-fade">
+      <transition name="result-image-fade" appear>
         <img v-show="isLoaded" class="w-full" :src="props.image" :alt="props.alt" @load="show" />
       </transition>
     </div>
