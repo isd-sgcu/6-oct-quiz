@@ -31,7 +31,7 @@ export const setMetadata = ({
   title = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
   description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ”',
   image = '', // for og:image and twitter:image
-  url = 'https://www.google.com',
+  url = 'http://whoareyou.cudemarchive.co/',
   siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
 }) => {
   return useHead({
