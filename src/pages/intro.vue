@@ -78,6 +78,29 @@ let elHeight: number[][] = []
 let tresholdOffset = window.innerHeight / 2
 let timeOutNo = -1
 
+function scrollToSmoothly(pos: number, time: number) {
+  const currentPos = window.pageYOffset
+  let start: number | null = null
+  const calculateEase = (x: number) => {
+    return x * x * x * (10 + x * (6 * x - 15))
+  }
+  window.requestAnimationFrame(function step(currentTime) {
+    start = !start ? currentTime : start
+    const progress = currentTime - start
+
+    const varX = progress / time
+    if (currentPos < pos)
+      window.scrollTo(0, ((pos - currentPos) * calculateEase(varX)) + currentPos)
+    else
+      window.scrollTo(0, currentPos - ((currentPos - pos) * calculateEase(varX)))
+
+    if (progress < time)
+      window.requestAnimationFrame(step)
+    else
+      window.scrollTo(0, pos)
+  })
+}
+
 onMounted(() => {
   tresholdOffset = window.innerHeight / 2
   const elSz = info.length
@@ -87,6 +110,7 @@ onMounted(() => {
     if (el)
       elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
   }
+  scrollToSmoothly(0, 0)
   window.onscroll = () => {
     if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
       isHide.value = true
@@ -131,29 +155,6 @@ onMounted(() => {
     isHide.value = false
   }, 1000)
 })
-
-function scrollToSmoothly(pos: number, time: number) {
-  const currentPos = window.pageYOffset
-  let start: number | null = null
-  const calculateEase = (x: number) => {
-    return x * x * x * (10 + x * (6 * x - 15))
-  }
-  window.requestAnimationFrame(function step(currentTime) {
-    start = !start ? currentTime : start
-    const progress = currentTime - start
-
-    const varX = progress / time
-    if (currentPos < pos)
-      window.scrollTo(0, ((pos - currentPos) * calculateEase(varX)) + currentPos)
-    else
-      window.scrollTo(0, currentPos - ((currentPos - pos) * calculateEase(varX)))
-
-    if (progress < time)
-      window.requestAnimationFrame(step)
-    else
-      window.scrollTo(0, pos)
-  })
-}
 
 const handleScroll = () => {
   if (isHide.value) return
