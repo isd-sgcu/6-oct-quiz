@@ -27,6 +27,10 @@ catch (error) {
   console.log(error.message)
   router.replace('/story')
 }
+
+onUnmounted(() => {
+  game.setCurrentIndex(0)
+})
 </script>
 
 <style>
