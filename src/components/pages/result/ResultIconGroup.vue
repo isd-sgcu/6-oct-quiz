@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { CharacterKeyOption } from '~/types'
 
-const location = useBrowserLocation()
-
 const props = defineProps<{
   characterKey: CharacterKeyOption
 }>()
 
 const text = 'This is the caption of the post.'
-const base = location.value.origin
-const shareLink = `${base}/share/${props.characterKey}`
+const origin = window.location.origin
+const shareLink = `${origin}/share/${props.characterKey}`
 
 const facebook = () => {
   window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareLink}${text ? `&quote=${text.replaceAll(' ', '+')}` : ''}`, '_blank')
