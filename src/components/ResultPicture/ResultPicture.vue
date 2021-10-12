@@ -4,7 +4,28 @@ const props = defineProps<{
   alt: string
 }>()
 
+const { width } = useWindowSize()
+
 const isLoaded = ref(false)
+
+const spinnerSize = computed(() => {
+  const getSpinnerSize = (width: number) => {
+    if (width < 480)
+      return 7
+    if (width < 640)
+      return 8
+    if (width < 768)
+      return 9
+    if (width < 1024)
+      return 11
+    if (width < 1280)
+      return 12
+    if (width < 1536)
+      return 14
+    return 16
+  }
+  return `${getSpinnerSize(width.value)}px`
+})
 
 const show = () => {
   isLoaded.value = true
@@ -14,7 +35,7 @@ const show = () => {
 <template>
   <div>
     <div class="mx-auto w-[80%] py-10 xs:(w-[70%]) sm:(w-100) lg:(w-90 py-0) xl:(w-110) 2xl:(w-120)">
-      <div v-show="!isLoaded" class="w-full h-full bg-red">f</div>
+      <pulse-loader :loading="!isLoaded" color="grey" :size="spinnerSize" class="flex justify-center lg:mt-60" />
       <img v-show="isLoaded" class="w-full" :src="props.image" :alt="props.alt" @load="show" />
     </div>
   </div>
