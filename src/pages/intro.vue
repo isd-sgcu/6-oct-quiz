@@ -159,7 +159,7 @@ onMounted(() => {
   }
 
   setTimeout(() => {
-    if (presentNum.value === -1) {
+    if (presentNum.value === 0) {
       presentNum.value = 0
       isHide.value = false
     }
