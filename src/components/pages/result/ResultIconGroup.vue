@@ -6,7 +6,7 @@ const props = defineProps<{
 }>()
 
 const text = 'This is the caption of the post.'
-const base = 'https://oct-quiz--pr21-metadata-ss2pvu1d.web.app'
+const base = 'https://oct-quiz--dev-pn4kl455.web.app/'
 const shareLink = `${base}/share/${props.characterKey}`
 
 const facebook = () => {
