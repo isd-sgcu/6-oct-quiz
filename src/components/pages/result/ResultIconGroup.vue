@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { CharacterKeyOption } from '~/types'
 
+const location = useBrowserLocation()
+
 const props = defineProps<{
   characterKey: CharacterKeyOption
 }>()
 
 const text = 'This is the caption of the post.'
-const base = 'https://oct-quiz--dev-pn4kl455.web.app/'
+const base = location.value.origin
 const shareLink = `${base}/share/${props.characterKey}`
 
 const facebook = () => {
