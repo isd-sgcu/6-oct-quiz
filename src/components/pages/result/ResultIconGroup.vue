@@ -12,7 +12,7 @@ const base = location.value.origin
 const shareLink = `${base}/share/${props.characterKey}`
 
 const facebook = () => {
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareLink}&quote=${text.replaceAll(' ', '+')}`, '_blank')
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareLink}${text ? `&quote=${text.replaceAll(' ', '+')}` : ''}`, '_blank')
 }
 // const instagram = () => {
 
@@ -21,7 +21,7 @@ const line = () => {
   window.open(`https://social-plugins.line.me/lineit/share?url=${shareLink}`, '_blank')
 }
 const twitter = () => {
-  window.open(`http://twitter.com/share?text=${text.replaceAll(' ', '+')}&url=${shareLink}`, '_blank')
+  window.open(`http://twitter.com/share?url=${shareLink}${text ? `&text=${text.replaceAll(' ', '+')}` : ''}`, '_blank')
 }
 </script>
 
