@@ -52,6 +52,8 @@ export const setMetadata = ({
       { property: 'twitter:title', content: title },
       { property: 'twitter:description', content: description },
       { property: 'twitter:image', content: image },
+
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
     ],
   })
 }
