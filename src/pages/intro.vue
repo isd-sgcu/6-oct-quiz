@@ -105,7 +105,6 @@ onMounted(() => {
     if (el)
       elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
   }
-  scrollToSmoothly(0, 0)
   window.onscroll = () => {
     if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
       isHide.value = true
@@ -149,6 +148,9 @@ onMounted(() => {
     presentNum.value = 0
     isHide.value = false
   }, 1000)
+  setTimeout(() => {
+    window.scrollTo({ top: 0 })
+  }, 0)
 })
 
 const handleScroll = () => {
