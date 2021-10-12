@@ -20,7 +20,7 @@
           <img v-if="key === 1" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full md:hidden" src="../assets/image_set_small.png">
           <img v-if="key === 1" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full <md:hidden" src="../assets/image_set_large.png">
           <img v-if="key === 2" class="h-screen w-full absolute top-0 bottom-0 object-contain left-0 right-0" src="../assets/chair.png">
-          <img v-if="key === 4" class="absolute w-full min-w-[600px] bottom-0 left-0" src="../assets/continue.svg">
+          <img v-if="key === 3" class="absolute w-full min-w-[600px] bottom-0 left-0 object-contain xl:(-my-20)" src="../assets/continue.svg">
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@ const info = [
 
   {
     details: ['ในเดือนตุลาฯ หนึ่งของปี ๒๕๑๙', 'มีเพื่อนเราหลายคนผ่านเหตุการณ์ที่สําคัญหนึ่งของชีวิตมา'],
-    bgColor: '#FFFFFF',
+    bgColor: '#FCFBF5',
     textColor: '#000000',
   },
   {
@@ -61,13 +61,8 @@ const info = [
   },
   {
     details: ['คน 6 ตุลาฯ สร้างอะไรไว้ให้สังคมมากมาย จิตวิญญาณของพวกเขาและความเป็นคน 6 ตุลาฯ เติบโตในทุก ๆ ที่', 'คุณอยากรู้รึเปล่า ว่าจิตวิญญาณของพวกเขาเติบโตในตัวคุณบ้างไหม คุณคือใครใน 6 ตุลาฯ'],
-    bgColor: '#FFFFFF',
+    bgColor: '#FCFBF5',
     textColor: '#000000',
-  },
-  {
-    details: [],
-    bgColor: '',
-    textColor: '',
   },
 ]
 
