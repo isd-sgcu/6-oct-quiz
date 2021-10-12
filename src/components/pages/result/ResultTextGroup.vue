@@ -42,9 +42,11 @@ const props = defineProps<{
   transition: all 0.7s ease-out;
 }
 .name-fade-enter-from,
-.detail-fade-enter-from,
-.disclaimer-fade-enter-from {
+.detail-fade-enter-from {
   transform: translateY(20px);
+  opacity: 0;
+}
+.disclaimer-fade-enter-from {
   opacity: 0;
 }
 
@@ -52,6 +54,6 @@ const props = defineProps<{
   transition-delay: .5s;
 }
 .disclaimer-fade-enter-active {
-  transition-delay: 1.2s;
+  transition-delay: 1.5s;
 }
 </style>
