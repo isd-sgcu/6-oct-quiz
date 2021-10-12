@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const { enter, isSupported } = useFullscreen()
-onMounted(() => isSupported && enter())
+onMounted(
+  () => useEventListener(
+    'click', () => isSupported && enter(), { once: true },
+  ),
+)
+
 </script>
 
 <template>
