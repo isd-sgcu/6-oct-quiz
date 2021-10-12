@@ -24,19 +24,30 @@ const twitter = () => {
 </script>
 
 <template>
-  <div class="space-x-4 flex items-center">
-    <ParagraphText class="text-lg font-semibold text-lg sm:(text-xl leading-8) lg:(text-xl leading-8) xl:() 2xl:(text-2xl leading-9)">
-      แชร์ผลลัพธ์:
-    </ParagraphText>
-    <grommet-icons:facebook class="result-icon" @click="facebook" />
-    <!-- <grommet-icons:instagram class="result-icon" @click="instagram" /> -->
-    <grommet-icons:twitter class="result-icon" @click="twitter" />
-    <bi:line class="result-icon" @click="line" />
+  <div>
+    <transition name="result-icon-fade" appear>
+      <div class="space-x-4 flex items-center">
+        <ParagraphText class="text-lg font-semibold text-lg sm:(text-xl leading-8) lg:(text-xl leading-8) xl:() 2xl:(text-2xl leading-9)">
+          แชร์ผลลัพธ์:
+        </ParagraphText>
+        <grommet-icons:facebook class="result-icon" @click="facebook" />
+        <grommet-icons:twitter class="result-icon" @click="twitter" />
+        <bi:line class="result-icon" @click="line" />
+      </div>
+    </transition>
   </div>
 </template>
 
 <style>
 .result-icon {
   @apply rounded-5px w-6 h-6 object-center overflow-hidden cursor-pointer lg:(h-7 w-7);
+}
+
+.result-icon-fade-enter-active {
+  transition: all 0.5s ease-out;
+  transition-delay: 1.6s;
+}
+.result-icon-fade-enter-from {
+  opacity: 0;
 }
 </style>
