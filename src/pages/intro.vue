@@ -5,23 +5,23 @@
         v-for="(item, key) in info"
         :id="`el-${key}`"
         :key="key"
-        class="flex justify-center pb-5 pt-5 relative px-20 <md:px-0 h-screen items-center"
+        class="flex flex-col justify-center pb-5 pt-5 relative px-20 <md:px-0 h-screen items-center"
         :style="{backgroundColor: item.bgColor}"
       >
         <div :id="`el-text-${key}`" class="max-w-[700px] <xl:(max-w-[600px]) <md:(max-w-[300px]) w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
           <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all mb-7 z-50 text-size-[1.75rem] leading-12 <xl:(text-size-[1.5rem] leading-10) <md:(text-size-[1.25rem] leading-8) break-words" :style="{ color: item.textColor}">
             {{ text }}
           </ParagraphText>
-          <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity mt-5" @click="playQuiz">
-            <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
-              เริ่มทำ Quiz
-            </ParagraphText>
-          </Button>
           <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full lg:hidden" src="../assets/image_set_small.png">
           <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full <lg:hidden" src="../assets/image_set_large.png">
           <img v-if="key === 2" alt="รูปเก้าอี้" class="h-screen w-full absolute top-0 bottom-0 object-contain left-0 right-0" src="../assets/chair.png">
           <img v-if="key === 3" alt="รูปอนุสาวรีย์" class="absolute w-full min-w-[600px] bottom-0 left-0 object-contain xl:(-my-20)" src="../assets/continue.svg">
         </div>
+        <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity duration-1000 mt-5" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`" @click="playQuiz">
+          <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
+            เริ่มทำแบบทดสอบ
+          </ParagraphText>
+        </Button>
       </div>
     </div>
     <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] <md:(text-size-[2rem]) cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 2 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
