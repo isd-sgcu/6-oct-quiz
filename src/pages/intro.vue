@@ -103,10 +103,24 @@ onMounted(() => {
     const el = document.getElementById(`el-${i}`)
 
     if (el)
-      elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
+      elHeight.push([document.documentElement.clientHeight * i - tresholdOffset, document.documentElement.clientHeight * (i + 1) + tresholdOffset])
   }
+
+  for (let i = elSz - 1; i >= 0; i--) {
+    if (elHeight[i][0] <= window.scrollY && window.scrollY <= elHeight[i][1]) {
+      presentNum.value = Math.max(0, i)
+      break
+    }
+    else {
+      presentNum.value = -1
+    }
+  }
+
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight)
+    isHide.value = true
+
   window.onscroll = () => {
-    if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight)
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight)
       isHide.value = true
 
     else if (timeOutNo === -1)
@@ -140,17 +154,16 @@ onMounted(() => {
     for (let i = 0; i < elSz; i++) {
       const el = document.getElementById(`el-${i}`)
       if (el)
-        elHeight.push([el.offsetTop - tresholdOffset, el.offsetTop + el.offsetHeight + tresholdOffset])
+        elHeight.push([document.documentElement.clientHeight * i - tresholdOffset, document.documentElement.clientHeight * (i + 1) + tresholdOffset])
     }
   }
 
   setTimeout(() => {
-    presentNum.value = 0
-    isHide.value = false
+    if (presentNum.value === -1) {
+      presentNum.value = 0
+      isHide.value = false
+    }
   }, 1000)
-  setTimeout(() => {
-    window.scrollTo({ top: 0 })
-  }, 0)
 })
 
 const handleScroll = () => {
