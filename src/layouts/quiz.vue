@@ -19,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeRouteLeave } from 'vue-router'
 import useGradient3Transition from '~/useGradient3Transition'
 import { useGameStore } from '~/stores/game'
 
@@ -47,17 +48,22 @@ watch(qNumber, () => {
   next()
 })
 
+const alertOnRefresh = (e: BeforeUnloadEvent) => {
+  e.preventDefault()
+  e.returnValue = 'All of your progress will be lost. Are you sure you want to leave?'
+}
+
 onMounted(() => {
   // skips if qNumber.value is 0
   // to prevent unneccessary call to moveToColor
   if (qNumber.value)
     moveToColor(qNumber.value)
+  window.addEventListener('beforeunload', alertOnRefresh)
 })
 
-window.onbeforeunload = function(e) {
-  e.preventDefault()
-  e.returnValue = 'All of your progress will be lost. Are you sure you want to leave?'
-}
+onBeforeUnmount(() => {
+  window.removeEventListener('beforeunload', alertOnRefresh)
+})
 </script>
 
 <style>
