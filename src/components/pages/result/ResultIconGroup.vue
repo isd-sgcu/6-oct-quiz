@@ -2,6 +2,7 @@
 import { CharacterKeyOption } from '~/types'
 
 const { copy, isSupported, copied } = useClipboard()
+const { width } = useWindowSize()
 
 const props = defineProps<{
   characterKey: CharacterKeyOption
@@ -10,6 +11,13 @@ const props = defineProps<{
 const copiedText = 'คัดลอกแล้ว'
 const copyIconTitle = computed(
   () => copied.value ? copiedText : 'คัดลอกไปยังคลิปบอร์ด',
+)
+
+const clipboardDivClass = computed(
+  () => width.value > 386 ? 'flex' : 'relative',
+)
+const clipboardSpanClass = computed(
+  () => width.value > 386 ? 'ml-2' : 'absolute top-7 transform -translate-x-6  w-20',
 )
 
 const text = 'This is the caption of the post.'
@@ -46,9 +54,9 @@ const twitter = () => {
         <div title="แชร์บน LINE">
           <bi:line class="result-icon" @click="line" />
         </div>
-        <div v-show="isSupported" :title="copyIconTitle" class="flex">
+        <div v-show="isSupported" :title="copyIconTitle" :class="clipboardDivClass">
           <ant-design:copy-filled class="result-icon" @click="copy(shareLink)" />
-          <span v-show="copied" class="ml-2">
+          <span v-show="copied" :class="clipboardSpanClass">
             {{ copiedText }}
           </span>
         </div>
