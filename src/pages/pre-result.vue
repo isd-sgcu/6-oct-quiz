@@ -18,6 +18,7 @@ const text = ['คุ', 'ณ', 'คื', 'อ', ' ', '.', '.', '.']
 try {
   const characterkey = game.determineCharacter()
   setTimeout(() => {
+    game.reset()
     router.push(`/result/${characterkey}`)
   }, 3200)
 }

@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden z-10">
     <!--trigger transtion when the props are change--->
     <transition name="question-fade" mode="out-in">
-      <div v-if="questions" :key="'question' + qNumber" class="question-form">
+      <div v-if="game.gameState === 'Playing' && questions" :key="'question' + qNumber" class="question-form">
         <div class="question-part">
           <QuestionText>
             {{ currentQuestion.text }}
@@ -63,8 +63,11 @@ const updateQuestion = (answer: QuestionChoice) => {
 
   game.nextQuestion()
   // quiz is end go to the next route
-  if (game.gameState === 'NotInPlay')
-    router.push('pre-result')
+  if (game.gameState === 'End') {
+    setTimeout(() => {
+      router.push('pre-result')
+    }, 500)
+  }
 }
 </script>
 

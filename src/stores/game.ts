@@ -48,18 +48,17 @@ export const useGameStore = defineStore('game', () => {
     resultCharacter.value = undefined
     questionList.value = []
     scoreMap.value?.clear()
+    gameState.value = 'NotInPlay'
   }
 
   const initNewQuiz = () => {
-    if (gameState.value !== 'Playing') {
-      questionList.value = QuestionStore.getRandomQuestions(MAX_QUESTION_COUNT)
+    questionList.value = QuestionStore.getRandomQuestions(MAX_QUESTION_COUNT)
 
-      scoreMap.value = new Map<CharacterKeyOption, number>()
-      QuestionStore.characterName.forEach((name) => {
-        scoreMap.value!.set(name, 0)
-      })
-      gameState.value = 'Playing'
-    }
+    scoreMap.value = new Map<CharacterKeyOption, number>()
+    QuestionStore.characterName.forEach((name) => {
+      scoreMap.value!.set(name, 0)
+    })
+    gameState.value = 'Playing'
   }
 
   /**
@@ -71,7 +70,7 @@ export const useGameStore = defineStore('game', () => {
     if (gameState.value === 'Playing') {
       if (currentIndex.value + 1 === questionList.value.length) {
         console.log('game end')
-        gameState.value = 'NotInPlay'
+        gameState.value = 'End'
       }
       else {
         currentIndex.value += 1
@@ -85,7 +84,7 @@ export const useGameStore = defineStore('game', () => {
    * @returns key of the character
    */
   const determineCharacter = () => {
-    if (currentIndex.value !== MAX_QUESTION_COUNT)
+    if (gameState.value !== 'End')
       throw new Error('Cannot determine character when game isn\'t end')
     if (!scoreMap.value)
       throw new TypeError('ScoreMap is not initialized yet')
