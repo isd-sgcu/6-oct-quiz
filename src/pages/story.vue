@@ -27,6 +27,7 @@ setMetadata({
 const game = useGameStore()
 const router = useRouter()
 
+game.reset()
 game.initNewQuiz() // reset game state
 const questions = game.questionList
 // Speciftic the order of a question and set currentQuestion
@@ -62,7 +63,7 @@ const updateQuestion = (answer: QuestionChoice) => {
 
   game.nextQuestion()
   // quiz is end go to the next route
-  if (game.gameState === 'End')
+  if (game.gameState === 'NotInPlay')
     router.push('pre-result')
 }
 </script>

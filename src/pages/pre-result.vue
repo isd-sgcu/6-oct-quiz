@@ -17,8 +17,6 @@ const router = useRouter()
 const text = ['คุ', 'ณ', 'คื', 'อ', ' ', '.', '.', '.']
 try {
   const characterkey = game.determineCharacter()
-  game.reset()
-
   setTimeout(() => {
     router.push(`/result/${characterkey}`)
   }, 3200)
@@ -27,10 +25,6 @@ catch (error) {
   console.log(error.message)
   router.replace('/story')
 }
-
-onUnmounted(() => {
-  game.setCurrentIndex(0)
-})
 </script>
 
 <style>
