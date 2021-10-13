@@ -8,11 +8,14 @@
         class="flex flex-col justify-center pb-5 pt-5 relative px-20 <md:px-0 h-screen items-center"
         :style="{backgroundColor: item.bgColor}"
       >
-        <div :id="`el-text-${key}`" class="max-w-[700px] <xl:(max-w-[600px]) <md:(max-w-[300px]) w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
+        <div :id="`el-text-${key}`" class="max-w-[700px] <xl:(max-w-[600px]) <md:(max-w-[400px]) w-full overflow-hidden flex flex-col text-center transition-all duration-2500 px-5 " :class="`${(key === presentNum) ? 'opacity-100': 'opacity-0'}`">
           <ParagraphText v-for="(text, idx) of item.details" :id="`el-text-${key}`" :key="`text-${idx}`" class="transition-all mb-7 z-50 text-size-[1.75rem] leading-12 <xl:(text-size-[1.5rem] leading-10) <md:(text-size-[1.25rem] leading-8) break-words" :style="{ color: item.textColor}">
             {{ text }}
           </ParagraphText>
-          <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full lg:hidden" src="../assets/image_set_small.png">
+          <ParagraphText v-if="key === 1" class="absolute bottom-5 left-5 text-size-[1.4rem] leading-12 <xl:(text-size-[1.2rem] leading-10) <md:(text-size-[1.1rem] leading-8)">
+            ที่มาของภาพ: บันทึก 6 ตุลา
+          </ParagraphText>
+          <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full lg:hidden pb-10" src="../assets/image_set_small.png">
           <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full <lg:hidden" src="../assets/image_set_large.png">
           <img v-if="key === 2" alt="รูปเก้าอี้" class="h-screen w-full absolute top-0 bottom-0 object-contain left-0 right-0" src="../assets/chair.png">
           <img v-if="key === 3" alt="รูปอนุสาวรีย์" class="absolute w-full min-w-[600px] bottom-0 left-0 object-contain xl:(-my-20)" src="../assets/continue.svg">
