@@ -21,7 +21,7 @@ const props = defineProps<{
         </ParagraphText>
       </transition>
       <transition name="disclaimer-fade" appear>
-        <ParagraphText v-show="props.credit" class="kjfhsdkfhksjdfhkjshwuef">
+        <ParagraphText v-show="props.credit" class="kpkpkpkqqqqq">
           <br />
           *เนื้อหาดังกล่าวเขียนขึ้นจากการค้นคว้าเอกสารและเรื่องเล่าเท่านั้น<br />
           ที่มาของภาพ: <a :href="props.creditLink" target="_blank" rel="noopener noreferrer" class="underline">{{ props.credit }}</a>
@@ -33,7 +33,10 @@ const props = defineProps<{
 
 <style>
 .kjfhsdkfhksjdfhkjshwuef {
-  @apply whitespace-pre-wrap mt-6 font-light text-lg sm:(text-xl leading-8) lg:(text-xl leading-8 mt-3) xl:() 2xl:(text-2xl leading-9);
+  @apply whitespace-pre-wrap mt-6 font-light text-lg sm:(text-xl leading-8) lg:(mt-3) xl:() 2xl:(text-2xl leading-9);
+}
+.kpkpkpkqqqqq {
+  @apply whitespace-pre-wrap mt-6 font-light text-base sm:(text-lg leading-6) lg:(mt-3) xl:() 2xl:(text-xl leading-7);
 }
 
 .name-fade-enter-active,

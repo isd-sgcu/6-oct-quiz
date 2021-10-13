@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden z-10">
     <!--trigger transtion when the props are change--->
     <transition name="question-fade" mode="out-in">
-      <div v-if="questions" :key="'question' + qNumber" class="question-form">
+      <div v-if="game.gameState === 'Playing' && questions" :key="'question' + qNumber" class="question-form">
         <div class="question-part">
           <QuestionText>
             {{ currentQuestion.text }}
@@ -21,6 +21,7 @@ import { useGameStore } from '~/stores/game'
 const game = useGameStore()
 const router = useRouter()
 
+game.reset()
 game.initNewQuiz() // reset game state
 const questions = game.questionList
 // Speciftic the order of a question and set currentQuestion
@@ -56,8 +57,11 @@ const updateQuestion = (answer: QuestionChoice) => {
 
   game.nextQuestion()
   // quiz is end go to the next route
-  if (game.gameState === 'End')
-    router.push('pre-result')
+  if (game.gameState === 'End') {
+    setTimeout(() => {
+      router.push('pre-result')
+    }, 800)
+  }
 }
 </script>
 
@@ -71,10 +75,10 @@ const updateQuestion = (answer: QuestionChoice) => {
 
 /* durations and timing functions.*/
 .question-fade-enter-active {
-  transition: all 0.5s ease-in;
+  transition: all 0.6s ease-in;
 }
 .question-fade-leave-active {
-  transition: all 0.35s ease-out;
+  transition: all 0.5s ease-out;
   transition-delay: 0.10s;
 }
 
