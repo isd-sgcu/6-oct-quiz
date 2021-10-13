@@ -51,7 +51,7 @@ const twitter = () => {
         <div title="แชร์บน Twitter">
           <grommet-icons:twitter class="result-icon" @click="twitter" />
         </div>
-        <div title="แชร์บน Line">
+        <div title="แชร์บน LINE">
           <bi:line class="result-icon" @click="line" />
         </div>
         <div v-show="isSupported" :title="copyIconTitle" :class="clipboardDivClass">
