@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { CharacterKeyOption } from '~/types'
 
+const { copy, isSupported } = useClipboard()
+
 const props = defineProps<{
   characterKey: CharacterKeyOption
 }>()
@@ -38,6 +40,9 @@ const twitter = () => {
         </div>
         <div title="share to Line">
           <bi:line class="result-icon" @click="line" />
+        </div>
+        <div v-show="isSupported" title="copy link to clipboard">
+          <ant-design:copy-filled class="result-icon" @click="copy(shareLink)" />
         </div>
       </div>
     </transition>
