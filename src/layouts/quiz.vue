@@ -19,13 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeRouteLeave } from 'vue-router'
 import useGradient3Transition from '~/useGradient3Transition'
 import { useGameStore } from '~/stores/game'
 import { setMetadata } from '~/utils'
 
 setMetadata({
-  title: 'คือคุณใครใน 6 ตุลาฯ',
+  title: 'คุณคือใครใน 6 ตุลาฯ',
   description: 'เลือกคำตอบที่คิดว่าตรงกับคุณที่สุด',
 })
 
