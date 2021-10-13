@@ -30,9 +30,15 @@ const twitter = () => {
         <ParagraphText class="text-lg font-semibold text-lg sm:(text-xl leading-8) lg:(text-xl leading-8) xl:() 2xl:(text-2xl leading-9)">
           แชร์ผลลัพธ์:
         </ParagraphText>
-        <grommet-icons:facebook class="result-icon" @click="facebook" />
-        <grommet-icons:twitter class="result-icon" @click="twitter" />
-        <bi:line class="result-icon" @click="line" />
+        <div title="share to Facebook">
+          <grommet-icons:facebook class="result-icon" @click="facebook" />
+        </div>
+        <div title="share to Twitter">
+          <grommet-icons:twitter class="result-icon" @click="twitter" />
+        </div>
+        <div title="share to Line">
+          <bi:line class="result-icon" @click="line" />
+        </div>
       </div>
     </transition>
   </div>
