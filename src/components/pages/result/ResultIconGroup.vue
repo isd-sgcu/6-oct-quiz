@@ -32,13 +32,13 @@ const twitter = () => {
         <ParagraphText class="text-lg font-semibold text-lg sm:(text-xl leading-8) lg:(text-xl leading-8) xl:() 2xl:(text-2xl leading-9)">
           แชร์ผลลัพธ์:
         </ParagraphText>
-        <div title="share to Facebook">
+        <div title="share on Facebook">
           <grommet-icons:facebook class="result-icon" @click="facebook" />
         </div>
-        <div title="share to Twitter">
+        <div title="share on Twitter">
           <grommet-icons:twitter class="result-icon" @click="twitter" />
         </div>
-        <div title="share to Line">
+        <div title="share on Line">
           <bi:line class="result-icon" @click="line" />
         </div>
         <div v-show="isSupported" title="copy link to clipboard">
