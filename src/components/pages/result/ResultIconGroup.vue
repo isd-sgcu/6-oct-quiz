@@ -7,8 +7,9 @@ const props = defineProps<{
   characterKey: CharacterKeyOption
 }>()
 
+const copiedText = 'คัดลอกแล้ว'
 const copyIconTitle = computed(
-  () => copied.value ? 'ตัดลอกแล้ว!' : 'คัดลอกไปยังคลิปบอร์ด',
+  () => copied.value ? copiedText : 'คัดลอกไปยังคลิปบอร์ด',
 )
 
 const text = 'This is the caption of the post.'
@@ -47,7 +48,9 @@ const twitter = () => {
         </div>
         <div v-show="isSupported" :title="copyIconTitle" class="flex">
           <ant-design:copy-filled class="result-icon" @click="copy(shareLink)" />
-          <span v-show="copied" class="ml-2">คัดลอกแล้ว!</span>
+          <span v-show="copied" class="ml-2">
+            {{ copiedText }}
+          </span>
         </div>
       </div>
     </transition>
