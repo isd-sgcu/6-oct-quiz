@@ -17,12 +17,6 @@
 <script setup lang="ts">
 import { QuestionChoice } from '~/types'
 import { useGameStore } from '~/stores/game'
-import { setMetadata } from '~/utils'
-
-setMetadata({
-  title: 'คือคุณใครใน 6 ตุลาฯ',
-  description: 'เลือกคำตอบที่คิดว่าตรงกับคุณที่สุด',
-})
 
 const game = useGameStore()
 const router = useRouter()
