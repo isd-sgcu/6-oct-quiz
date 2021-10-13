@@ -14,6 +14,24 @@ Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
 
 <br>
 
+## Deploying to Firebase
+1. Install [Firebase CLI](https://firebase.google.com/docs/cli#install_the_firebase_cli)
+2. Authenticate with Google Account
+```
+$ firebase login
+```
+3. To deploy to live (master) channel, run
+```
+$ firebase deploy
+```
+4. To deploy to specific channels (such as dev or pr), run
+```
+$ firebase hosting:channel:deploy <CHANNEL_ID>
+```
+To redeploy to the same channel, run the same command with the same channel ID. Channel ID is required but can be anything. If the preview channel with given channel ID does not exist, it will create a new channel with the channel ID.
+
+Note: No need to init firebase. It's already initialized in repo.
+
 ## Features
 
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness

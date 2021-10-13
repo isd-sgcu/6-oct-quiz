@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Nav />
-    <main class="yo">
+    <main class="bg-white min-h-screen">
       <router-view />
     </main>
   </div>
