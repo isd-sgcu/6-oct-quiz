@@ -33,7 +33,7 @@ catch (error) {
   @apply relative z-20;
 }
 .wave span{
-  @apply relative inline-block transform font-Trirong font-bold font-10 tracking-wide -translate-y-10;
+  @apply relative inline-block transform font-Trirong font-bold font-10 tracking-wide -translate-y-[40px];
   animation:animate 1.5s ease-in-out infinite;
   animation-delay: calc(.1s * var(--c));
 }

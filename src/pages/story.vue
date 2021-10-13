@@ -66,7 +66,7 @@ const updateQuestion = (answer: QuestionChoice) => {
   if (game.gameState === 'End') {
     setTimeout(() => {
       router.push('pre-result')
-    }, 500)
+    }, 800)
   }
 }
 </script>
@@ -81,10 +81,10 @@ const updateQuestion = (answer: QuestionChoice) => {
 
 /* durations and timing functions.*/
 .question-fade-enter-active {
-  transition: all 0.5s ease-in;
+  transition: all 0.6s ease-in;
 }
 .question-fade-leave-active {
-  transition: all 0.35s ease-out;
+  transition: all 0.5s ease-out;
   transition-delay: 0.10s;
 }
 
