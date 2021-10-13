@@ -53,6 +53,10 @@ onMounted(() => {
   if (qNumber.value)
     moveToColor(qNumber.value)
 })
+
+window.onbeforeunload = function() {
+  return 'All of your progress will be lost. Are you sure you want to leave?'
+}
 </script>
 
 <style>
