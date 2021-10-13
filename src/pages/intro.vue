@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import { useGameStore } from '~/stores/game'
 import appDescription from '~/assets/description'
 import { setMetadata } from '~/utils'
 
@@ -40,7 +39,6 @@ setMetadata({
 })
 
 const router = useRouter()
-const game = useGameStore()
 
 const info = [
 
