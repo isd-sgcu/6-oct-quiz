@@ -13,10 +13,10 @@
             {{ text }}
           </ParagraphText>
           <ParagraphText v-if="key === 1" class="absolute bottom-5 left-5 text-size-[1.4rem] leading-12 <xl:(text-size-[1.2rem] leading-10) <md:(text-size-[1.1rem] leading-8)">
-            ที่มาของภาพ: บันทึก 6 ตุลา
+            ที่มาของภาพ: <a ref="a" class="underline" href="https://doct6.com/" target="_blank" rel="noopener noreferrer">บันทึก 6 ตุลา</a>
           </ParagraphText>
           <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full lg:hidden pb-10" src="../assets/image_set_small.png">
-          <img v-if="key === 1" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full <lg:hidden" src="../assets/image_set_large.png">
+          <img v-if="key === 1" ref="gallery" alt="รูปอัลบั้ม" class="absolute h-screen bottom-0 left-0 object-center object-contain w-full <lg:hidden" src="../assets/image_set_large.png">
           <img v-if="key === 2" alt="รูปเก้าอี้" class="h-screen w-full absolute top-0 bottom-0 object-contain left-0 right-0" src="../assets/chair.png">
           <img v-if="key === 3" alt="รูปอนุสาวรีย์" class="absolute w-full min-w-[600px] bottom-0 left-0 object-contain xl:(-my-20)" src="../assets/continue.svg">
         </div>
@@ -42,6 +42,21 @@ setMetadata({
 })
 
 const router = useRouter()
+
+const a = ref<HTMLAnchorElement | null>(null)
+const gallery = ref<HTMLImageElement | null>(null)
+const { isOutside } = useMouseInElement(a)
+
+useEventListener('click', () => {
+  !isOutside.value && window.open('https://doct6.com/', '_blank')
+})
+watch(isOutside, () => {
+  if (!gallery.value) return
+  if (isOutside.value)
+    gallery.value.style.cursor = 'initial'
+  else
+    gallery.value.style.cursor = 'pointer'
+})
 
 const info = [
 
