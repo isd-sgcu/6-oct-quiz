@@ -21,6 +21,12 @@
 <script setup lang="ts">
 import useGradient3Transition from '~/useGradient3Transition'
 import { useGameStore } from '~/stores/game'
+import { setMetadata } from '~/utils'
+
+setMetadata({
+  title: 'คือคุณใครใน 6 ตุลาฯ',
+  description: 'เลือกคำตอบที่คิดว่าตรงกับคุณที่สุด',
+})
 
 const game = useGameStore()
 
