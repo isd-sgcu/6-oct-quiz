@@ -8,6 +8,6 @@
 
 <style scoped>
 .bg {
-  background-color: rgba(55, 41, 32, 0.9);
+  background-color: #372920;
 }
 </style>

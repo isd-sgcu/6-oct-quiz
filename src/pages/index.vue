@@ -50,10 +50,15 @@ onMounted(() => window.scrollTo(0, 1))
         </Button>
       </div>
     </div>
+    <div class="bg absolute bottom-0 left-0 h-[500px] w-full">
+    </div>
   </div>
 </template>
 
 <style scoped>
+.bg {
+  background: url('../assets/landing.png') repeat-x left bottom;
+}
 
 .topic {
   @apply z-0 text-size-[9rem] <lg:text-size-[6rem] <md:text-size-[4rem] text-white mr-3;
