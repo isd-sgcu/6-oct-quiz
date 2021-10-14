@@ -3,7 +3,7 @@ import { QuestionInfo, CharacterKeyOption } from '~/types'
 class QuestionStore {
   static questions: QuestionInfo[] = [
     {
-      text: 'คุณเป็นนิสิตที่พร้อมรับกับการเปลี่ยนแปลงใหม่ ๆ อยู่เสมอ',
+      text: 'คุณพร้อมรับกับการเปลี่ยนแปลงใหม่ ๆ อยู่เสมอ',
       relatedPeople: ['surachat', 'phumtham', 'kriangkamol'],
     },
     {
@@ -12,7 +12,7 @@ class QuestionStore {
     },
     {
       text: 'คุณเป็นคนเห็นอกเห็นใจผู้อื่น และมักนึกถึงผู้อื่นก่อนตัวเอง',
-      relatedPeople: ['wichitchai'],
+      relatedPeople: ['wichitchai', 'boonsnong'],
     },
     {
       text: 'คุณเหนื่อยและหมดกําลังใจง่าย',
@@ -20,7 +20,7 @@ class QuestionStore {
     },
     {
       text: 'คุณเป็นคนที่เมื่อได้เห็นคนอื่นทุกข์ใจจะทําให้คุณทุกข์ใจตาม',
-      relatedPeople: ['surachat', 'kriangkamol', 'wichitchai'],
+      relatedPeople: ['surachat', 'kriangkamol', 'wichitchai', 'boonsnong'],
     },
     {
       text: 'คุณกล้าจะยอมรับตัวตนของตัวเอง',
@@ -40,18 +40,18 @@ class QuestionStore {
     },
     {
       text: 'คุณคิดว่าการเป็นผู้นําเป็นอะไรที่รับมือได้ง่าย',
-      relatedPeople: ['sutham', 'kriangkamol'],
+      relatedPeople: ['sutham', 'kriangkamol', 'boonsnong'],
     },
     {
       text: 'คุณเป็นคนที่สามารถดูแลความรู้สึกตัวเองได้',
       relatedPeople: ['wipha'],
     },
     {
-      text: 'คุณยอมรับประเพณีเก่า ค่านิยม หรือธรรมเนียมที่ยึดถือกันมาได้ง่าย และไม่ค่อยตั้งคําถาม',
+      text: 'คุณยอมรับประเพณี หรือธรรมเนียมที่ยึดถือกันมาได้ง่าย และไม่ค่อยตั้งคําถาม',
       relatedPeople: ['banyong'],
     },
     {
-      text: 'คุณคิดว่าปัญหาเป็นเรื่องน่าสนใจ และสนุกไปกับเรื่องยากลําบากต่าง ๆ',
+      text: 'คุณรู้สึกท้าทายและสนุกไปกับเรื่องยากลําบากต่าง ๆ',
       relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham'],
     },
     {
@@ -68,18 +68,18 @@ class QuestionStore {
     },
     {
       text: 'คุณยึดถือความถูกต้องเป็นหลัก',
-      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'boonsnong'],
     },
     {
       text: 'คุณเป็นคนกล้าหาญ และไม่ค่อยเกรงกลัวอะไร',
-      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham', 'boonsnong'],
     },
     {
-      text: 'คุณเลือกที่จะเห็นแก่ตัว ถ้ามันทําให้คุณรู้สึกดี',
+      text: 'บางครั้งคุณก็เลือกที่จะเห็นแก่ตัวบ้าง',
       relatedPeople: ['anek', 'banyong'],
     },
     {
-      text: 'คุณสามารถอดทนทําบางอย่างได้เป็นเวลานาน แม้ว่าจะไม่ค่อยมีคนเห็นค่าสิ่งที่คุณทํา และคุณยืนหยัดที่จะทําต่อไป',
+      text: 'แม้ว่าจะไม่ค่อยมีคนเห็นค่าสิ่งที่คุณทํา คุณก็ยังยืนหยัดที่จะทําต่อไป',
       relatedPeople: ['wipha', 'surachat'],
     },
   ]
