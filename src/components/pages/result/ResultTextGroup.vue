@@ -24,6 +24,7 @@ const props = defineProps<{
         <ParagraphText v-show="props.credit" class="kpkpkpkqqqqq">
           <br />
           *เนื้อหาดังกล่าวเขียนขึ้นจากการค้นคว้าเอกสารและเรื่องเล่าเท่านั้น<br />
+          <br />
           ที่มาของภาพ: <a :href="props.creditLink" target="_blank" rel="noopener noreferrer" class="underline">{{ props.credit }}</a>
         </ParagraphText>
       </transition>
@@ -36,7 +37,7 @@ const props = defineProps<{
   @apply whitespace-pre-wrap mt-6 font-light text-lg sm:(text-xl leading-8) lg:(mt-3) xl:() 2xl:(text-2xl leading-9);
 }
 .kpkpkpkqqqqq {
-  @apply whitespace-pre-wrap mt-6 font-light text-base sm:(text-lg leading-6) lg:(mt-3) xl:() 2xl:(text-xl leading-7);
+  @apply whitespace-pre-wrap mt-6 font-light text-sm sm:(text-base leading-5) lg:(mt-3) xl:() 2xl:(text-lg leading-6);
 }
 
 .name-fade-enter-active,
