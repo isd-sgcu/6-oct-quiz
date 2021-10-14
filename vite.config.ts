@@ -80,8 +80,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'safari-pinned-tab.svg'],
       manifest: {
-        name: 'คุณคือใครในเหตุการณ์เดือนตุลาฯ',
-        short_name: 'คุณคือใครในเหตุการณ์เดือนตุลาฯ',
+        name: 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
+        short_name: 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
         theme_color: '#372920',
         icons: [
           {
