@@ -28,11 +28,11 @@ export const isPersistedState = (stateName: string): any => {
 }
 
 export const setMetadata = ({
-  title = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
-  description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ”',
+  title = 'คุณคือใครในเหตุการณ์เดือนตุลาฯ',
+  description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ตุลาฯ กันเถอะ”',
   image = '/landing_preview.png', // for og:image and twitter:image
   url = 'http://whoareyou.cudemarchive.co/',
-  siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
+  siteName = 'คุณคือใครในเหตุการณ์เดือนตุลาฯ',
 }) => {
   return useHead({
     title,
