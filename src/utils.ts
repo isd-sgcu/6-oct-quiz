@@ -29,7 +29,7 @@ export const isPersistedState = (stateName: string): any => {
 
 export const setMetadata = ({
   title = 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
-  description = 'มาร่วมค้นหาว่าคุณคล้ายใครในเหตุการณ์ตุลาฯ กันเถอะ',
+  description = 'มาร่วมค้นหาว่าคุณคล้ายใครในเหตุการณ์เดือนตุลาฯ กันเถอะ',
   image = '/landing_preview.png', // for og:image and twitter:image
   siteName = 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
 }) => {
