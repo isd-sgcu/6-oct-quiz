@@ -28,7 +28,7 @@ onMounted(() => window.scrollTo(0, 1))
             </div>
             <Button class="w-full max-w-[300px] md:inline hidden p-6 !py-4 mt-5 bg-white hover:bg-cream transition-colors" @click="$router.push('/intro')">
               <div class="text-size-[1.5rem] font-bold">
-                Start
+                ค้นหาตัวตน
               </div>
             </Button>
           </div>
@@ -45,7 +45,7 @@ onMounted(() => window.scrollTo(0, 1))
         </div>
         <Button class="w-full max-w-[200px] md:(hidden) p-6 !py-4 mt-12 bg-white hover:bg-cream transition-colors" @click="$router.push('/intro')">
           <div class="text-size-[1.5rem] font-bold">
-            Start
+            ค้นหาตัวตน
           </div>
         </Button>
       </div>
