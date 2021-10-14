@@ -21,9 +21,9 @@
           <div v-if="key === 3" class="absolute w-full min-w-[600px] bottom-0 left-0 xl:(-my-20)">
             <div class="relative">
               <img alt="รูปอนุสาวรีย์" class="object-contain w-full" src="../assets/continue.svg">
-              <span v-show="key === info.length - 1 && width > 640" class="font-Trirong font-light italic absolute right-5 bottom-10 xl:(bottom-25) transition-opacity duration-1000" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">“อบจ. ชวนคุณมา
+              <span v-show="key === info.length - 1 && width > 640" class="font-Trirong font-light italic absolute right-5 bottom-10 xl:(bottom-25) transition-opacity duration-1000" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมา
                 รู้จักรุ่นพี่ในจุฬาฯ ที่ผ่านเหตุการณ์เดือนตุลา<br /> ผ่านเกมแบบทดสอบ
-                ว่าคุณคล้ายกับรุ่นพี่คนไหน”</span>
+                ว่าคุณคล้ายกับรุ่นพี่คนไหน</span>
             </div>
           </div>
         </div>
@@ -32,9 +32,9 @@
             เริ่มทำแบบทดสอบ
           </ParagraphText>
         </Button>
-        <span v-show="key === info.length - 1 && width <= 640" class="mt-6 font-Trirong font-light italic text-sm transition-opacity duration-1000" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">“อบจ. ชวนคุณมา
+        <span v-show="key === info.length - 1 && width <= 640" class="mt-6 font-Trirong font-light italic text-sm transition-opacity duration-1000" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมา
           รู้จักรุ่นพี่ในจุฬาฯ <br v-show="width < 350" />ที่ผ่านเหตุการณ์เดือนตุลา<br /> ผ่านเกมแบบทดสอบ
-          ว่าคุณคล้ายกับรุ่นพี่คนไหน”</span>
+          ว่าคุณคล้ายกับรุ่นพี่คนไหน</span>
       </div>
     </div>
     <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] <md:(text-size-[2rem]) cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 2 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
