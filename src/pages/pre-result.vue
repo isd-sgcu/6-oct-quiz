@@ -14,7 +14,7 @@ import { useGameStore } from '~/stores/game'
 const game = useGameStore()
 const router = useRouter()
 
-const text = ['คุ', 'ณ', 'คื', 'อ', ' ', '.', '.', '.']
+const text = ['คุ', 'ณ', 'ค', 'ล้', 'า', 'ย', '.', '.', '.']
 try {
   const characterkey = game.determineCharacter()
   import(`/characters/${characterkey}.png`)
