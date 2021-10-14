@@ -31,7 +31,6 @@ export const setMetadata = ({
   title = 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
   description = 'มาร่วมค้นหาว่าคุณคล้ายใครในเหตุการณ์ตุลาฯ กันเถอะ',
   image = '/landing_preview.png', // for og:image and twitter:image
-  url = 'http://whoareyou.cudemarchive.co/',
   siteName = 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
 }) => {
   return useHead({
