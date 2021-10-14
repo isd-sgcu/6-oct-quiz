@@ -39,7 +39,6 @@ export const setMetadata = ({
       { name: 'description', content: description },
 
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: url },
       { property: 'og:title', content: title },
       { property: 'og:description', content: description },
       { property: 'og:image', content: image },
@@ -47,7 +46,6 @@ export const setMetadata = ({
       { property: 'og:site_name', content: siteName },
 
       { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:url', content: url },
       { property: 'twitter:title', content: title },
       { property: 'twitter:description', content: description },
       { property: 'twitter:image', content: image },
