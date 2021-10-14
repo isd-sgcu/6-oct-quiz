@@ -28,11 +28,11 @@ export const isPersistedState = (stateName: string): any => {
 }
 
 export const setMetadata = ({
-  title = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
-  description = '“มาร่วมค้นหาว่าคุณคือใครในเหตุการณ์ 6 ตุลาฯ กันเถอะ”',
+  title = 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
+  description = 'มาร่วมค้นหาว่าคุณคล้ายใครในเหตุการณ์ตุลาฯ กันเถอะ',
   image = '/landing_preview.png', // for og:image and twitter:image
   url = 'http://whoareyou.cudemarchive.co/',
-  siteName = 'คุณคือใครในเหตุการณ์ 6 ตุลาฯ',
+  siteName = 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
 }) => {
   return useHead({
     title,
@@ -61,7 +61,7 @@ export const setMetadata = ({
 export const setShareMetadata = (key: CharacterKeyOption) => {
   const { fullName, shareImage } = characters[key]
   setMetadata({
-    title: `คุณคือ ${fullName}`,
+    title: `คุณคล้ายกับ ${fullName}`,
     image: shareImage,
   })
 }
@@ -70,7 +70,7 @@ export const setResult = (key: CharacterKeyOption) => {
   const { fullName, detail, url, image, shareImage, credit, creditLink } = characters[key]
 
   setMetadata({
-    title: `คุณคือ ${fullName}`,
+    title: `คุณคล้ายกับ ${fullName}`,
     description: detail,
     image: shareImage,
   })

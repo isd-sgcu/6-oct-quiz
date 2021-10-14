@@ -15,7 +15,7 @@ onMounted(() => window.scrollTo(0, 1))
       <div class="flex flex-col justify-center items-center">
         <div class="w-full">
           <div class="font-Prachachon topic">
-            คุณคือใคร
+            คุณเหมือนใคร
           </div>
         </div>
         <div class="relative md:flex">
@@ -28,7 +28,7 @@ onMounted(() => window.scrollTo(0, 1))
             </div>
             <Button class="w-full max-w-[300px] md:inline hidden p-6 !py-4 mt-5 bg-white hover:bg-cream transition-colors" @click="$router.push('/intro')">
               <div class="text-size-[1.5rem] font-bold">
-                Start
+                ค้นหาคำตอบ
               </div>
             </Button>
           </div>
@@ -45,12 +45,12 @@ onMounted(() => window.scrollTo(0, 1))
         </div>
         <Button class="w-full max-w-[200px] md:(hidden) p-6 !py-4 mt-12 bg-white hover:bg-cream transition-colors" @click="$router.push('/intro')">
           <div class="text-size-[1.5rem] font-bold">
-            Start
+            ค้นหาคำตอบ
           </div>
         </Button>
       </div>
     </div>
-    <div class="bg absolute bottom-0 left-0 h-[500px] w-full">
+    <div class="bg fixed bottom-0 left-0 h-[500px] w-full">
     </div>
   </div>
 </template>
