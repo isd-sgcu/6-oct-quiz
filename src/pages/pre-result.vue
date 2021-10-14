@@ -17,7 +17,7 @@ const router = useRouter()
 const text = ['คุ', 'ณ', 'คื', 'อ', ' ', '.', '.', '.']
 try {
   const characterkey = game.determineCharacter()
-  import(`/characters/${characterkey}.svg`)
+  import(`/characters/${characterkey}.png`)
   setTimeout(() => {
     game.reset()
     router.push(`/result/${characterkey}`)
