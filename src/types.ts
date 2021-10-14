@@ -3,7 +3,7 @@ import { ViteSSGContext } from 'vite-ssg'
 export type UserModule = (ctx: ViteSSGContext) => void
 
 export type GameState = 'NotInPlay' | 'Playing' | 'End'
-export type CharacterKeyOption = 'sutham' | 'anek' | 'surachat' | 'wichitchai' | 'wipha' | 'phumtham' | 'kriangkamol' | 'banyong' | 'empty'
+export type CharacterKeyOption = 'sutham' | 'anek' | 'surachat' | 'wichitchai' | 'wipha' | 'phumtham' | 'kriangkamol' | 'banyong' | 'boonsanong' | 'empty'
 
 export enum QuestionChoice {
   TotallyYes = 2,
