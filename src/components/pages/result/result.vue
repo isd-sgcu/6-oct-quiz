@@ -33,6 +33,9 @@ const computedName = computed(() => {
       <ResultButtonGroup :url="url" class="mt-10" />
     </div>
   </div>
+  <div class="flex justify-center mt-16">
+    <ParagraphText>สงวนลิขสิทธิ์ 2021 องค์การบริหารสโมสรนิสิตจุฬาลงกรณ์มหาวิทยาลัย (อบจ.)</ParagraphText>
+  </div>
 </template>
 
 <style>
