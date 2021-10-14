@@ -1,9 +1,12 @@
 <template>
   <div class="flex items-center justify-center h-screen w-full flex-col-reverse px-8 overflow-hidden z-10">
-    <!--trigger transtion when the props are change--->
     <transition name="question-fade" mode="out-in">
-      <div v-if="game.gameState === 'Playing' && questions" :key="'question' + qNumber" class="question-form">
-        <div class="question-part">
+      <div
+        v-if="game.gameState === 'Playing' && questions"
+        :key="'question' + qNumber"
+        class="min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-15 z-20 md:-translate-y-12"
+      >
+        <div class="box-border w-full text-center break-words">
           <QuestionText>
             {{ currentQuestion.text }}
           </QuestionText>
@@ -66,13 +69,6 @@ const updateQuestion = (answer: QuestionChoice) => {
 </script>
 
 <style>
-.question-form {
-  @apply min-w-[260px] w-9/10 max-w-screen-lg transform -translate-y-15 z-20 md:-translate-y-12;
-}
-.question-part {
-  @apply box-border w-full text-center break-words;
-}
-
 /* durations and timing functions.*/
 .question-fade-enter-active {
   transition: all 0.6s ease-in;
