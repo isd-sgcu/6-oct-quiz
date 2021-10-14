@@ -84,7 +84,7 @@ class QuestionStore {
     },
   ]
 
-  static characterName: CharacterKeyOption[] = ['sutham', 'anek', 'surachat', 'wichitchai', 'wipha', 'phumtham', 'kriangkamol', 'banyong', 'empty']
+  static characterName: CharacterKeyOption[] = ['sutham', 'anek', 'surachat', 'wichitchai', 'wipha', 'phumtham', 'kriangkamol', 'banyong', 'boonsanong', 'empty']
 
   /**
    * some part of the code get from https://javascript.info/task/shuffle
