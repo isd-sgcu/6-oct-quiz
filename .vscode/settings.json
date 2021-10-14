@@ -25,4 +25,9 @@
   "files.associations": {
     "*.css": "postcss",
   },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
