@@ -24,7 +24,7 @@ import { useGameStore } from '~/stores/game'
 import { setMetadata } from '~/utils'
 
 setMetadata({
-  title: 'คุณคือใครในเหตุการณ์เดือนตุลาฯ',
+  title: 'คุณคล้ายใครในเหตุการณ์เดือนตุลาฯ',
   description: 'เลือกคำตอบที่คิดว่าตรงกับคุณที่สุด',
 })
 
