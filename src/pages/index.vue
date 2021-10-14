@@ -50,7 +50,7 @@ onMounted(() => window.scrollTo(0, 1))
         </Button>
       </div>
     </div>
-    <div class="bg absolute bottom-0 left-0 h-[500px] w-full">
+    <div class="bg fixed bottom-0 left-0 h-[500px] w-full">
     </div>
   </div>
 </template>
