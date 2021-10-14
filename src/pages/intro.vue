@@ -27,14 +27,14 @@
             </div>
           </div>
         </div>
+        <span v-show="key === info.length - 1 && width <= 640" class="font-Trirong font-light italic text-sm transition-opacity duration-1000 w-full max-w-[300px]" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมา
+          รู้จักรุ่นพี่ในจุฬาฯ ที่ผ่านเหตุการณ์เดือนตุลา ผ่านเกมแบบทดสอบ
+          ว่าคุณคล้ายกับรุ่นพี่คนไหน</span>
         <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="relative z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity duration-1000 mt-5" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`" @click="playQuiz">
           <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
             เริ่มทำแบบทดสอบ
           </ParagraphText>
         </Button>
-        <span v-show="key === info.length - 1 && width <= 640" class="mt-6 font-Trirong font-light italic text-sm transition-opacity duration-1000" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมา
-          รู้จักรุ่นพี่ในจุฬาฯ <br v-show="width < 350" />ที่ผ่านเหตุการณ์เดือนตุลา<br /> ผ่านเกมแบบทดสอบ
-          ว่าคุณคล้ายกับรุ่นพี่คนไหน</span>
       </div>
     </div>
     <mdi-arrow-down-circle-outline class="scroll-button fixed bottom-10 text-size-[3rem] <md:(text-size-[2rem]) cursor-pointer transition-opacity duration-1000 z-30" :class="`${isHide ? 'opacity-0': 'opacity-70 z-0'}`" :style="{ color: presentNum === 0 ? '#0E0E0E': presentNum === 2 ? '#FCFBF5': '#000000'}" @click="handleScroll" />
