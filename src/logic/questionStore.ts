@@ -12,7 +12,7 @@ class QuestionStore {
     },
     {
       text: 'คุณเป็นคนเห็นอกเห็นใจผู้อื่น และมักนึกถึงผู้อื่นก่อนตัวเอง',
-      relatedPeople: ['wichitchai', 'boonsnong'],
+      relatedPeople: ['wichitchai', 'boonsanong'],
     },
     {
       text: 'คุณเหนื่อยและหมดกําลังใจง่าย',
@@ -20,7 +20,7 @@ class QuestionStore {
     },
     {
       text: 'คุณเป็นคนที่เมื่อได้เห็นคนอื่นทุกข์ใจจะทําให้คุณทุกข์ใจตาม',
-      relatedPeople: ['surachat', 'kriangkamol', 'wichitchai', 'boonsnong'],
+      relatedPeople: ['surachat', 'kriangkamol', 'wichitchai', 'boonsanong'],
     },
     {
       text: 'คุณกล้าจะยอมรับตัวตนของตัวเอง',
@@ -40,7 +40,7 @@ class QuestionStore {
     },
     {
       text: 'คุณคิดว่าการเป็นผู้นําเป็นอะไรที่รับมือได้ง่าย',
-      relatedPeople: ['sutham', 'kriangkamol', 'boonsnong'],
+      relatedPeople: ['sutham', 'kriangkamol', 'boonsanong'],
     },
     {
       text: 'คุณเป็นคนที่สามารถดูแลความรู้สึกตัวเองได้',
@@ -68,11 +68,11 @@ class QuestionStore {
     },
     {
       text: 'คุณยึดถือความถูกต้องเป็นหลัก',
-      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'boonsnong'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'boonsanong'],
     },
     {
       text: 'คุณเป็นคนกล้าหาญ และไม่ค่อยเกรงกลัวอะไร',
-      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham', 'boonsnong'],
+      relatedPeople: ['kriangkamol', 'sutham', 'surachat', 'wichitchai', 'phumtham', 'boonsanong'],
     },
     {
       text: 'บางครั้งคุณก็เลือกที่จะเห็นแก่ตัวบ้าง',
