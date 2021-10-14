@@ -20,7 +20,7 @@ const clipboardSpanClass = computed(
   () => width.value > 386 ? 'ml-2' : 'absolute top-7 transform -translate-x-6  w-20',
 )
 
-const text = 'This is the caption of the post.'
+const text = ''
 const origin = window.location.origin
 const shareLink = `${origin}/share/${props.characterKey}`
 
