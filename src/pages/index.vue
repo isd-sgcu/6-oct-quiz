@@ -15,7 +15,7 @@ onMounted(() => window.scrollTo(0, 1))
       <div class="flex flex-col justify-center items-center">
         <div class="w-full">
           <div class="font-Prachachon topic">
-            คุณเหมือนใคร
+            คุณคล้ายใคร
           </div>
         </div>
         <div class="relative md:flex">
