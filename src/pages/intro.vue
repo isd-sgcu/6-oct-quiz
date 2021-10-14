@@ -21,15 +21,10 @@
           <div v-if="key === 3" class="absolute w-full min-w-[600px] bottom-0 left-0 xl:(-my-20)">
             <div class="relative">
               <img alt="รูปอนุสาวรีย์" class="object-contain w-full" src="../assets/continue.svg">
-              <span v-show="key === info.length - 1 && width > 640" class="font-Trirong font-light italic absolute right-5 bottom-10 xl:(bottom-25) transition-opacity duration-1000" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมา
-                รู้จักรุ่นพี่ในจุฬาฯ ที่ผ่านเหตุการณ์เดือนตุลา<br /> ผ่านเกมแบบทดสอบ
-                ว่าคุณคล้ายกับรุ่นพี่คนไหน</span>
             </div>
           </div>
         </div>
-        <span v-show="key === info.length - 1 && width <= 640" class="font-Trirong font-light italic text-sm transition-opacity duration-1000 w-full max-w-[300px]" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมา
-          รู้จักรุ่นพี่ในจุฬาฯ ที่ผ่านเหตุการณ์เดือนตุลา ผ่านเกมแบบทดสอบ
-          ว่าคุณคล้ายกับรุ่นพี่คนไหน</span>
+        <span v-show="key === info.length - 1" class="font-Trirong font-light italic text-sm transition-opacity duration-1000 w-240px text-center md:(text-base w-360px) lg:(text-lg w-420px)" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`">อบจ. ชวนคุณมารู้จักรุ่นพี่ในจุฬาฯ ที่ผ่านเหตุการณ์เดือนตุลา ผ่านเกมแบบทดสอบว่าคุณคล้ายกับรุ่นพี่คนใด</span>
         <Button v-if="key === info.length - 1" :id="`el-${info.length}`" class="relative z-50 w-full max-w-[300px] max-h-max py-4 <md:(py-3) self-center bg-[#FCFBF5] hover:bg-cream transition-opacity duration-1000 mt-5" :class="`${(key === presentNum) ? 'opacity-100 delay-[2s]': 'opacity-0'}`" @click="playQuiz">
           <ParagraphText class="text-size-[1.75rem] <xl:(text-size-[1.5rem]) <md:(text-size-[1.25rem])">
             เริ่มทำแบบทดสอบ
